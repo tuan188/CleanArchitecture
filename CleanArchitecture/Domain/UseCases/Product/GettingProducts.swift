@@ -13,7 +13,7 @@ protocol GettingProducts {
 }
 
 extension GettingProducts {
-    func getProducts(page: Int) -> AnyPublisher<PagingInfo<Product>, Error> {
+    func getProducts(page: Int) -> Observable<PagingInfo<Product>> {
         return productGateway.getProducts(page: page)
     }
 }

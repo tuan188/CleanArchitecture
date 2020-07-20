@@ -6,7 +6,7 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-struct Product {
+struct Product: Identifiable {
     var id = 0
     var name = ""
     var price = 0.0

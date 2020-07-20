@@ -8,4 +8,4 @@
 
 import Combine
 
-typealias Driver<T> = AnyPublisher<T, Never>
+public typealias Driver<T> = AnyPublisher<T, Never>

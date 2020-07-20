@@ -16,23 +16,34 @@ struct ProductsViewModel {
 // MARK: - ViewModelType
 extension ProductsViewModel: ViewModelType {
     struct Input {
-        let loadTrigger: AnyPublisher<Void, Error>
+        let loadTrigger: Observable<Void>
+        let reloadTrigger: Observable<Void>
     }
     
     struct Output {
-        let products: AnyPublisher<[Product], Error>
+        let products: Observable<[Product]>
+        let error: Observable<Error>
+        let isLoading: Observable<Bool>
+        let isReloading: Observable<Bool>
     }
     
     func transform(_ input: Input) -> Output {
-        let products = input.loadTrigger
-            .map {
-                self.useCase
-                    .getProducts(page: 1)
-                    .map { $0.items }
-            }
-            .switchToLatest()
-            .eraseToAnyPublisher()
+        let result = getList(loadTrigger: input.loadTrigger,
+                             getItems: { _ in
+                                self.useCase.getProducts(page: 1)
+                                    .map { $0.items }
+                                    .eraseToAnyPublisher()
+                            }, reloadTrigger: input.reloadTrigger, reloadItems: { _ in
+                                self.useCase.getProducts(page: 1)
+                                    .map { $0.items }
+                                    .eraseToAnyPublisher()
+                            }, mapper: { $0 })
         
-        return Output(products: products)
+        let (products, error, isLoading, isReloading) = result.destructured
+        
+        return Output(products: products,
+                      error: error,
+                      isLoading: isLoading,
+                      isReloading: isReloading)
     }
 }

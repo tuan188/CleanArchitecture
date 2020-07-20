@@ -6,9 +6,12 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
+import Combine
+
 public protocol ViewModelType {
     associatedtype Input
     associatedtype Output
     
     func transform(_ input: Input) -> Output
 }
+

@@ -18,3 +18,7 @@ protocol Assembler: class,
 final class DefaultAssembler: Assembler {
     
 }
+
+final class PreviewAssembler: Assembler {
+    
+}

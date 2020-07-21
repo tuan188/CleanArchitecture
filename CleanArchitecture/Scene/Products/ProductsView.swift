@@ -11,41 +11,46 @@ import Combine
 
 struct ProductsView: View {
     
-    let viewModel: ProductsViewModel
+    @ObservedObject var output: ProductsViewModel.Output
     
-    private let loadTrigger = PassthroughSubject<Void, Error>()
-    private let reloadTrigger = PassthroughSubject<Void, Error>()
-    
-    @State var products: [Product] = []
-    
-    private var subscriptions = Set<AnyCancellable>()
+    private let cancelBag = CancelBag()
+    private let viewModel: ProductsViewModel
+    private let loadTrigger = PassthroughSubject<Void, Never>()
+    private let reloadTrigger = PassthroughSubject<Void, Never>()
 
     var body: some View {
-        List(products) { product in
-            Text(product.name)
+        NavigationView {
+            VStack {
+                List(output.products) { product in
+                    Text(product.name)
+                }
+            }
+            .navigationBarTitle("Products")
+            .navigationBarItems(trailing: Button("Reload") {
+                self.loadTrigger.send(())
+            })
         }
+//        .onAppear {
+//            self.loadTrigger.send(())
+//        }
     }
     
     init(viewModel: ProductsViewModel) {
         self.viewModel = viewModel
         
-        bindViewModel()
-        loadTrigger.send(())
-    }
-    
-    mutating func bindViewModel() {
         let input = ProductsViewModel.Input(
             loadTrigger: loadTrigger.eraseToAnyPublisher(),
             reloadTrigger: reloadTrigger.eraseToAnyPublisher()
         )
         
-        let output = viewModel.transform(input)
+        self.output = viewModel.transform(input, cancelBag: cancelBag)
+        self.loadTrigger.send(())
     }
 }
 
 struct ProductsView_Preview: PreviewProvider {
     static var previews: some View {
-        let viewModel: ProductsViewModel = DefaultAssembler().resolve(
+        let viewModel: ProductsViewModel = PreviewAssembler().resolve(
             navigationController: UINavigationController()
         )
         

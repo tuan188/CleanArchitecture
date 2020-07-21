@@ -9,3 +9,10 @@
 import Combine
 
 public typealias Driver<T> = AnyPublisher<T, Never>
+
+extension Publisher {
+    func asDriver() -> Driver<Output> {
+        return self.catch { _ in Empty() }
+            .eraseToAnyPublisher()
+    }
+}

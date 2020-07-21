@@ -25,7 +25,7 @@ extension ProductDetailViewModel: ViewModelType {
         let price: Driver<String>
     }
     
-    func transform(_ input: Input) -> Output {
+    func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let product = input.loadTrigger
             .map { self.product }
         

@@ -32,3 +32,13 @@ extension LoginAssembler where Self: DefaultAssembler {
         return LoginUseCase()
     }
 }
+
+extension LoginAssembler where Self: PreviewAssembler {
+    func resolve(navigationController: UINavigationController) -> LoginNavigatorType {
+        return LoginNavigator(assembler: self, navigationController: navigationController)
+    }
+    
+    func resolve() -> LoginUseCaseType {
+        return LoginUseCase()
+    }
+}

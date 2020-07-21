@@ -33,3 +33,13 @@ extension AppAssembler where Self: DefaultAssembler {
         return AppUseCase()
     }
 }
+
+extension AppAssembler where Self: PreviewAssembler {
+    func resolve(window: UIWindow) -> AppNavigatorType {
+        return AppNavigator(assembler: self, window: window)
+    }
+    
+    func resolve() -> AppUseCaseType {
+        return AppUseCase()
+    }
+}

@@ -21,7 +21,7 @@ extension AppViewModel: ViewModelType {
         
     }
     
-    func transform(_ input: Input) -> Output {
+    func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         return Output()
     }
 }

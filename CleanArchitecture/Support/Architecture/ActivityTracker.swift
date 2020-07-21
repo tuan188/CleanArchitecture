@@ -1,5 +1,5 @@
 //
-//  ActivityIndicator.swift
+//  ActivityTracker.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 7/16/20.
@@ -8,14 +8,14 @@
 
 import Combine
 
-public typealias ActivityIndicator = PassthroughSubject<Bool, Error>
+public typealias ActivityTracker = PassthroughSubject<Bool, Never>
 
 extension Publisher where Failure: Error {
-    public func trackActivity(_ activityIndicator: ActivityIndicator) -> AnyPublisher<Output, Failure> {
+    public func trackActivity(_ activityTracker: ActivityTracker) -> AnyPublisher<Output, Failure> {
         return handleEvents(receiveSubscription: { _ in
-            activityIndicator.send(true)
+            activityTracker.send(true)
         }, receiveCompletion: { _ in
-            activityIndicator.send(false)
+            activityTracker.send(false)
         })
         .eraseToAnyPublisher()
     }

@@ -9,20 +9,24 @@
 import Combine
 
 public struct GetListResult<T> {
-    public var items: Observable<[T]>
-    public var error: Observable<Error>
-    public var isLoading: Observable<Bool>
-    public var isReloading: Observable<Bool>
+    public var items: AnyPublisher<[T], Never>
+    public var error: AnyPublisher<Error, Never>
+    public var isLoading: AnyPublisher<Bool, Never>
+    public var isReloading: AnyPublisher<Bool, Never>
     
     // swiftlint:disable:next large_tuple
-    public var destructured: (Observable<[T]>, Observable<Error>, Observable<Bool>, Observable<Bool>) {
+    public var destructured: (
+        AnyPublisher<[T], Never>,
+        AnyPublisher<Error, Never>,
+        AnyPublisher<Bool, Never>,
+        AnyPublisher<Bool, Never>) {
         return (items, error, isLoading, isReloading)
     }
     
-    public init(items: Observable<[T]>,
-                error: Observable<Error>,
-                isLoading: Observable<Bool>,
-                isReloading: Observable<Bool>) {
+    public init(items: AnyPublisher<[T], Never>,
+                error: AnyPublisher<Error, Never>,
+                isLoading: AnyPublisher<Bool, Never>,
+                isReloading: AnyPublisher<Bool, Never>) {
         self.items = items
         self.error = error
         self.isLoading = isLoading
@@ -37,19 +41,19 @@ enum ScreenLoadingType<Input> {
 
 extension ViewModelType {
     public func getList<Item, Input, MappedItem>(
-        loadTrigger: Observable<Input>,
-        getItems: @escaping (Input) -> Observable<[Item]>,
-        reloadTrigger: Observable<Input>,
-        reloadItems: @escaping (Input) -> Observable<[Item]>,
+        loadTrigger: AnyPublisher<Input, Never>,
+        getItems: @escaping (Input) -> AnyPublisher<[Item], Error>,
+        reloadTrigger: AnyPublisher<Input, Never>,
+        reloadItems: @escaping (Input) -> AnyPublisher<[Item], Error>,
         mapper: @escaping (Item) -> MappedItem) -> GetListResult<MappedItem> {
         
         let errorTracker = ErrorTracker()
-        let loadingActivityIndicator = ActivityIndicator()
-        let reloadingActivityIndicator = ActivityIndicator()
+        let loadingActivityTracker = ActivityTracker()
+        let reloadingActivityTracker = ActivityTracker()
         
         let error = errorTracker.eraseToAnyPublisher()
-        let isLoading = loadingActivityIndicator.eraseToAnyPublisher()
-        let isReloading = reloadingActivityIndicator.eraseToAnyPublisher()
+        let isLoading = loadingActivityTracker.eraseToAnyPublisher()
+        let isReloading = reloadingActivityTracker.eraseToAnyPublisher()
         
         let isLoadingOrReloading = isLoading.merge(with: isReloading)
             .prepend(false)
@@ -63,16 +67,18 @@ extension ViewModelType {
             }
             .filter { !$0.loading }
             .map { $0.triggerType }
-            .map { triggerType -> Observable<[Item]> in
+            .map { triggerType -> Driver<[Item]> in
                 switch triggerType {
                 case .loading(let input):
                     return getItems(input)
                         .trackError(errorTracker)
-                        .trackActivity(loadingActivityIndicator)
+                        .trackActivity(loadingActivityTracker)
+                        .asDriver()
                 case .reloading(let input):
                     return reloadItems(input)
                         .trackError(errorTracker)
-                        .trackActivity(reloadingActivityIndicator)
+                        .trackActivity(reloadingActivityTracker)
+                        .asDriver()
                 }
             }
             .switchToLatest()

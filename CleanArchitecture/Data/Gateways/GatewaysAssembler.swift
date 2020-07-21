@@ -15,3 +15,9 @@ extension GatewaysAssembler where Self: DefaultAssembler {
         return ProductGateway()
     }
 }
+
+extension GatewaysAssembler where Self: PreviewAssembler {
+    func resolve() -> ProductGatewayType {
+        return ProductGateway()
+    }
+}

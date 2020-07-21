@@ -32,3 +32,13 @@ extension MainAssembler where Self: DefaultAssembler {
         return MainUseCase()
     }
 }
+
+extension MainAssembler where Self: PreviewAssembler {
+    func resolve(window: UIWindow) -> MainNavigatorType {
+        return MainNavigator(assembler: self, window: window)
+    }
+    
+    func resolve() -> MainUseCaseType {
+        return MainUseCase()
+    }
+}

@@ -8,7 +8,7 @@
 
 import Combine
 
-public typealias ActivityTracker = PassthroughSubject<Bool, Never>
+public typealias ActivityTracker = CurrentValueSubject<Bool, Never>
 
 extension Publisher where Failure: Error {
     public func trackActivity(_ activityTracker: ActivityTracker) -> AnyPublisher<Output, Failure> {

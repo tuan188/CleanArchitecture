@@ -7,6 +7,7 @@
 //
 
 import Combine
+import Foundation
 
 protocol ProductGatewayType {
     func getProducts(page: Int) -> Observable<PagingInfo<Product>>
@@ -21,7 +22,10 @@ struct ProductGateway: ProductGatewayType {
             ]
             
             let page = PagingInfo(page: 1, items: products)
-            promise(.success(page))
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                promise(.success(page))
+            }
         }
         .eraseToAnyPublisher()
     }

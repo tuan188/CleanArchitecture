@@ -20,26 +20,27 @@ extension ProductDetailViewModel: ViewModelType {
         let loadTrigger: Driver<Void>
     }
     
-    struct Output {
-        let name: Driver<String>
-        let price: Driver<String>
+    final class Output: ObservableObject {
+        @Published var name = ""
+        @Published var price = ""
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let product = input.loadTrigger
             .map { self.product }
         
-        let name = product
+        let output = Output()
+        
+        product
             .map { $0.name }
-            .eraseToAnyPublisher()
+            .assign(to: \.name, on: output)
+            .store(in: cancelBag)
         
-        let price = product
+        product
             .map { $0.price.currency }
-            .eraseToAnyPublisher()
+            .assign(to: \.price, on: output)
+            .store(in: cancelBag)
         
-        return Output(
-            name: name,
-            price: price
-        )
+        return output
     }
 }

@@ -8,31 +8,37 @@
 
 import SwiftUI
 import Combine
+import SwiftUIRefresh
 
 struct ProductsView: View {
-    
     @ObservedObject var output: ProductsViewModel.Output
+    @State private var isShowing = false
     
-    private let cancelBag = CancelBag()
     private let viewModel: ProductsViewModel
+    private let cancelBag = CancelBag()
     private let loadTrigger = PassthroughSubject<Void, Never>()
     private let reloadTrigger = PassthroughSubject<Void, Never>()
+    private let selectTrigger = PassthroughSubject<IndexPath, Never>()
 
     var body: some View {
-        NavigationView {
-            VStack {
-                List(output.products) { product in
-                    Text(product.name)
+        let products = output.products.enumerated().map { $0 }
+        
+        return VStack {
+            List(products, id: \.element.name) { index, product in
+                Button(action: {
+                   self.selectTrigger.send(IndexPath(row: index, section: 0))
+                }) {
+                    ProductRow(viewModel: product)
                 }
             }
-            .navigationBarTitle("Products")
-            .navigationBarItems(trailing: Button("Reload") {
-                self.loadTrigger.send(())
-            })
+            .pullToRefresh(isShowing: output.$isReloading) {
+                self.reloadTrigger.send(())
+            }
         }
-//        .onAppear {
-//            self.loadTrigger.send(())
-//        }
+        .navigationBarTitle("Products")
+        .navigationBarItems(trailing: Button("Reload") {
+            self.reloadTrigger.send(())
+        })
     }
     
     init(viewModel: ProductsViewModel) {
@@ -40,7 +46,8 @@ struct ProductsView: View {
         
         let input = ProductsViewModel.Input(
             loadTrigger: loadTrigger.eraseToAnyPublisher(),
-            reloadTrigger: reloadTrigger.eraseToAnyPublisher()
+            reloadTrigger: reloadTrigger.eraseToAnyPublisher(),
+            selectTrigger: selectTrigger.eraseToAnyPublisher()
         )
         
         self.output = viewModel.transform(input, cancelBag: cancelBag)

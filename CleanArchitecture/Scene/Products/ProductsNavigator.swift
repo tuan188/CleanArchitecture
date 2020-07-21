@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol ProductsNavigatorType {
-
+    func showProductDetail(product: Product)
 }
 
-struct ProductsNavigator: ProductsNavigatorType {
+struct ProductsNavigator: ProductsNavigatorType, ShowingProductDetail {
     unowned let assembler: Assembler
     unowned let navigationController: UINavigationController
 }

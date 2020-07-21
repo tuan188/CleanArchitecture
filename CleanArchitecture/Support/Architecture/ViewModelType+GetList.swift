@@ -48,25 +48,16 @@ extension ViewModelType {
         mapper: @escaping (Item) -> MappedItem) -> GetListResult<MappedItem> {
         
         let errorTracker = ErrorTracker()
-        let loadingActivityTracker = ActivityTracker()
-        let reloadingActivityTracker = ActivityTracker()
-        
-        let error = errorTracker.eraseToAnyPublisher()
-        let isLoading = loadingActivityTracker.eraseToAnyPublisher()
-        let isReloading = reloadingActivityTracker.eraseToAnyPublisher()
-        
-        let isLoadingOrReloading = isLoading.merge(with: isReloading)
-            .prepend(false)
+        let loadingActivityTracker = ActivityTracker(false)
+        let reloadingActivityTracker = ActivityTracker(false)
         
         let items = Publishers.Merge(
                 loadTrigger.map { ScreenLoadingType.loading($0) },
                 reloadTrigger.map { ScreenLoadingType.reloading($0) }
             )
-            .withLatestFrom(isLoadingOrReloading) {
-                (triggerType: $0, loading: $1)
+            .filter { _ in
+                !loadingActivityTracker.value && !reloadingActivityTracker.value
             }
-            .filter { !$0.loading }
-            .map { $0.triggerType }
             .map { triggerType -> Driver<[Item]> in
                 switch triggerType {
                 case .loading(let input):
@@ -84,6 +75,10 @@ extension ViewModelType {
             .switchToLatest()
             .map { $0.map(mapper) }
             .eraseToAnyPublisher()
+        
+        let error = errorTracker.eraseToAnyPublisher()
+        let isLoading = loadingActivityTracker.eraseToAnyPublisher()
+        let isReloading = reloadingActivityTracker.eraseToAnyPublisher()
         
         return GetListResult(
             items: items,

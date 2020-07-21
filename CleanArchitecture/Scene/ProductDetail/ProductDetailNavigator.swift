@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProductDetailNavigatorType {
-    
+
 }
 
 struct ProductDetailNavigator: ProductDetailNavigatorType {

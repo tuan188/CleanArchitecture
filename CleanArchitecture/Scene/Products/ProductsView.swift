@@ -12,7 +12,7 @@ import SwiftUIRefresh
 
 struct ProductsView: View {
     @ObservedObject var output: ProductsViewModel.Output
-    @State private var isShowing = false
+    @State var isLoading = false
     
     private let viewModel: ProductsViewModel
     private let cancelBag = CancelBag()
@@ -23,22 +23,27 @@ struct ProductsView: View {
     var body: some View {
         let products = output.products.enumerated().map { $0 }
         
-        return VStack {
-            List(products, id: \.element.name) { index, product in
-                Button(action: {
-                   self.selectTrigger.send(IndexPath(row: index, section: 0))
-                }) {
-                    ProductRow(viewModel: product)
+        return LoadingView(isShowing: $output.isLoading, text: .constant("")) {
+            VStack {
+                List(products, id: \.element.name) { index, product in
+                    Button(action: {
+                       self.selectTrigger.send(IndexPath(row: index, section: 0))
+                    }) {
+                        ProductRow(viewModel: product)
+                    }
+                }
+                .pullToRefresh(isShowing: self.$output.isReloading) {
+                    self.reloadTrigger.send(())
                 }
             }
-            .pullToRefresh(isShowing: output.$isReloading) {
-                self.reloadTrigger.send(())
-            }
+            .navigationBarTitle("Products")
+            .navigationBarItems(trailing: Button("Refresh") {
+                self.loadTrigger.send(())
+            })
         }
-        .navigationBarTitle("Products")
-        .navigationBarItems(trailing: Button("Reload") {
-            self.reloadTrigger.send(())
-        })
+//        .onAppear {
+//            self.loadTrigger.send(())
+//        }
     }
     
     init(viewModel: ProductsViewModel) {

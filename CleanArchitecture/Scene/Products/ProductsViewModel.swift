@@ -8,7 +8,6 @@
 
 import Combine
 import UIKit
-import SwiftUI
 
 struct ProductsViewModel {
     let navigator: ProductsNavigatorType
@@ -26,8 +25,8 @@ extension ProductsViewModel: ViewModelType {
     final class Output: ObservableObject {
         @Published var products = [ProductItemViewModel]()
         @Published var error: Error = AppError.none
-        @State var isLoading = false
-        @State var isReloading = false
+        @Published var isLoading = false
+        @Published var isReloading = false
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
@@ -60,10 +59,12 @@ extension ProductsViewModel: ViewModelType {
             .store(in: cancelBag)
         
         isLoading
+            .print("loading")
             .assign(to: \.isLoading, on: output)
             .store(in: cancelBag)
         
         isReloading
+            .print("reloading")
             .assign(to: \.isReloading, on: output)
             .store(in: cancelBag)
         

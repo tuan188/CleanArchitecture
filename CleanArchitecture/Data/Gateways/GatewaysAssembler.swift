@@ -18,6 +18,6 @@ extension GatewaysAssembler where Self: DefaultAssembler {
 
 extension GatewaysAssembler where Self: PreviewAssembler {
     func resolve() -> ProductGatewayType {
-        return ProductGateway()
+        return PreviewProductGateway()
     }
 }

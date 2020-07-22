@@ -10,6 +10,8 @@
 		1734926024C539220014F87E /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734925F24C539220014F87E /* ProductsView.swift */; };
 		1734926524C59D2A0014F87E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734926424C59D2A0014F87E /* AppError.swift */; };
 		174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 174A188924C81EEA00AB39D9 /* SwiftUIRefresh */; };
+		174A188D24C8219300AB39D9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A188C24C8219300AB39D9 /* ActivityIndicator.swift */; };
+		174A188F24C821B600AB39D9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A188E24C821B600AB39D9 /* LoadingView.swift */; };
 		1765B2CC24C68D940096D210 /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765B2CB24C68D940096D210 /* CancelBag.swift */; };
 		1765B2CE24C6A79F0096D210 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765B2CD24C6A79F0096D210 /* ProductDetailView.swift */; };
 		1765B2D124C6D5550096D210 /* ShowingProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765B2D024C6D5550096D210 /* ShowingProductDetail.swift */; };
@@ -71,6 +73,8 @@
 /* Begin PBXFileReference section */
 		1734925F24C539220014F87E /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		1734926424C59D2A0014F87E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		174A188C24C8219300AB39D9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		174A188E24C821B600AB39D9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1765B2CB24C68D940096D210 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
 		1765B2CD24C6A79F0096D210 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		1765B2D024C6D5550096D210 /* ShowingProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingProductDetail.swift; sourceTree = "<group>"; };
@@ -157,6 +161,15 @@
 				17DCF1B824BF01ED00D970B4 /* Publisher+.swift */,
 			);
 			path = Architecture;
+			sourceTree = "<group>";
+		};
+		174A188B24C8216100AB39D9 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				174A188C24C8219300AB39D9 /* ActivityIndicator.swift */,
+				174A188E24C821B600AB39D9 /* LoadingView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		1765B2CF24C6D5350096D210 /* Navigators */ = {
@@ -307,6 +320,7 @@
 		1787234F24BD566300D90F8E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				174A188B24C8216100AB39D9 /* CustomViews */,
 				1734926324C59CC00014F87E /* Architecture */,
 				17DCF1B724BF01E400D970B4 /* Extensions */,
 			);
@@ -512,7 +526,9 @@
 				1787235824BD575E00D90F8E /* PagingInfo.swift in Sources */,
 				1781CF4424BD8FB8004ED1C6 /* ProductDetailViewModel.swift in Sources */,
 				1781CF4224BD8FB8004ED1C6 /* ProductDetailUseCase.swift in Sources */,
+				174A188D24C8219300AB39D9 /* ActivityIndicator.swift in Sources */,
 				17DCF1B624BEE76800D970B4 /* Driver.swift in Sources */,
+				174A188F24C821B600AB39D9 /* LoadingView.swift in Sources */,
 				178809AA24C0412F00002215 /* Observable.swift in Sources */,
 				1787233324BD54B600D90F8E /* Assembler.swift in Sources */,
 				1734926024C539220014F87E /* ProductsView.swift in Sources */,
@@ -704,6 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitecture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitecture/CleanArchitecture-Bridging-Header.h";
@@ -726,6 +743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitecture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitecture/CleanArchitecture-Bridging-Header.h";

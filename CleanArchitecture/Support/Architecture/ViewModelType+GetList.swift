@@ -69,6 +69,7 @@ extension ViewModelType {
                     return reloadItems(input)
                         .trackError(errorTracker)
                         .trackActivity(reloadingActivityTracker)
+                        .flatMap { _ in Empty() }
                         .asDriver()
                 }
             }

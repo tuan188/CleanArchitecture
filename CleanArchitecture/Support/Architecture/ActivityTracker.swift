@@ -16,9 +16,7 @@ extension Publisher where Failure: Error {
         return handleEvents(receiveSubscription: { _ in
             activityTracker.send(true)
         }, receiveCompletion: { _ in
-            DispatchQueue.main.async {
-                activityTracker.send(false)
-            }
+            activityTracker.send(false)
         })
         .eraseToAnyPublisher()
     }

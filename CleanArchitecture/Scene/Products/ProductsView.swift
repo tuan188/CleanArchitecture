@@ -12,7 +12,6 @@ import SwiftUIRefresh
 
 struct ProductsView: View {
     @ObservedObject var output: ProductsViewModel.Output
-    @State var isLoading = false
     
     private let viewModel: ProductsViewModel
     private let cancelBag = CancelBag()
@@ -41,9 +40,6 @@ struct ProductsView: View {
                 self.loadTrigger.send(())
             })
         }
-//        .onAppear {
-//            self.loadTrigger.send(())
-//        }
     }
     
     init(viewModel: ProductsViewModel) {

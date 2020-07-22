@@ -59,12 +59,10 @@ extension ProductsViewModel: ViewModelType {
             .store(in: cancelBag)
         
         isLoading
-            .print("loading")
             .assign(to: \.isLoading, on: output)
             .store(in: cancelBag)
         
         isReloading
-            .print("reloading")
             .assign(to: \.isReloading, on: output)
             .store(in: cancelBag)
         

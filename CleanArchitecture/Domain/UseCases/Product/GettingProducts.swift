@@ -14,6 +14,6 @@ protocol GettingProducts {
 
 extension GettingProducts {
     func getProducts(page: Int) -> Observable<PagingInfo<Product>> {
-        return productGateway.getProducts(page: page)
+        productGateway.getProducts(page: page)
     }
 }

@@ -24,9 +24,11 @@ extension ProductsViewModel: ViewModelType {
     
     final class Output: ObservableObject {
         @Published var products = [ProductItemViewModel]()
-        @Published var error: Error = AppError.none
         @Published var isLoading = false
         @Published var isReloading = false
+        @Published var alertMessage = ""
+        @Published var alertTitle = ""
+        @Published var showingAlert = false
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
@@ -55,7 +57,13 @@ extension ProductsViewModel: ViewModelType {
             .store(in: cancelBag)
         
         error
-            .assign(to: \.error, on: output)
+            .receive(on: RunLoop.main)
+            .map { $0.localizedDescription }
+            .handleEvents(receiveOutput: { errorMessage in
+                output.alertTitle = "Error"
+                output.showingAlert = !errorMessage.isEmpty
+            })
+            .assign(to: \.alertMessage, on: output)
             .store(in: cancelBag)
         
         isLoading

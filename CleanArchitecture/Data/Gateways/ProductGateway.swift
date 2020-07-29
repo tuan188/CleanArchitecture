@@ -24,6 +24,7 @@ struct ProductGateway: ProductGatewayType {
             let page = PagingInfo(page: 1, items: products)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                promise(.failure(AppError.error(message: "Get product list failed!")))
                 promise(.success(page))
             }
         }

@@ -10,7 +10,7 @@ import Combine
 
 public protocol ViewModelType {
     associatedtype Input
-    associatedtype Output: ObservableObject
+    associatedtype Output
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output
 }

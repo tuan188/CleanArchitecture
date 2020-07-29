@@ -8,16 +8,25 @@
 
 protocol GatewaysAssembler {
     func resolve() -> ProductGatewayType
+    func resolve() -> AuthGatewayType
 }
 
 extension GatewaysAssembler where Self: DefaultAssembler {
     func resolve() -> ProductGatewayType {
-        return ProductGateway()
+        ProductGateway()
+    }
+
+    func resolve() -> AuthGatewayType {
+        AuthGateway()
     }
 }
 
 extension GatewaysAssembler where Self: PreviewAssembler {
     func resolve() -> ProductGatewayType {
-        return PreviewProductGateway()
+        PreviewProductGateway()
+    }
+    
+    func resolve() -> AuthGatewayType {
+        AuthGateway()
     }
 }

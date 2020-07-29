@@ -9,14 +9,19 @@
 import UIKit
 
 protocol LoginAssembler {
+    func resolve(navigationController: UINavigationController) -> LoginView
     func resolve(navigationController: UINavigationController) -> LoginViewModel
     func resolve(navigationController: UINavigationController) -> LoginNavigatorType
     func resolve() -> LoginUseCaseType
 }
 
 extension LoginAssembler {
+    func resolve(navigationController: UINavigationController) -> LoginView {
+        LoginView(viewModel: resolve(navigationController: navigationController))
+    }
+    
     func resolve(navigationController: UINavigationController) -> LoginViewModel {
-        return LoginViewModel(
+        LoginViewModel(
             navigator: resolve(navigationController: navigationController),
             useCase: resolve()
         )
@@ -25,20 +30,20 @@ extension LoginAssembler {
 
 extension LoginAssembler where Self: DefaultAssembler {
     func resolve(navigationController: UINavigationController) -> LoginNavigatorType {
-        return LoginNavigator(assembler: self, navigationController: navigationController)
+        LoginNavigator(assembler: self, navigationController: navigationController)
     }
     
     func resolve() -> LoginUseCaseType {
-        return LoginUseCase()
+        LoginUseCase(authGateway: resolve())
     }
 }
 
 extension LoginAssembler where Self: PreviewAssembler {
     func resolve(navigationController: UINavigationController) -> LoginNavigatorType {
-        return LoginNavigator(assembler: self, navigationController: navigationController)
+        LoginNavigator(assembler: self, navigationController: navigationController)
     }
     
     func resolve() -> LoginUseCaseType {
-        return LoginUseCase()
+        LoginUseCase(authGateway: resolve())
     }
 }

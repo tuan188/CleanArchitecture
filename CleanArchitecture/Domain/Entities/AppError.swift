@@ -6,6 +6,18 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-enum AppError: Error {
+import Foundation
+
+enum AppError: LocalizedError {
     case none
+    case error(message: String)
+
+    var errorDescription: String? {
+        switch self {
+        case let .error(message):
+            return message
+        default:
+            return ""
+        }
+    }
 }

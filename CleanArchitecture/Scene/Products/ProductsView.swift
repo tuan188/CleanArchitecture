@@ -13,7 +13,6 @@ import SwiftUIRefresh
 struct ProductsView: View {
     @ObservedObject var output: ProductsViewModel.Output
     
-    private let viewModel: ProductsViewModel
     private let cancelBag = CancelBag()
     private let loadTrigger = PassthroughSubject<Void, Never>()
     private let reloadTrigger = PassthroughSubject<Void, Never>()
@@ -40,11 +39,16 @@ struct ProductsView: View {
                 self.loadTrigger.send(())
             })
         }
+        .alert(isPresented: $output.showingAlert) {
+            Alert(
+                title: Text(output.alertTitle),
+                message: Text(output.alertMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
     
     init(viewModel: ProductsViewModel) {
-        self.viewModel = viewModel
-        
         let input = ProductsViewModel.Input(
             loadTrigger: loadTrigger.eraseToAnyPublisher(),
             reloadTrigger: reloadTrigger.eraseToAnyPublisher(),

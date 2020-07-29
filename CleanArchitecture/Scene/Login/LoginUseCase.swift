@@ -7,9 +7,9 @@
 //
 
 protocol LoginUseCaseType {
-    
+    func login(username: String, password: String) -> Observable<Void>
 }
 
-struct LoginUseCase: LoginUseCaseType {
-    
+struct LoginUseCase: LoginUseCaseType, LoggingIn {
+    let authGateway: AuthGatewayType
 }

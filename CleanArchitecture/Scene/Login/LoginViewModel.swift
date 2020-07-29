@@ -6,6 +6,8 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
+import Combine
+
 struct LoginViewModel {
     let navigator: LoginNavigatorType
     let useCase: LoginUseCaseType
@@ -17,7 +19,7 @@ extension LoginViewModel: ViewModelType {
         
     }
     
-    struct Output {
+    final class Output: ObservableObject {
         
     }
     

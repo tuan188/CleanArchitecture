@@ -9,11 +9,16 @@
 import Combine
 
 extension Publisher {
-    func genericError() -> AnyPublisher<Self.Output, Error> {
+    public func genericError() -> AnyPublisher<Self.Output, Error> {
         return self
             .mapError({ (error: Self.Failure) -> Error in
                 return error
             })
             .eraseToAnyPublisher()
     }
+    
+    public func sink() -> AnyCancellable {
+        return self.sink(receiveCompletion: { _ in }, receiveValue: { _ in })
+    }
+        
 }

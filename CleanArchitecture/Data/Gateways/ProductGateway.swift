@@ -23,7 +23,7 @@ struct ProductGateway: ProductGatewayType {
             
             let page = PagingInfo(page: 1, items: products)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 promise(.success(page))
             }
         }

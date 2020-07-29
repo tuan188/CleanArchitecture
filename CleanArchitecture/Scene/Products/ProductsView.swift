@@ -35,7 +35,7 @@ struct ProductsView: View {
                     self.reloadTrigger.send(())
                 }
             }
-            .navigationBarTitle("Products")
+            .navigationBarTitle("Product List")
             .navigationBarItems(trailing: Button("Refresh") {
                 self.loadTrigger.send(())
             })

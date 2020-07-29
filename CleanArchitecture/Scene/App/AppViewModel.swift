@@ -6,6 +6,8 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
+import Combine
+
 struct AppViewModel {
     let navigator: AppNavigatorType
     let useCase: AppUseCaseType
@@ -14,14 +16,19 @@ struct AppViewModel {
 // MARK: - ViewModelType
 extension AppViewModel: ViewModelType {
     struct Input {
-        
+        let startTrigger: Driver<Void>
     }
     
-    struct Output {
+    final class Output: ObservableObject {
         
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
+        input.startTrigger
+            .handleEvents(receiveOutput: navigator.toMain)
+            .sink()
+            .store(in: cancelBag)
+        
         return Output()
     }
 }

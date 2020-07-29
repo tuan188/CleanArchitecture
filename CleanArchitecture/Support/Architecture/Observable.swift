@@ -9,3 +9,17 @@
 import Combine
 
 public typealias Observable<T> = AnyPublisher<T, Error>
+
+extension Publisher {
+    public func Observable() -> Observable<Output> {
+        return self.genericError()
+    }
+    
+    public static func just(_ output: Output) -> Observable<Output> {
+        return Just(output).genericError()
+    }
+    
+    public static func empty() -> Observable<Output> {
+        return Empty().eraseToAnyPublisher()
+    }
+}

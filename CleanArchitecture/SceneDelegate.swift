@@ -23,12 +23,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let nav = UINavigationController()
-        let contentView: ProductsView = assembler.resolve(navigationController: nav)
+//        let contentView: ProductsView = assembler.resolve(navigationController: nav)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let vc = UIHostingController(rootView: contentView)
+            let vc: MainViewController = assembler.resolve(navigationController: nav)
             nav.viewControllers = [vc]
             window.rootViewController = nav
             self.window = window

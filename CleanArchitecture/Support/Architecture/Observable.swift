@@ -12,11 +12,15 @@ public typealias Observable<T> = AnyPublisher<T, Error>
 
 extension Publisher {
     public func asObservable() -> Observable<Output> {
-        return self.genericError()
+        self
+            .mapError { $0 }
+            .eraseToAnyPublisher()
     }
     
     public static func just(_ output: Output) -> Observable<Output> {
-        return Just(output).genericError()
+        Just(output)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
     
     public static func empty() -> Observable<Output> {

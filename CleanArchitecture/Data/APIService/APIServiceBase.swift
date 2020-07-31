@@ -61,8 +61,8 @@ open class APIBase {
         manager = Alamofire.Session(configuration: configuration)
     }
     
-    open func request<T: Mappable>(_ input: APIInputBase) -> Observable<APIResponse<T>> {
-        let response: Observable<APIResponse<JSONDictionary>> = requestJSON(input)
+    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<T>, Error> {
+        let response: AnyPublisher<APIResponse<JSONDictionary>, Error> = requestJSON(input)
         
         return response
             .tryMap { apiResponse -> APIResponse<T> in
@@ -76,14 +76,14 @@ open class APIBase {
     
     }
     
-    open func request<T: Mappable>(_ input: APIInputBase) -> Observable<T> {
+    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<T, Error> {
         request(input)
             .map { $0.data }
             .eraseToAnyPublisher()
     }
 
-    open func request<T: Mappable>(_ input: APIInputBase) -> Observable<APIResponse<[T]>> {
-        let response: Observable<APIResponse<JSONArray>> = requestJSON(input)
+    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<[T]>, Error> {
+        let response: AnyPublisher<APIResponse<JSONArray>, Error> = requestJSON(input)
         
         return response
             .map { apiResponse -> APIResponse<[T]> in
@@ -93,13 +93,13 @@ open class APIBase {
             .eraseToAnyPublisher()
     }
     
-    open func request<T: Mappable>(_ input: APIInputBase) -> Observable<[T]> {
+    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<[T], Error> {
         request(input)
             .map { $0.data }
             .eraseToAnyPublisher()
     }
     
-    open func requestJSON<U: JSONData>(_ input: APIInputBase) -> Observable<APIResponse<U>> {
+    open func requestJSON<U: JSONData>(_ input: APIInputBase) -> AnyPublisher<APIResponse<U>, Error> {
         let username = input.username
         let password = input.password
         
@@ -129,15 +129,15 @@ open class APIBase {
                     debugPrint(dataRequest)
                 }
             })
-            .flatMap { dataRequest -> Observable<DataResponse<Data, AFError>> in
+            .flatMap { dataRequest -> AnyPublisher<DataResponse<Data, AFError>, Error> in
                 return dataRequest.publishData()
-                    .genericError()
+                    .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             }
             .tryMap { (dataResponse) -> APIResponse<U> in
                 return try self.process(dataResponse)
             }
-            .tryCatch { [unowned self] error -> Observable<APIResponse<U>> in
+            .tryCatch { [unowned self] error -> AnyPublisher<APIResponse<U>, Error> in
                 return try self.handleRequestError(error, input: input)
             }
             .handleEvents(receiveOutput: { response in
@@ -154,8 +154,10 @@ open class APIBase {
             return urlRequest
     }
     
-    open func preprocess(_ input: APIInputBase) -> Observable<APIInputBase> {
-        Observable.just(input)
+    open func preprocess(_ input: APIInputBase) -> AnyPublisher<APIInputBase, Error> {
+        Just(input)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
     
     open func process<U: JSONData>(_ dataResponse: DataResponse<Data, AFError>) throws -> APIResponse<U> {
@@ -211,7 +213,7 @@ open class APIBase {
     }
     
     open func handleRequestError<U: JSONData>(_ error: Error,
-                                              input: APIInputBase) throws -> Observable<APIResponse<U>> {
+                                              input: APIInputBase) throws -> AnyPublisher<APIResponse<U>, Error> {
         throw error
     }
     

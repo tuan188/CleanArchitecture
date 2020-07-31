@@ -59,7 +59,7 @@ extension ViewModelType {
             .filter { _ in
                 !loadingActivityTracker.value && !reloadingActivityTracker.value
             }
-            .map { triggerType -> Driver<[Item]> in
+            .map { triggerType -> AnyPublisher<[Item], Never> in
                 switch triggerType {
                 case .loading(let input):
                     return getItems(input)
@@ -92,8 +92,8 @@ extension ViewModelType {
     
     public func getList<Item, Input, MappedItem>(
         errorTracker: ErrorTracker,
-        loadTrigger: Driver<Input>,
-        reloadTrigger: Driver<Input>,
+        loadTrigger: AnyPublisher<Input, Never>,
+        reloadTrigger: AnyPublisher<Input, Never>,
         getItems: @escaping (Input) -> Observable<[Item]>,
         mapper: @escaping (Item) -> MappedItem)
         -> GetListResult<MappedItem> {
@@ -109,8 +109,8 @@ extension ViewModelType {
     }
     
     public func getList<Item, Input, MappedItem>(
-        loadTrigger: Driver<Input>,
-        reloadTrigger: Driver<Input>,
+        loadTrigger: AnyPublisher<Input, Never>,
+        reloadTrigger: AnyPublisher<Input, Never>,
         getItems: @escaping (Input) -> Observable<[Item]>,
         mapper: @escaping (Item) -> MappedItem)
         -> GetListResult<MappedItem> {
@@ -127,8 +127,8 @@ extension ViewModelType {
     
     public func getList<Item, Input>(
         errorTracker: ErrorTracker,
-        loadTrigger: Driver<Input>,
-        reloadTrigger: Driver<Input>,
+        loadTrigger: AnyPublisher<Input, Never>,
+        reloadTrigger: AnyPublisher<Input, Never>,
         getItems: @escaping (Input) -> Observable<[Item]>)
         -> GetListResult<Item> {
             
@@ -143,8 +143,8 @@ extension ViewModelType {
     }
     
     public func getList<Item, Input>(
-        loadTrigger: Driver<Input>,
-        reloadTrigger: Driver<Input>,
+        loadTrigger: AnyPublisher<Input, Never>,
+        reloadTrigger: AnyPublisher<Input, Never>,
         getItems: @escaping (Input) -> Observable<[Item]>)
         -> GetListResult<Item> {
             

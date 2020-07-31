@@ -24,6 +24,16 @@ final class MainViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        
+//        let input = API.GetRepoListInput(page: 1)
+//        
+//        API.shared.getRepoList(input)
+//            .sink(receiveCompletion: { (completion) in
+//                print(completion)
+//            }) { (output) in
+//                print(output)
+//            }
+//            .store(in: cancelBag)
     }
     
     private func configView() {

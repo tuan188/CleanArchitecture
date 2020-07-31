@@ -34,17 +34,8 @@ extension ProductsViewModel: ViewModelType {
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let result = getList(
             loadTrigger: input.loadTrigger,
-            getItems: { [useCase] _ in
-                useCase.getProducts(page: 1)
-                    .map { $0.items }
-                    .eraseToAnyPublisher()
-            },
             reloadTrigger: input.reloadTrigger,
-            reloadItems: { [useCase] _ in
-                useCase.getProducts(page: 1)
-                    .map { $0.items }
-                    .eraseToAnyPublisher()
-            }, mapper: { $0 }
+            getItems: useCase.getProducts
         )
         
         let (products, error, isLoading, isReloading) = result.destructured

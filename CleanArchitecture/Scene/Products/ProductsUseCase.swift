@@ -9,7 +9,7 @@
 import Combine
 
 protocol ProductsUseCaseType {
-    func getProducts(page: Int) -> Observable<PagingInfo<Product>>
+    func getProducts() -> Observable<[Product]>
 }
 
 struct ProductsUseCase: ProductsUseCaseType, GettingProducts {

@@ -11,7 +11,7 @@ import Combine
 public typealias Observable<T> = AnyPublisher<T, Error>
 
 extension Publisher {
-    public func Observable() -> Observable<Output> {
+    public func asObservable() -> Observable<Output> {
         return self.genericError()
     }
     

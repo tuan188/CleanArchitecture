@@ -41,13 +41,14 @@ enum ScreenLoadingType<Input> {
 
 extension ViewModelType {
     public func getList<Item, Input, MappedItem>(
+        errorTracker: ErrorTracker,
         loadTrigger: AnyPublisher<Input, Never>,
         getItems: @escaping (Input) -> AnyPublisher<[Item], Error>,
         reloadTrigger: AnyPublisher<Input, Never>,
         reloadItems: @escaping (Input) -> AnyPublisher<[Item], Error>,
-        mapper: @escaping (Item) -> MappedItem) -> GetListResult<MappedItem> {
+        mapper: @escaping (Item) -> MappedItem)
+        -> GetListResult<MappedItem> {
         
-        let errorTracker = ErrorTracker()
         let loadingActivityTracker = ActivityTracker(false)
         let reloadingActivityTracker = ActivityTracker(false)
         
@@ -87,5 +88,73 @@ extension ViewModelType {
             isLoading: isLoading,
             isReloading: isReloading
         )
+    }
+    
+    public func getList<Item, Input, MappedItem>(
+        errorTracker: ErrorTracker,
+        loadTrigger: Driver<Input>,
+        reloadTrigger: Driver<Input>,
+        getItems: @escaping (Input) -> Observable<[Item]>,
+        mapper: @escaping (Item) -> MappedItem)
+        -> GetListResult<MappedItem> {
+
+        getList(
+            errorTracker: errorTracker,
+            loadTrigger: loadTrigger,
+            getItems: getItems,
+            reloadTrigger: reloadTrigger,
+            reloadItems: getItems,
+            mapper: mapper
+        )
+    }
+    
+    public func getList<Item, Input, MappedItem>(
+        loadTrigger: Driver<Input>,
+        reloadTrigger: Driver<Input>,
+        getItems: @escaping (Input) -> Observable<[Item]>,
+        mapper: @escaping (Item) -> MappedItem)
+        -> GetListResult<MappedItem> {
+            
+        return getList(
+            errorTracker: ErrorTracker(),
+            loadTrigger: loadTrigger,
+            getItems: getItems,
+            reloadTrigger: reloadTrigger,
+            reloadItems: getItems,
+            mapper: mapper
+        )
+    }
+    
+    public func getList<Item, Input>(
+        errorTracker: ErrorTracker,
+        loadTrigger: Driver<Input>,
+        reloadTrigger: Driver<Input>,
+        getItems: @escaping (Input) -> Observable<[Item]>)
+        -> GetListResult<Item> {
+            
+            return getList(
+                errorTracker: errorTracker,
+                loadTrigger: loadTrigger,
+                getItems: getItems,
+                reloadTrigger: reloadTrigger,
+                reloadItems: getItems,
+                mapper: { $0 }
+            )
+    }
+    
+    public func getList<Item, Input>(
+        loadTrigger: Driver<Input>,
+        reloadTrigger: Driver<Input>,
+        getItems: @escaping (Input) -> Observable<[Item]>)
+        -> GetListResult<Item> {
+            
+            return getList(
+                errorTracker: ErrorTracker(),
+                loadTrigger: loadTrigger,
+                getItems: getItems,
+                reloadTrigger: reloadTrigger,
+                reloadItems: getItems,
+                mapper: { $0 }
+            )
     }
 }

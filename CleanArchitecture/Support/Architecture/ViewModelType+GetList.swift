@@ -65,13 +65,14 @@ extension ViewModelType {
                     return getItems(input)
                         .trackError(errorTracker)
                         .trackActivity(loadingActivityTracker)
-                        .asDriver()
+                        .catch { _ in Empty() }
+                        .eraseToAnyPublisher()
                 case .reloading(let input):
                     return reloadItems(input)
                         .trackError(errorTracker)
                         .trackActivity(reloadingActivityTracker)
-                        .flatMap { _ in Empty() }
-                        .asDriver()
+                        .catch { _ in Empty() }
+                        .eraseToAnyPublisher()
                 }
             }
             .switchToLatest()
@@ -94,7 +95,7 @@ extension ViewModelType {
         errorTracker: ErrorTracker,
         loadTrigger: AnyPublisher<Input, Never>,
         reloadTrigger: AnyPublisher<Input, Never>,
-        getItems: @escaping (Input) -> Observable<[Item]>,
+        getItems: @escaping (Input) -> AnyPublisher<[Item], Error>,
         mapper: @escaping (Item) -> MappedItem)
         -> GetListResult<MappedItem> {
 
@@ -111,7 +112,7 @@ extension ViewModelType {
     public func getList<Item, Input, MappedItem>(
         loadTrigger: AnyPublisher<Input, Never>,
         reloadTrigger: AnyPublisher<Input, Never>,
-        getItems: @escaping (Input) -> Observable<[Item]>,
+        getItems: @escaping (Input) -> AnyPublisher<[Item], Error>,
         mapper: @escaping (Item) -> MappedItem)
         -> GetListResult<MappedItem> {
             
@@ -129,7 +130,7 @@ extension ViewModelType {
         errorTracker: ErrorTracker,
         loadTrigger: AnyPublisher<Input, Never>,
         reloadTrigger: AnyPublisher<Input, Never>,
-        getItems: @escaping (Input) -> Observable<[Item]>)
+        getItems: @escaping (Input) -> AnyPublisher<[Item], Error>)
         -> GetListResult<Item> {
             
             return getList(
@@ -145,7 +146,7 @@ extension ViewModelType {
     public func getList<Item, Input>(
         loadTrigger: AnyPublisher<Input, Never>,
         reloadTrigger: AnyPublisher<Input, Never>,
-        getItems: @escaping (Input) -> Observable<[Item]>)
+        getItems: @escaping (Input) -> AnyPublisher<[Item], Error>)
         -> GetListResult<Item> {
             
             return getList(

@@ -55,12 +55,14 @@ extension ViewModelType {
                     return getItem(input)
                         .trackError(errorTracker)
                         .trackActivity(loadingActivityTracker)
-                        .asDriver()
+                        .catch { _ in Empty() }
+                        .eraseToAnyPublisher()
                 case .reloading(let input):
                     return reloadItem(input)
                         .trackError(errorTracker)
                         .trackActivity(reloadingActivityTracker)
-                        .asDriver()
+                        .catch { _ in Empty() }
+                        .eraseToAnyPublisher()
                 }
             }
             .switchToLatest()

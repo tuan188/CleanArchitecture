@@ -15,7 +15,7 @@ struct ProductDetailViewModel {
 }
 
 // MARK: - ViewModelType
-extension ProductDetailViewModel: ViewModelType {
+extension ProductDetailViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
     }

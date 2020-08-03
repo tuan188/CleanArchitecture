@@ -33,7 +33,7 @@ public struct GetPageResult<T> {
     }
 }
 
-extension ViewModelType {
+extension ViewModel {
     // swiftlint:disable:next function_parameter_count
     public func getPage<Item, Input, MappedItem>(
         pageSubject: CurrentValueSubject<PagingInfo<MappedItem>, Never>,

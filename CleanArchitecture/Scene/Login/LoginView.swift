@@ -31,10 +31,10 @@ struct LoginView: View {
             }
             .padding()
         }
-        .alert(isPresented: $output.showingAlert) {
+        .alert(isPresented: $output.alert.isShowing) {
             Alert(
-                title: Text(output.alertTitle),
-                message: Text(output.alertMessage),
+                title: Text(output.alert.title),
+                message: Text(output.alert.message),
                 dismissButton: .default(Text("OK"))
             )
         }

@@ -15,7 +15,7 @@ struct ProductsViewModel {
 }
 
 // MARK: - ViewModelType
-extension ProductsViewModel: ViewModelType {
+extension ProductsViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
         let reloadTrigger: Driver<Void>
@@ -26,9 +26,7 @@ extension ProductsViewModel: ViewModelType {
         @Published var products = [ProductItemViewModel]()
         @Published var isLoading = false
         @Published var isReloading = false
-        @Published var alertMessage = ""
-        @Published var alertTitle = ""
-        @Published var showingAlert = false
+        @Published var alert = AlertMessage()
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
@@ -49,12 +47,8 @@ extension ProductsViewModel: ViewModelType {
         
         error
             .receive(on: RunLoop.main)
-            .map { $0.localizedDescription }
-            .handleEvents(receiveOutput: { errorMessage in
-                output.alertTitle = "Error"
-                output.showingAlert = !errorMessage.isEmpty
-            })
-            .assign(to: \.alertMessage, on: output)
+            .map { AlertMessage(error: $0) }
+            .assign(to: \.alert, on: output)
             .store(in: cancelBag)
         
         isLoading

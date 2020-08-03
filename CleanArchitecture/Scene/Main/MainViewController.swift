@@ -11,7 +11,7 @@ import Reusable
 import Then
 import Combine
 
-final class MainViewController: UIViewController, BindableType {
+final class MainViewController: UIViewController, Bindable {
     
     @IBOutlet weak var tableView: UITableView!
     

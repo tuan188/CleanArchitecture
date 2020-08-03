@@ -9,6 +9,7 @@
 protocol GatewaysAssembler {
     func resolve() -> ProductGatewayType
     func resolve() -> AuthGatewayType
+    func resolve() -> RepoGatewayType
 }
 
 extension GatewaysAssembler where Self: DefaultAssembler {
@@ -19,6 +20,10 @@ extension GatewaysAssembler where Self: DefaultAssembler {
     func resolve() -> AuthGatewayType {
         AuthGateway()
     }
+
+    func resolve() -> RepoGatewayType {
+        RepoGateway()
+    }
 }
 
 extension GatewaysAssembler where Self: PreviewAssembler {
@@ -28,5 +33,9 @@ extension GatewaysAssembler where Self: PreviewAssembler {
     
     func resolve() -> AuthGatewayType {
         AuthGateway()
+    }
+    
+    func resolve() -> RepoGatewayType {
+        RepoGateway()
     }
 }

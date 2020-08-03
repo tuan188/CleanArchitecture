@@ -15,7 +15,7 @@ struct MainViewModel {
 }
 
 // MARK: - ViewModelType
-extension MainViewModel: ViewModelType {
+extension MainViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
         let selectMenuTrigger: Driver<IndexPath>

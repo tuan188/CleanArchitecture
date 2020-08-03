@@ -39,7 +39,7 @@ enum ScreenLoadingType<Input> {
     case reloading(Input)
 }
 
-extension ViewModelType {
+extension ViewModel {
     public func getList<Item, Input, MappedItem>(
         errorTracker: ErrorTracker,
         loadTrigger: AnyPublisher<Input, Never>,

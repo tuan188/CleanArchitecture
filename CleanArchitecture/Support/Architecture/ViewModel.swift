@@ -8,7 +8,7 @@
 
 import Combine
 
-public protocol ViewModelType {
+public protocol ViewModel {
     associatedtype Input
     associatedtype Output
     

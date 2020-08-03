@@ -30,7 +30,7 @@ public struct GetItemResult<T> {
     }
 }
 
-extension ViewModelType {
+extension ViewModel {
     public func getItem<Item, Input>(
         errorTracker: ErrorTracker,
         loadTrigger: AnyPublisher<Input, Never>,

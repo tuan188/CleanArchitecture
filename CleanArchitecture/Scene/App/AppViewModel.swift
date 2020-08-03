@@ -14,7 +14,7 @@ struct AppViewModel {
 }
 
 // MARK: - ViewModelType
-extension AppViewModel: ViewModelType {
+extension AppViewModel: ViewModel {
     struct Input {
         let startTrigger: Driver<Void>
     }

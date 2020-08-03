@@ -15,7 +15,7 @@ struct LoginViewModel {
 }
 
 // MARK: - ViewModelType
-extension LoginViewModel: ViewModelType {
+extension LoginViewModel: ViewModel {
     final class Input: ObservableObject {
         @Published var username = ""
         @Published var password = ""
@@ -29,9 +29,7 @@ extension LoginViewModel: ViewModelType {
     final class Output: ObservableObject {
         @Published var isLoginEnabled = false
         @Published var isLoading = false
-        @Published var alertMessage = ""
-        @Published var alertTitle = ""
-        @Published var showingAlert = false
+        @Published var alert = AlertMessage()
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
@@ -48,20 +46,17 @@ extension LoginViewModel: ViewModelType {
             }
             .switchToLatest()
             .sink(receiveValue: {
-                output.alertTitle = "Login successful"
-                output.alertMessage = "Hello \(input.username). Welcome to the app!"
-                output.showingAlert = true
+                let message = AlertMessage(title: "Login successful",
+                                           message: "Hello \(input.username). Welcome to the app!",
+                                           isShowing: true)
+                output.alert = message
             })
             .store(in: cancelBag)
         
         errorTracker
             .receive(on: RunLoop.main)
-            .map { $0.localizedDescription }
-            .handleEvents(receiveOutput: { errorMessage in
-                output.alertTitle = "Error"
-                output.showingAlert = !errorMessage.isEmpty
-            })
-            .assign(to: \.alertMessage, on: output)
+            .map { AlertMessage(error: $0) }
+            .assign(to: \.alert, on: output)
             .store(in: cancelBag)
             
         activityTracker

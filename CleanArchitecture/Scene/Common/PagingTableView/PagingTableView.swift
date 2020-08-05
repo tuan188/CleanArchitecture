@@ -68,7 +68,8 @@ open class PagingTableView: UITableView {
             mj_header?.refreshingBlock = { [weak self] in
                 self?._refreshTrigger.send(())
             }
-            _refreshControl.removeFromSuperview()
+            
+            removeRefreshControl()
         }
     }
     
@@ -85,5 +86,16 @@ open class PagingTableView: UITableView {
         super.awakeFromNib()
         addSubview(_refreshControl)
         refreshFooter = RefreshAutoFooter()
+    }
+    
+    func addRefreshControl() {
+        guard !self.subviews.contains(_refreshControl) else { return }
+        
+        refreshHeader = nil
+        addSubview(_refreshControl)
+    }
+    
+    func removeRefreshControl() {
+        _refreshControl.removeFromSuperview()
     }
 }

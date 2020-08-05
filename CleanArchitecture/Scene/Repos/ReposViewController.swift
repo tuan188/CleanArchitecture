@@ -9,6 +9,7 @@
 import UIKit
 import Reusable
 import Combine
+import SDWebImage
 
 final class ReposViewController: UIViewController, Bindable {
     
@@ -43,7 +44,7 @@ final class ReposViewController: UIViewController, Bindable {
             $0.register(cellType: RepoCell.self)
             $0.delegate = self
             $0.dataSource = self
-            $0.refreshHeader = RefreshAutoHeader()
+            $0.prefetchDataSource = self
         }
     }
     
@@ -97,6 +98,21 @@ extension ReposViewController: UITableViewDataSource {
         tableView.dequeueReusableCell(for: indexPath, cellType: RepoCell.self).then {
             $0.bindViewModel(repos[indexPath.row])
         }
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+extension ReposViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        let urls = indexPaths
+            .compactMap { repos[$0.row].url }
+        
+        print("Preheat", urls)
+        SDWebImagePrefetcher.shared.prefetchURLs(urls)
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        
     }
 }
 

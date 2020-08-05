@@ -106,6 +106,11 @@
 		17A5B1F424D8080B004BD209 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F324D8080B004BD209 /* UIViewController+Combine.swift */; };
 		17A5B1F624D81561004BD209 /* GenericSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F524D81561004BD209 /* GenericSubscriber.swift */; };
 		17A5B1F824D9026D004BD209 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F724D9026D004BD209 /* BaseViewController.swift */; };
+		17A5B1FC24D948BC004BD209 /* PagingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FB24D948BC004BD209 /* PagingTableView.swift */; };
+		17A5B1FF24D9514B004BD209 /* RefreshAutoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */; };
+		17A5B20124D95168004BD209 /* RefreshAutoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */; };
+		17A5B20424D962B0004BD209 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20324D962B0004BD209 /* CombineExt */; };
+		17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20624D962CB004BD209 /* CombineCocoa */; };
 		17DCF1B624BEE76800D970B4 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B524BEE76800D970B4 /* Driver.swift */; };
 		17DCF1B924BF01ED00D970B4 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B824BF01ED00D970B4 /* Publisher+.swift */; };
 		17DCF1BB24BF028200D970B4 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1BA24BF028200D970B4 /* Double+.swift */; };
@@ -223,6 +228,9 @@
 		17A5B1F324D8080B004BD209 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		17A5B1F524D81561004BD209 /* GenericSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSubscriber.swift; sourceTree = "<group>"; };
 		17A5B1F724D9026D004BD209 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		17A5B1FB24D948BC004BD209 /* PagingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTableView.swift; sourceTree = "<group>"; };
+		17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoFooter.swift; sourceTree = "<group>"; };
+		17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoHeader.swift; sourceTree = "<group>"; };
 		17DCF1B524BEE76800D970B4 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		17DCF1B824BF01ED00D970B4 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		17DCF1BA24BF028200D970B4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
@@ -239,7 +247,9 @@
 				176BAA6524D26A1A00324D3C /* ObjectMapper in Frameworks */,
 				176BAA5F24D2690300324D3C /* Alamofire in Frameworks */,
 				176BAA4F24D1326100324D3C /* Then in Frameworks */,
+				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
 				176BAA4124D1150700324D3C /* Reusable in Frameworks */,
+				17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */,
 				50F936C2573C1C337A341E11 /* Pods_CleanArchitecture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,15 +325,9 @@
 				174A188E24C821B600AB39D9 /* LoadingView.swift */,
 				1742B37A24D7E88900C82D15 /* AlertMessage.swift */,
 				17A5B1F724D9026D004BD209 /* BaseViewController.swift */,
+				17A5B1FD24D95138004BD209 /* PagingTableView */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		1742B38224D7F9A400C82D15 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		1765B2CF24C6D5350096D210 /* Navigators */ = {
@@ -523,7 +527,6 @@
 		1787234F24BD566300D90F8E /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				1742B38224D7F9A400C82D15 /* Frameworks */,
 				1734926324C59CC00014F87E /* Architecture */,
 				17DCF1B724BF01E400D970B4 /* Extensions */,
 			);
@@ -584,6 +587,16 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
+		17A5B1FD24D95138004BD209 /* PagingTableView */ = {
+			isa = PBXGroup;
+			children = (
+				17A5B1FB24D948BC004BD209 /* PagingTableView.swift */,
+				17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */,
+				17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */,
+			);
+			path = PagingTableView;
+			sourceTree = "<group>";
+		};
 		17DCF1B724BF01E400D970B4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +651,8 @@
 				176BAA4E24D1326100324D3C /* Then */,
 				176BAA5E24D2690300324D3C /* Alamofire */,
 				176BAA6424D26A1A00324D3C /* ObjectMapper */,
+				17A5B20324D962B0004BD209 /* CombineExt */,
+				17A5B20624D962CB004BD209 /* CombineCocoa */,
 			);
 			productName = CleanArchitecture;
 			productReference = 178722F324BD537D00D90F8E /* CleanArchitecture.app */;
@@ -696,6 +711,8 @@
 				176BAA4D24D1326100324D3C /* XCRemoteSwiftPackageReference "Then" */,
 				176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */,
+				17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */,
+				17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 			);
 			productRefGroup = 178722F424BD537D00D90F8E /* Products */;
 			projectDirPath = "";
@@ -820,6 +837,7 @@
 				176BAA7124D26D6000324D3C /* Combine+Multipart.swift in Sources */,
 				176BAA3E24D10F7500324D3C /* MainViewController.swift in Sources */,
 				1781CF4424BD8FB8004ED1C6 /* ProductDetailViewModel.swift in Sources */,
+				17A5B1FC24D948BC004BD209 /* PagingTableView.swift in Sources */,
 				1742B37824D7C48400C82D15 /* RepoItemViewModel.swift in Sources */,
 				1742B36C24D7B22B00C82D15 /* ReposNavigator.swift in Sources */,
 				1742B36D24D7B22B00C82D15 /* ReposUseCase.swift in Sources */,
@@ -876,6 +894,8 @@
 				1787234024BD556E00D90F8E /* LoginUseCase.swift in Sources */,
 				1781CF4124BD8FB8004ED1C6 /* ProductDetailNavigator.swift in Sources */,
 				1765B2D324C6D6D40096D210 /* ProductRow.swift in Sources */,
+				17A5B20124D95168004BD209 /* RefreshAutoHeader.swift in Sources */,
+				17A5B1FF24D9514B004BD209 /* RefreshAutoFooter.swift in Sources */,
 				1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */,
 				176BAA7524D26E4C00324D3C /* LogOptions.swift in Sources */,
 				176BAA4824D130B800324D3C /* Bindable.swift in Sources */,
@@ -1194,6 +1214,22 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1221,6 +1257,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */;
 			productName = ObjectMapper;
+		};
+		17A5B20324D962B0004BD209 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+		17A5B20624D962CB004BD209 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,7 +13,7 @@ import Combine
 final class ReposViewController: UIViewController, Bindable {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: PagingTableView!
     
     // MARK: - Properties
     
@@ -43,14 +43,15 @@ final class ReposViewController: UIViewController, Bindable {
             $0.register(cellType: RepoCell.self)
             $0.delegate = self
             $0.dataSource = self
+            $0.refreshHeader = RefreshAutoHeader()
         }
     }
     
     func bindViewModel() {
         let input = ReposViewModel.Input(
             loadTrigger: Driver.just(()),
-            reloadTrigger: Driver.empty(),
-            loadMoreTrigger: Driver.empty(),
+            reloadTrigger: tableView.refreshTrigger,
+            loadMoreTrigger: tableView.loadMoreTrigger,
             selectRepoTrigger: selectRepoTrigger.asDriver()
         )
         
@@ -65,6 +66,8 @@ final class ReposViewController: UIViewController, Bindable {
         
         output.$alert.subscribe(alertSubscriber)
         output.$isLoading.subscribe(loadingSubscriber)
+        output.$isReloading.subscribe(tableView.isRefreshing)
+        output.$isLoadingMore.subscribe(tableView.isLoadingMore)
     }
 }
 

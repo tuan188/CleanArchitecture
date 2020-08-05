@@ -8,11 +8,11 @@
 
 import Combine
 
-struct GenericSubscriber<Value>: Subscriber {  // swiftlint:disable:this final_class
-    var combineIdentifier = CombineIdentifier()
+public struct GenericSubscriber<Value>: Subscriber {  // swiftlint:disable:this final_class
+    public var combineIdentifier = CombineIdentifier()
     private let _subscribing: (Value) -> Void
     
-    init<Target: AnyObject>(_ target: Target, subscribing: @escaping (Target, Value) -> Void) {
+    public init<Target: AnyObject>(_ target: Target, subscribing: @escaping (Target, Value) -> Void) {
         weak var weakTarget = target
         
         self._subscribing = { value in
@@ -22,15 +22,15 @@ struct GenericSubscriber<Value>: Subscriber {  // swiftlint:disable:this final_c
         }
     }
     
-    func receive(subscription: Subscription) {
+    public func receive(subscription: Subscription) {
         subscription.request(.max(1))
     }
     
-    func receive(completion: Subscribers.Completion<Never>) {
+    public func receive(completion: Subscribers.Completion<Never>) {
         
     }
     
-    func receive(_ input: Value) -> Subscribers.Demand {
+    public func receive(_ input: Value) -> Subscribers.Demand {
         _subscribing(input)
         return .unlimited
     }

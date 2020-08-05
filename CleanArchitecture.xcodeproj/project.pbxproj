@@ -65,6 +65,12 @@
 		176BAA7124D26D6000324D3C /* Combine+Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA7024D26D6000324D3C /* Combine+Multipart.swift */; };
 		176BAA7324D26DEF00324D3C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA7224D26DEF00324D3C /* APIResponse.swift */; };
 		176BAA7524D26E4C00324D3C /* LogOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA7424D26E4C00324D3C /* LogOptions.swift */; };
+		1770EC2824DAA55B0022FBFE /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */; };
+		1770EC2B24DAA5ED0022FBFE /* RepoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */; };
+		1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */; };
+		1770EC2F24DAA6570022FBFE /* RepoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */; };
+		1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */; };
+		1770EC3324DAA9AC0022FBFE /* ShowingRepoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */; };
 		1781CF3924BD8D58004ED1C6 /* GatewaysAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3824BD8D58004ED1C6 /* GatewaysAssembler.swift */; };
 		1781CF4024BD8FB8004ED1C6 /* ProductDetailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3B24BD8FB8004ED1C6 /* ProductDetailAssembler.swift */; };
 		1781CF4124BD8FB8004ED1C6 /* ProductDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3C24BD8FB8004ED1C6 /* ProductDetailNavigator.swift */; };
@@ -182,6 +188,12 @@
 		176BAA7024D26D6000324D3C /* Combine+Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Multipart.swift"; sourceTree = "<group>"; };
 		176BAA7224D26DEF00324D3C /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		176BAA7424D26E4C00324D3C /* LogOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOptions.swift; sourceTree = "<group>"; };
+		1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionView.swift; sourceTree = "<group>"; };
+		1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewController.swift; sourceTree = "<group>"; };
+		1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionCell.swift; sourceTree = "<group>"; };
+		1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCollectionCell.xib; sourceTree = "<group>"; };
+		1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCompatibility.swift; sourceTree = "<group>"; };
+		1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingRepoCollection.swift; sourceTree = "<group>"; };
 		1781CF3824BD8D58004ED1C6 /* GatewaysAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewaysAssembler.swift; sourceTree = "<group>"; };
 		1781CF3B24BD8FB8004ED1C6 /* ProductDetailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAssembler.swift; sourceTree = "<group>"; };
 		1781CF3C24BD8FB8004ED1C6 /* ProductDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailNavigator.swift; sourceTree = "<group>"; };
@@ -337,6 +349,7 @@
 				176BAA5024D1483200324D3C /* ShowingProductList.swift */,
 				176BAA5924D16BAE00324D3C /* ShowingLogin.swift */,
 				1742B37524D7B82C00C82D15 /* ShowingRepoList.swift */,
+				1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */,
 			);
 			path = Navigators;
 			sourceTree = "<group>";
@@ -373,6 +386,16 @@
 				176BAA6824D26AA300324D3C /* String+Base64.swift */,
 			);
 			path = APIService;
+			sourceTree = "<group>";
+		};
+		1770EC2924DAA5B80022FBFE /* RepoCollection */ = {
+			isa = PBXGroup;
+			children = (
+				1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */,
+				1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */,
+				1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */,
+			);
+			path = RepoCollection;
 			sourceTree = "<group>";
 		};
 		1781CF3A24BD8FA2004ED1C6 /* ProductDetail */ = {
@@ -468,6 +491,7 @@
 			children = (
 				1765B2CF24C6D5350096D210 /* Navigators */,
 				1742B37924D7E87000C82D15 /* Common */,
+				1770EC2924DAA5B80022FBFE /* RepoCollection */,
 				1742B36024D7AEC200C82D15 /* Repos */,
 				176BAA4224D1152F00324D3C /* Storyboards */,
 				1781CF3A24BD8FA2004ED1C6 /* ProductDetail */,
@@ -520,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				173865AD24D3BCBC0059E3AD /* APIUrls.swift */,
+				1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -591,6 +616,7 @@
 			isa = PBXGroup;
 			children = (
 				17A5B1FB24D948BC004BD209 /* PagingTableView.swift */,
+				1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */,
 				17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */,
 				17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */,
 			);
@@ -730,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1742B37424D7B6F300C82D15 /* Repo.storyboard in Resources */,
+				1770EC2F24DAA6570022FBFE /* RepoCollectionCell.xib in Resources */,
 				1742B37F24D7F52D00C82D15 /* RepoCell.xib in Resources */,
 				1787230324BD537E00D90F8E /* LaunchScreen.storyboard in Resources */,
 				1787230024BD537E00D90F8E /* Preview Assets.xcassets in Resources */,
@@ -820,6 +847,7 @@
 				178722F724BD537D00D90F8E /* AppDelegate.swift in Sources */,
 				17A5B1F824D9026D004BD209 /* BaseViewController.swift in Sources */,
 				1787233124BD547600D90F8E /* AppViewModel.swift in Sources */,
+				1770EC2B24DAA5ED0022FBFE /* RepoCollectionViewController.swift in Sources */,
 				173865AC24D3BC840059E3AD /* API+Repo.swift in Sources */,
 				1742B36E24D7B22B00C82D15 /* ReposViewController.swift in Sources */,
 				173865A424D3BB7A0059E3AD /* APIService.swift in Sources */,
@@ -832,6 +860,7 @@
 				173865AE24D3BCBC0059E3AD /* APIUrls.swift in Sources */,
 				17A5B1F624D81561004BD209 /* GenericSubscriber.swift in Sources */,
 				1787235824BD575E00D90F8E /* PagingInfo.swift in Sources */,
+				1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */,
 				1742B36524D7B01600C82D15 /* RepoGateway.swift in Sources */,
 				176BAA5524D158BC00324D3C /* LoginView.swift in Sources */,
 				176BAA7124D26D6000324D3C /* Combine+Multipart.swift in Sources */,
@@ -891,11 +920,14 @@
 				1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */,
 				176BAA5124D1483200324D3C /* ShowingProductList.swift in Sources */,
 				1787235B24BD578500D90F8E /* ProductGateway.swift in Sources */,
+				1770EC2824DAA55B0022FBFE /* PagingCollectionView.swift in Sources */,
 				1787234024BD556E00D90F8E /* LoginUseCase.swift in Sources */,
 				1781CF4124BD8FB8004ED1C6 /* ProductDetailNavigator.swift in Sources */,
 				1765B2D324C6D6D40096D210 /* ProductRow.swift in Sources */,
 				17A5B20124D95168004BD209 /* RefreshAutoHeader.swift in Sources */,
+				1770EC3324DAA9AC0022FBFE /* ShowingRepoCollection.swift in Sources */,
 				17A5B1FF24D9514B004BD209 /* RefreshAutoFooter.swift in Sources */,
+				1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */,
 				1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */,
 				176BAA7524D26E4C00324D3C /* LogOptions.swift in Sources */,
 				176BAA4824D130B800324D3C /* Bindable.swift in Sources */,

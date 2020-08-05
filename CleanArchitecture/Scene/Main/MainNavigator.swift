@@ -17,7 +17,7 @@ protocol MainNavigatorType {
     func toLogin()
 }
 
-struct MainNavigator: MainNavigatorType, ShowingProductList, ShowingLogin, ShowingRepoList {
+struct MainNavigator: MainNavigatorType, ShowingProductList, ShowingLogin, ShowingRepoList, ShowingRepoCollection {
     unowned let assembler: Assembler
     unowned let navigationController: UINavigationController
     
@@ -35,8 +35,7 @@ struct MainNavigator: MainNavigatorType, ShowingProductList, ShowingLogin, Showi
     }
     
     func toRepoCollection() {
-//        let vc: RepoCollectionViewController = assembler.resolve(navigationController: navigationController)
-//        navigationController.pushViewController(vc, animated: true)
+        showRepoCollection()
     }
     
     func toUsers() {

@@ -76,6 +76,7 @@ final class RepoCollectionViewController: UIViewController, Bindable {
             $0.dataSource = self
             $0.delegate = self
             $0.refreshHeader = RefreshAutoHeader()
+            // need to set the Estimate Size to None in the collection view size panel.
         }
         
         view.backgroundColor = ColorCompatibility.systemBackground

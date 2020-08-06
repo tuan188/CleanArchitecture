@@ -72,6 +72,15 @@
           "revision": "e421a7b3440a271834337694e6050133a3958bc7",
           "version": "2.7.0"
         }
+      },
+      {
+        "package": "Validator",
+        "repositoryURL": "https://github.com/tuan188/Validator.git",
+        "state": {
+          "branch": null,
+          "revision": "8dacfee6a28b1b8ffe3aa082b0647328dde454d7",
+          "version": "3.2.2"
+        }
       }
     ]
   },

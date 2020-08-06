@@ -18,14 +18,27 @@ struct LoginView: View {
     var body: some View {
         LoadingView(isShowing: $output.isLoading, text: .constant("")) {
             VStack(alignment: .leading) {
-                Text("Username:")
+                Text("User name:")
                 TextField("", text: self.$input.username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                Text(self.output.usernameValidationMessage)
+                    .foregroundColor(.red)
+                    .font(.footnote)
                 Text("Password:")
+                    .padding(.top)
                 SecureField("", text: self.$input.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("Login") {
-                    self.loginTrigger.send(())
+                Text(self.output.passwordValidationMessage)
+                    .foregroundColor(.red)
+                    .font(.footnote)
+                HStack {
+                    Spacer()
+                    Button("Login") {
+                        self.loginTrigger.send(())
+                    }
+                    .disabled(!self.output.isLoginEnabled)
+                    .padding(.top)
+                    Spacer()
                 }
                 Spacer()
             }

@@ -8,6 +8,8 @@
 
 import Combine
 import SwiftUI
+import Validator
+import CombineExt
 
 struct LoginViewModel {
     let navigator: LoginNavigatorType
@@ -27,9 +29,11 @@ extension LoginViewModel: ViewModel {
     }
     
     final class Output: ObservableObject {
-        @Published var isLoginEnabled = false
+        @Published var isLoginEnabled = true
         @Published var isLoading = false
         @Published var alert = AlertMessage()
+        @Published var usernameValidationMessage = ""
+        @Published var passwordValidationMessage = ""
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
@@ -37,8 +41,38 @@ extension LoginViewModel: ViewModel {
         let activityTracker = ActivityTracker(false)
         let output = Output()
         
+        let usernameValidation = Publishers
+            .CombineLatest(input.$username, input.loginTrigger)
+            .map { $0.0 }
+            .map(useCase.validateUserName(_:))
+        
+        usernameValidation
+            .asDriver()
+            .map { $0.message }
+            .assign(to: \.usernameValidationMessage, on: output)
+            .store(in: cancelBag)
+        
+        let passwordValidation = Publishers
+            .CombineLatest(input.$password, input.loginTrigger)
+            .map { $0.0 }
+            .map(useCase.validatePassword(_:))
+            
+        passwordValidation
+            .asDriver()
+            .map { $0.message }
+            .assign(to: \.passwordValidationMessage, on: output)
+            .store(in: cancelBag)
+        
+        Publishers
+            .CombineLatest(usernameValidation, passwordValidation)
+            .map { $0.0.isValid && $0.1.isValid }
+            .assign(to: \.isLoginEnabled, on: output)
+            .store(in: cancelBag)
+        
         input.loginTrigger
-            .map {
+            .delay(for: 0.1, scheduler: RunLoop.main)  // waiting for username/password validation
+            .filter { output.isLoginEnabled }
+            .map { _ in
                 self.useCase.login(username: input.username, password: input.password)
                     .trackError(errorTracker)
                     .trackActivity(activityTracker)

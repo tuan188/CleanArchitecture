@@ -34,19 +34,13 @@ extension ReposViewModel: ViewModel {
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let output = Output()
-        let pageSubject = CurrentValueSubject<PagingInfo<Repo>, Never>(PagingInfo())
-        let errorTracker = ErrorTracker()
         
-        let getPageResult = getPage(
-            pageSubject: pageSubject,
-            errorTracker: errorTracker,
-            loadTrigger: input.loadTrigger,
-            reloadTrigger: input.reloadTrigger,
-            loadMoreTrigger: input.loadMoreTrigger,
-            getItems: { _, page in self.useCase.getRepos(page: page) },
-            mapper: { $0 })
+        let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
+                                        reloadTrigger: input.reloadTrigger,
+                                        loadMoreTrigger: input.loadMoreTrigger,
+                                        getItems: useCase.getRepos)
         
-        let (page, error, isLoading, isReloading, isLoadingMore) = getPageResult.destructured
+        let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
 
         page
             .map { $0.items.map(RepoItemViewModel.init) }
@@ -55,7 +49,7 @@ extension ReposViewModel: ViewModel {
         
         input.selectRepoTrigger
             .handleEvents(receiveOutput: { indexPath in
-                let repo = pageSubject.value.items[indexPath.row]
+                let repo = getPageInput.pageSubject.value.items[indexPath.row]
                 self.navigator.toRepoDetail(repo: repo)
             })
             .sink()

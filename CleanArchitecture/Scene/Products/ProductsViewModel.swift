@@ -30,13 +30,11 @@ extension ProductsViewModel: ViewModel {
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
-        let result = getList(
-            loadTrigger: input.loadTrigger,
-            reloadTrigger: input.reloadTrigger,
-            getItems: useCase.getProducts
-        )
-        
-        let (products, error, isLoading, isReloading) = result.destructured
+        let getListInput = GetListInput(loadTrigger: input.loadTrigger,
+                                        reloadTrigger: input.reloadTrigger,
+                                        getItems: useCase.getProducts)
+
+        let (products, error, isLoading, isReloading) = getList(input: getListInput).destructured
         
         let output = Output()
         

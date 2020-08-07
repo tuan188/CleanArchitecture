@@ -85,7 +85,7 @@ opt_in_rules: # some rules are only opt-in
   # - multiple_closures_with_trailing_closure
   - nesting
   - nimble_operator
-  - no_extension_access_modifier
+  # - no_extension_access_modifier
   - no_fallthrough_only
   # - no_grouping_extension
   - notification_center_detachment

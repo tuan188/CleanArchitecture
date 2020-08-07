@@ -112,11 +112,10 @@ open class APIBase {
             .map { [unowned self] input -> DataRequest in
                 let request = self.manager.request(
                     input.urlString,
-                    method: input.requestType,
+                    method: input.method,
                     parameters: input.parameters,
-                    headers: nil,
-                    interceptor: nil,
-                    requestModifier: nil
+                    encoding: input.endcoding,
+                    headers: input.headers
                 )
                 
                 if let username = username, let password = password {
@@ -151,7 +150,7 @@ open class APIBase {
             })
             .eraseToAnyPublisher()
         
-            return urlRequest
+        return urlRequest
     }
     
     open func preprocess(_ input: APIInputBase) -> AnyPublisher<APIInputBase, Error> {

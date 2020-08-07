@@ -7,18 +7,17 @@
 //
 
 import ObjectMapper
+import Alamofire
 
+// MARK: - GetRepoList
 extension API {
     func getRepoList(_ input: GetRepoListInput) -> Observable<GetRepoListOutput> {
         return request(input)
     }
-}
-
-// MARK: - GetRepoList
-extension API {
+    
     final class GetRepoListInput: APIInput {
         init(page: Int, perPage: Int = 10) {
-            let params: JSONDictionary = [
+            let params: Parameters = [
                 "q": "language:swift",
                 "per_page": perPage,
                 "page": page
@@ -26,7 +25,7 @@ extension API {
             
             super.init(urlString: API.Urls.getRepoList,
                        parameters: params,
-                       requestType: .get,
+                       method: .get,
                        requireAccessToken: true)
         }
     }

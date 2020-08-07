@@ -10,12 +10,12 @@ import Alamofire
 
 class APIInput: APIInputBase {  // swiftlint:disable:this final_class
     override init(urlString: String,
-                  parameters: [String: Any]?,
-                  requestType: HTTPMethod,
+                  parameters: Parameters?,
+                  method: HTTPMethod,
                   requireAccessToken: Bool) {
         super.init(urlString: urlString,
                    parameters: parameters,
-                   requestType: requestType,
+                   method: method,
                    requireAccessToken: requireAccessToken)
         self.headers = [
             "Content-Type": "application/json; charset=utf-8",

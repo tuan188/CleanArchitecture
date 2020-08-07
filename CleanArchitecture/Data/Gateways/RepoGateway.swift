@@ -16,6 +16,8 @@ protocol RepoGatewayType {
 struct RepoGateway: RepoGatewayType {
     func getRepos(page: Int, perPage: Int, usingCache: Bool) -> Observable<PagingInfo<Repo>> {
         let input = API.GetRepoListInput(page: page, perPage: perPage)
+        input.usingCache = usingCache
+        
         return API.shared.getRepoList(input)
             .map { (output) -> [Repo]? in
                 return output.repos

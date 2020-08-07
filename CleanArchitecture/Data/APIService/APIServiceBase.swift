@@ -140,7 +140,7 @@ open class APIBase {
                 return try self.handleRequestError(error, input: input)
             }
             .handleEvents(receiveOutput: { response in
-                if input.useCache {
+                if input.usingCache {
                     DispatchQueue.global().async {
                         try? CacheManager.sharedInstance.write(urlString: input.urlEncodingString,
                                                                data: response.data,
@@ -150,7 +150,29 @@ open class APIBase {
             })
             .eraseToAnyPublisher()
         
-        return urlRequest
+        let cacheRequest: AnyPublisher<APIResponse<U>, Error> = Just(input)
+            .setFailureType(to: Error.self)
+            .filter { $0.usingCache }
+            .tryMap { input -> (Any, ResponseHeader?) in
+                return try CacheManager.sharedInstance.read(urlString: input.urlEncodingString)
+            }
+            .catch { _ in Empty() }
+            .filter { $0.0 is U }
+            .map { data, header -> APIResponse<U> in
+                APIResponse(header: header, data: data as! U) // swiftlint:disable:this force_cast
+            }
+            .handleEvents(receiveOutput: { [unowned self] response in
+                if self.logOptions.contains(.cache) {
+                    print("[CACHE]")
+                    print(response.data)
+                }
+            })
+            .eraseToAnyPublisher()
+        
+        return input.usingCache
+            ? Publishers.Concatenate(prefix: cacheRequest, suffix: urlRequest)
+                .eraseToAnyPublisher()
+            : urlRequest
     }
     
     open func preprocess(_ input: APIInputBase) -> AnyPublisher<APIInputBase, Error> {

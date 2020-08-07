@@ -18,7 +18,7 @@ open class APIInputBase {
     public var requireAccessToken: Bool
     public var accessToken: String?
     
-    public var useCache: Bool = false {
+    public var usingCache: Bool = false {
         didSet {
             if method != .get || self is APIUploadInputBase {
                 fatalError()  // swiftlint:disable:this fatal_error_message

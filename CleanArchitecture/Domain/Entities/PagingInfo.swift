@@ -55,3 +55,7 @@ public struct PagingInfo<T> {
                   totalPages: 0)
     }
 }
+
+extension PagingInfo: Equatable where T: Equatable {
+    
+}

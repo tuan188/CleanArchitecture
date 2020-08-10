@@ -24,16 +24,6 @@ final class MainViewController: UIViewController, Bindable {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
-        
-//        let input = API.GetRepoListInput(page: 1)
-//        
-//        API.shared.getRepoList(input)
-//            .sink(receiveCompletion: { (completion) in
-//                print(completion)
-//            }) { (output) in
-//                print(output)
-//            }
-//            .store(in: cancelBag)
     }
     
     private func configView() {
@@ -58,6 +48,7 @@ final class MainViewController: UIViewController, Bindable {
 
 }
 
+// MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return output.menuSections[section].title
@@ -69,6 +60,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return output.menuSections.count
@@ -87,6 +79,7 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - StoryboardSceneBased
 extension MainViewController: StoryboardSceneBased {
     static var sceneStoryboard = Storyboards.main
 }

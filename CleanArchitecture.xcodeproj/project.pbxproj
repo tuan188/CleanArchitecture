@@ -33,6 +33,10 @@
 		1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37C24D7F52D00C82D15 /* RepoCell.swift */; };
 		1742B37F24D7F52D00C82D15 /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1742B37D24D7F52D00C82D15 /* RepoCell.xib */; };
 		1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B38024D7F66400C82D15 /* UIImageView+SDWebImage.swift */; };
+		1745D6F324E0E89F009B0608 /* AppViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6EF24E0E89F009B0608 /* AppViewModelTests.swift */; };
+		1745D6F424E0E89F009B0608 /* AppNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6F024E0E89F009B0608 /* AppNavigatorMock.swift */; };
+		1745D6F524E0E89F009B0608 /* AppUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6F124E0E89F009B0608 /* AppUseCaseMock.swift */; };
+		1745D6FA24E0F130009B0608 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6F924E0F130009B0608 /* XCTestCase+.swift */; };
 		174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 174A188924C81EEA00AB39D9 /* SwiftUIRefresh */; };
 		174A188D24C8219300AB39D9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A188C24C8219300AB39D9 /* ActivityIndicator.swift */; };
 		174A188F24C821B600AB39D9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A188E24C821B600AB39D9 /* LoadingView.swift */; };
@@ -167,6 +171,10 @@
 		1742B37C24D7F52D00C82D15 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		1742B37D24D7F52D00C82D15 /* RepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
 		1742B38024D7F66400C82D15 /* UIImageView+SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SDWebImage.swift"; sourceTree = "<group>"; };
+		1745D6EF24E0E89F009B0608 /* AppViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModelTests.swift; sourceTree = "<group>"; };
+		1745D6F024E0E89F009B0608 /* AppNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigatorMock.swift; sourceTree = "<group>"; };
+		1745D6F124E0E89F009B0608 /* AppUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUseCaseMock.swift; sourceTree = "<group>"; };
+		1745D6F924E0F130009B0608 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		174A188C24C8219300AB39D9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		174A188E24C821B600AB39D9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1765B2CB24C68D940096D210 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
@@ -355,6 +363,47 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		1745D6EA24E0E841009B0608 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1745D6ED24E0E882009B0608 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1745D6EB24E0E84D009B0608 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1745D6EC24E0E86A009B0608 /* App */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1745D6EC24E0E86A009B0608 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1745D6EF24E0E89F009B0608 /* AppViewModelTests.swift */,
+				1745D6F024E0E89F009B0608 /* AppNavigatorMock.swift */,
+				1745D6F124E0E89F009B0608 /* AppUseCaseMock.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1745D6ED24E0E882009B0608 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		1745D6F824E0F123009B0608 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1745D6F924E0F130009B0608 /* XCTestCase+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1765B2CF24C6D5350096D210 /* Navigators */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +534,9 @@
 		1787230C24BD537E00D90F8E /* CleanArchitectureTests */ = {
 			isa = PBXGroup;
 			children = (
+				1745D6F824E0F123009B0608 /* Extensions */,
+				1745D6EB24E0E84D009B0608 /* Scene */,
+				1745D6EA24E0E841009B0608 /* Domain */,
 				1787230F24BD537E00D90F8E /* Info.plist */,
 			);
 			path = CleanArchitectureTests;
@@ -744,6 +796,7 @@
 					};
 					1787230824BD537E00D90F8E = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1160;
 						TestTargetID = 178722F224BD537D00D90F8E;
 					};
 				};
@@ -977,6 +1030,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1745D6F324E0E89F009B0608 /* AppViewModelTests.swift in Sources */,
+				1745D6F424E0E89F009B0608 /* AppNavigatorMock.swift in Sources */,
+				1745D6FA24E0F130009B0608 /* XCTestCase+.swift in Sources */,
+				1745D6F524E0E89F009B0608 /* AppUseCaseMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1168,6 +1225,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CleanArchitectureTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -1178,6 +1236,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanArchitecture.app/CleanArchitecture";
@@ -1189,6 +1248,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CleanArchitectureTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

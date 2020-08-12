@@ -41,6 +41,12 @@
 		1745D70124E0F295009B0608 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6FD24E0F295009B0608 /* MainViewModelTests.swift */; };
 		1745D70224E0F295009B0608 /* MainNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6FE24E0F295009B0608 /* MainNavigatorMock.swift */; };
 		1745D70324E0F295009B0608 /* MainUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6FF24E0F295009B0608 /* MainUseCaseMock.swift */; };
+		1745D70524E2489D009B0608 /* LoggingInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70424E2489D009B0608 /* LoggingInTests.swift */; };
+		1745D70924E2496C009B0608 /* AuthGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70824E2496C009B0608 /* AuthGatewayMock.swift */; };
+		1745D71024E24B22009B0608 /* ProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70C24E24B22009B0608 /* ProductsViewModelTests.swift */; };
+		1745D71124E24B22009B0608 /* ProductsNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70D24E24B22009B0608 /* ProductsNavigatorMock.swift */; };
+		1745D71224E24B22009B0608 /* ProductsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70E24E24B22009B0608 /* ProductsUseCaseMock.swift */; };
+		1745D71424E25378009B0608 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D71324E25378009B0608 /* TestError.swift */; };
 		174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 174A188924C81EEA00AB39D9 /* SwiftUIRefresh */; };
 		174A188D24C8219300AB39D9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A188C24C8219300AB39D9 /* ActivityIndicator.swift */; };
 		174A188F24C821B600AB39D9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A188E24C821B600AB39D9 /* LoadingView.swift */; };
@@ -183,6 +189,12 @@
 		1745D6FD24E0F295009B0608 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		1745D6FE24E0F295009B0608 /* MainNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigatorMock.swift; sourceTree = "<group>"; };
 		1745D6FF24E0F295009B0608 /* MainUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUseCaseMock.swift; sourceTree = "<group>"; };
+		1745D70424E2489D009B0608 /* LoggingInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingInTests.swift; sourceTree = "<group>"; };
+		1745D70824E2496C009B0608 /* AuthGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGatewayMock.swift; sourceTree = "<group>"; };
+		1745D70C24E24B22009B0608 /* ProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModelTests.swift; sourceTree = "<group>"; };
+		1745D70D24E24B22009B0608 /* ProductsNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsNavigatorMock.swift; sourceTree = "<group>"; };
+		1745D70E24E24B22009B0608 /* ProductsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsUseCaseMock.swift; sourceTree = "<group>"; };
+		1745D71324E25378009B0608 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		174A188C24C8219300AB39D9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		174A188E24C821B600AB39D9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1765B2CB24C68D940096D210 /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
@@ -382,6 +394,7 @@
 		1745D6EB24E0E84D009B0608 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1745D70A24E24AFE009B0608 /* Products */,
 				1745D6FB24E0F289009B0608 /* Main */,
 				1745D6EC24E0E86A009B0608 /* App */,
 			);
@@ -401,6 +414,7 @@
 		1745D6ED24E0E882009B0608 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				1745D70424E2489D009B0608 /* LoggingInTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -422,6 +436,32 @@
 				1745D6FF24E0F295009B0608 /* MainUseCaseMock.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		1745D70624E24943009B0608 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1745D70724E2494A009B0608 /* Gateways */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1745D70724E2494A009B0608 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				1745D70824E2496C009B0608 /* AuthGatewayMock.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		1745D70A24E24AFE009B0608 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1745D70C24E24B22009B0608 /* ProductsViewModelTests.swift */,
+				1745D70D24E24B22009B0608 /* ProductsNavigatorMock.swift */,
+				1745D70E24E24B22009B0608 /* ProductsUseCaseMock.swift */,
+			);
+			path = Products;
 			sourceTree = "<group>";
 		};
 		1765B2CF24C6D5350096D210 /* Navigators */ = {
@@ -554,10 +594,12 @@
 		1787230C24BD537E00D90F8E /* CleanArchitectureTests */ = {
 			isa = PBXGroup;
 			children = (
+				1745D70624E24943009B0608 /* Data */,
 				1745D6F824E0F123009B0608 /* Extensions */,
 				1745D6EB24E0E84D009B0608 /* Scene */,
 				1745D6EA24E0E841009B0608 /* Domain */,
 				1787230F24BD537E00D90F8E /* Info.plist */,
+				1745D71324E25378009B0608 /* TestError.swift */,
 			);
 			path = CleanArchitectureTests;
 			sourceTree = "<group>";
@@ -1052,12 +1094,18 @@
 			files = (
 				1745D70324E0F295009B0608 /* MainUseCaseMock.swift in Sources */,
 				1745D6F324E0E89F009B0608 /* AppViewModelTests.swift in Sources */,
+				1745D70524E2489D009B0608 /* LoggingInTests.swift in Sources */,
 				1745D6F424E0E89F009B0608 /* AppNavigatorMock.swift in Sources */,
 				1745D6FA24E0F130009B0608 /* XCTestCase+.swift in Sources */,
 				1745D70124E0F295009B0608 /* MainViewModelTests.swift in Sources */,
+				1745D71024E24B22009B0608 /* ProductsViewModelTests.swift in Sources */,
+				1745D70924E2496C009B0608 /* AuthGatewayMock.swift in Sources */,
 				1745D6F524E0E89F009B0608 /* AppUseCaseMock.swift in Sources */,
+				1745D71224E24B22009B0608 /* ProductsUseCaseMock.swift in Sources */,
 				1745D70024E0F295009B0608 /* MainViewControllerTests.swift in Sources */,
 				1745D70224E0F295009B0608 /* MainNavigatorMock.swift in Sources */,
+				1745D71424E25378009B0608 /* TestError.swift in Sources */,
+				1745D71124E24B22009B0608 /* ProductsNavigatorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

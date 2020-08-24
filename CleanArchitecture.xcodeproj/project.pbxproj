@@ -486,12 +486,12 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		176BAA5624D1679700324D3C /* Login */ = {
+		176BAA5624D1679700324D3C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				176BAA5724D167A400324D3C /* LoggingIn.swift */,
 			);
-			path = Login;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		176BAA6024D2692400324D3C /* APIService */ = {
@@ -711,7 +711,7 @@
 			children = (
 				1770EC3924DBA70E0022FBFE /* User */,
 				1742B36124D7AFEA00C82D15 /* Repo */,
-				176BAA5624D1679700324D3C /* Login */,
+				176BAA5624D1679700324D3C /* Auth */,
 				1787235424BD570400D90F8E /* Product */,
 			);
 			path = UseCases;

@@ -8,12 +8,18 @@
 
 import Combine
 
+struct GetReposDto {
+    var page = 1
+    var perPage = 10
+    var usingCache = false
+}
+
 protocol GettingRepos {
     var repoGateway: RepoGatewayType { get }
 }
 
 extension GettingRepos {
-    func getRepos(page: Int, perPage: Int, usingCache: Bool) -> Observable<PagingInfo<Repo>> {
-        repoGateway.getRepos(page: page, perPage: perPage, usingCache: usingCache)
+    func getRepos(_ dto: GetReposDto) -> Observable<PagingInfo<Repo>> {
+        repoGateway.getRepos(dto)
     }
 }

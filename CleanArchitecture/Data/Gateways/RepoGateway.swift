@@ -10,26 +10,25 @@ import Combine
 import Foundation
 
 protocol RepoGatewayType {
-    func getRepos(page: Int, perPage: Int, usingCache: Bool) -> Observable<PagingInfo<Repo>>
+    func getRepos(_ dto: GetReposDto) -> Observable<PagingInfo<Repo>>
 }
 
 struct RepoGateway: RepoGatewayType {
-    func getRepos(page: Int, perPage: Int, usingCache: Bool) -> Observable<PagingInfo<Repo>> {
-        let input = API.GetRepoListInput(page: page, perPage: perPage)
-        input.usingCache = usingCache
+    func getRepos(_ dto: GetReposDto) -> Observable<PagingInfo<Repo>> {
+        let input = API.GetRepoListInput(dto: dto)
         
         return API.shared.getRepoList(input)
             .map { (output) -> [Repo]? in
                 return output.repos
             }
             .replaceNil(with: [])
-            .map { PagingInfo(page: page, items: $0) }
+            .map { PagingInfo(page: dto.page, items: $0) }
             .eraseToAnyPublisher()
     }
 }
 
 struct PreviewRepoGateway: RepoGatewayType {
-    func getRepos(page: Int, perPage: Int, usingCache: Bool) -> Observable<PagingInfo<Repo>> {
+    func getRepos(_ dto: GetReposDto) -> Observable<PagingInfo<Repo>> {
         Future<PagingInfo<Repo>, Error> { promise in
             let repos = [
                 Repo(id: 0,

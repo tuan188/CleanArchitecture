@@ -16,17 +16,19 @@ extension API {
     }
     
     final class GetRepoListInput: APIInput {
-        init(page: Int, perPage: Int = 10) {
+        init(dto: GetReposDto) {
             let params: Parameters = [
                 "q": "language:swift",
-                "per_page": perPage,
-                "page": page
+                "per_page": dto.perPage,
+                "page": dto.page
             ]
             
             super.init(urlString: API.Urls.getRepoList,
                        parameters: params,
                        method: .get,
                        requireAccessToken: true)
+            
+            usingCache = dto.usingCache
         }
     }
     

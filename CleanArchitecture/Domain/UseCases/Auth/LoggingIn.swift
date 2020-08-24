@@ -9,12 +9,17 @@
 import Combine
 import Foundation
 
+struct LoginDto {
+    var username = ""
+    var password = ""
+}
+
 protocol LoggingIn {
     var authGateway: AuthGatewayType { get }
 }
 
 extension LoggingIn {
-    func login(username: String, password: String) -> Observable<Void> {
-        authGateway.login(username: username, password: password)
+    func login(dto: LoginDto) -> Observable<Void> {
+        authGateway.login(dto: dto)
     }
 }

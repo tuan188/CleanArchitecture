@@ -17,7 +17,7 @@ final class AuthGatewayMock: AuthGatewayType {
     var loginCalled = false
     var loginReturnValue: Result<Void, Error> = .success(())
     
-    func login(username: String, password: String) -> Observable<Void> {
+    func login(dto: LoginDto) -> Observable<Void> {
         loginCalled = true
         return loginReturnValue.publisher.eraseToAnyPublisher()
     }

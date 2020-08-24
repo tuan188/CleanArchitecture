@@ -74,12 +74,12 @@
         }
       },
       {
-        "package": "Validator",
-        "repositoryURL": "https://github.com/tuan188/Validator.git",
+        "package": "ValidatedPropertyKit",
+        "repositoryURL": "https://github.com/SvenTiigi/ValidatedPropertyKit.git",
         "state": {
           "branch": null,
-          "revision": "8dacfee6a28b1b8ffe3aa082b0647328dde454d7",
-          "version": "3.2.2"
+          "revision": "760c3c708e88c5e3c113e3a4dc26324ebaf351f7",
+          "version": "0.0.4"
         }
       }
     ]

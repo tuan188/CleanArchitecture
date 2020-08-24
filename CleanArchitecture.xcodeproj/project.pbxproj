@@ -85,12 +85,9 @@
 		1770EC2F24DAA6570022FBFE /* RepoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */; };
 		1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */; };
 		1770EC3324DAA9AC0022FBFE /* ShowingRepoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */; };
-		1770EC3824DBA3560022FBFE /* Validator in Frameworks */ = {isa = PBXBuildFile; productRef = 1770EC3724DBA3560022FBFE /* Validator */; };
-		1770EC3B24DBA71D0022FBFE /* ValidatingUserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3A24DBA71D0022FBFE /* ValidatingUserName.swift */; };
-		1770EC3D24DBA7450022FBFE /* UserValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3C24DBA7440022FBFE /* UserValidationError.swift */; };
-		1770EC3F24DBA7670022FBFE /* ValidatingPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3E24DBA7670022FBFE /* ValidatingPassword.swift */; };
-		1770EC4124DBBB0D0022FBFE /* ValidationResult+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC4024DBBB0D0022FBFE /* ValidationResult+.swift */; };
 		1770EC4324DD2F2F0022FBFE /* ScreenLoadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC4224DD2F2F0022FBFE /* ScreenLoadingType.swift */; };
+		177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 177428D424F3691B00C141E4 /* ValidatedPropertyKit */; };
+		177428D724F3ADA600C141E4 /* Dto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177428D624F3ADA600C141E4 /* Dto.swift */; };
 		1781CF3924BD8D58004ED1C6 /* GatewaysAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3824BD8D58004ED1C6 /* GatewaysAssembler.swift */; };
 		1781CF4024BD8FB8004ED1C6 /* ProductDetailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3B24BD8FB8004ED1C6 /* ProductDetailAssembler.swift */; };
 		1781CF4124BD8FB8004ED1C6 /* ProductDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3C24BD8FB8004ED1C6 /* ProductDetailNavigator.swift */; };
@@ -228,11 +225,8 @@
 		1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCollectionCell.xib; sourceTree = "<group>"; };
 		1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCompatibility.swift; sourceTree = "<group>"; };
 		1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingRepoCollection.swift; sourceTree = "<group>"; };
-		1770EC3A24DBA71D0022FBFE /* ValidatingUserName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingUserName.swift; sourceTree = "<group>"; };
-		1770EC3C24DBA7440022FBFE /* UserValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationError.swift; sourceTree = "<group>"; };
-		1770EC3E24DBA7670022FBFE /* ValidatingPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingPassword.swift; sourceTree = "<group>"; };
-		1770EC4024DBBB0D0022FBFE /* ValidationResult+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationResult+.swift"; sourceTree = "<group>"; };
 		1770EC4224DD2F2F0022FBFE /* ScreenLoadingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLoadingType.swift; sourceTree = "<group>"; };
+		177428D624F3ADA600C141E4 /* Dto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dto.swift; sourceTree = "<group>"; };
 		1781CF3824BD8D58004ED1C6 /* GatewaysAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewaysAssembler.swift; sourceTree = "<group>"; };
 		1781CF3B24BD8FB8004ED1C6 /* ProductDetailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailAssembler.swift; sourceTree = "<group>"; };
 		1781CF3C24BD8FB8004ED1C6 /* ProductDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailNavigator.swift; sourceTree = "<group>"; };
@@ -296,7 +290,7 @@
 			files = (
 				174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */,
 				176BAA6524D26A1A00324D3C /* ObjectMapper in Frameworks */,
-				1770EC3824DBA3560022FBFE /* Validator in Frameworks */,
+				177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */,
 				176BAA5F24D2690300324D3C /* Alamofire in Frameworks */,
 				176BAA4F24D1326100324D3C /* Then in Frameworks */,
 				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
@@ -520,16 +514,6 @@
 			path = RepoCollection;
 			sourceTree = "<group>";
 		};
-		1770EC3924DBA70E0022FBFE /* User */ = {
-			isa = PBXGroup;
-			children = (
-				1770EC3A24DBA71D0022FBFE /* ValidatingUserName.swift */,
-				1770EC3E24DBA7670022FBFE /* ValidatingPassword.swift */,
-				1770EC3C24DBA7440022FBFE /* UserValidationError.swift */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		1781CF3A24BD8FA2004ED1C6 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,10 +693,10 @@
 		1787235124BD56CD00D90F8E /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				1770EC3924DBA70E0022FBFE /* User */,
 				1742B36124D7AFEA00C82D15 /* Repo */,
 				176BAA5624D1679700324D3C /* Auth */,
 				1787235424BD570400D90F8E /* Product */,
+				177428D624F3ADA600C141E4 /* Dto.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -769,7 +753,6 @@
 				17A5B1F124D804DA004BD209 /* UIViewController+.swift */,
 				17A5B1F324D8080B004BD209 /* UIViewController+Combine.swift */,
 				1742B38024D7F66400C82D15 /* UIImageView+SDWebImage.swift */,
-				1770EC4024DBBB0D0022FBFE /* ValidationResult+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -818,7 +801,7 @@
 				176BAA6424D26A1A00324D3C /* ObjectMapper */,
 				17A5B20324D962B0004BD209 /* CombineExt */,
 				17A5B20624D962CB004BD209 /* CombineCocoa */,
-				1770EC3724DBA3560022FBFE /* Validator */,
+				177428D424F3691B00C141E4 /* ValidatedPropertyKit */,
 			);
 			productName = CleanArchitecture;
 			productReference = 178722F324BD537D00D90F8E /* CleanArchitecture.app */;
@@ -880,7 +863,7 @@
 				176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 				17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
-				1770EC3624DBA3560022FBFE /* XCRemoteSwiftPackageReference "Validator" */,
+				177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */,
 			);
 			productRefGroup = 178722F424BD537D00D90F8E /* Products */;
 			projectDirPath = "";
@@ -1005,7 +988,6 @@
 				1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */,
 				1742B36524D7B01600C82D15 /* RepoGateway.swift in Sources */,
 				176BAA5524D158BC00324D3C /* LoginView.swift in Sources */,
-				1770EC3B24DBA71D0022FBFE /* ValidatingUserName.swift in Sources */,
 				176BAA7124D26D6000324D3C /* Combine+Multipart.swift in Sources */,
 				176BAA3E24D10F7500324D3C /* MainViewController.swift in Sources */,
 				1781CF4424BD8FB8004ED1C6 /* ProductDetailViewModel.swift in Sources */,
@@ -1025,6 +1007,7 @@
 				178809AA24C0412F00002215 /* Observable.swift in Sources */,
 				1742B37B24D7E88900C82D15 /* AlertMessage.swift in Sources */,
 				176BAA5C24D175C200324D3C /* AuthGateway.swift in Sources */,
+				177428D724F3ADA600C141E4 /* Dto.swift in Sources */,
 				1787233324BD54B600D90F8E /* Assembler.swift in Sources */,
 				176BAA5A24D16BAE00324D3C /* ShowingLogin.swift in Sources */,
 				173865A824D3BC490059E3AD /* APIInput.swift in Sources */,
@@ -1043,7 +1026,6 @@
 				176BAA7324D26DEF00324D3C /* APIResponse.swift in Sources */,
 				1734926524C59D2A0014F87E /* AppError.swift in Sources */,
 				17A5B1F224D804DA004BD209 /* UIViewController+.swift in Sources */,
-				1770EC3F24DBA7670022FBFE /* ValidatingPassword.swift in Sources */,
 				1787234A24BD560500D90F8E /* MainNavigator.swift in Sources */,
 				1781CF4024BD8FB8004ED1C6 /* ProductDetailAssembler.swift in Sources */,
 				1787233F24BD556E00D90F8E /* LoginNavigator.swift in Sources */,
@@ -1064,7 +1046,6 @@
 				1787232E24BD547600D90F8E /* AppNavigator.swift in Sources */,
 				1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */,
 				176BAA5124D1483200324D3C /* ShowingProductList.swift in Sources */,
-				1770EC3D24DBA7450022FBFE /* UserValidationError.swift in Sources */,
 				1787235B24BD578500D90F8E /* ProductGateway.swift in Sources */,
 				1770EC2824DAA55B0022FBFE /* PagingCollectionView.swift in Sources */,
 				1787234024BD556E00D90F8E /* LoginUseCase.swift in Sources */,
@@ -1084,7 +1065,6 @@
 				173865B024D40FBE0059E3AD /* ViewModel+GetItem.swift in Sources */,
 				1742B36B24D7B22B00C82D15 /* ReposAssembler.swift in Sources */,
 				1765B2CC24C68D940096D210 /* CancelBag.swift in Sources */,
-				1770EC4124DBBB0D0022FBFE /* ValidationResult+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,12 +1390,12 @@
 				minimumVersion = 4.2.0;
 			};
 		};
-		1770EC3624DBA3560022FBFE /* XCRemoteSwiftPackageReference "Validator" */ = {
+		177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tuan188/Validator.git";
+			repositoryURL = "https://github.com/SvenTiigi/ValidatedPropertyKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.2;
+				minimumVersion = 0.0.4;
 			};
 		};
 		17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
@@ -1462,10 +1442,10 @@
 			package = 176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */;
 			productName = ObjectMapper;
 		};
-		1770EC3724DBA3560022FBFE /* Validator */ = {
+		177428D424F3691B00C141E4 /* ValidatedPropertyKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1770EC3624DBA3560022FBFE /* XCRemoteSwiftPackageReference "Validator" */;
-			productName = Validator;
+			package = 177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */;
+			productName = ValidatedPropertyKit;
 		};
 		17A5B20324D962B0004BD209 /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;

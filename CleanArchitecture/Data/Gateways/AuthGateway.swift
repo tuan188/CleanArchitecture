@@ -15,13 +15,16 @@ protocol AuthGatewayType {
 
 struct AuthGateway: AuthGatewayType {
     func login(dto: LoginDto) -> Observable<Void> {
-        Future { promise in
+        guard let username = dto.username,
+            let password = dto.password else {
+            return Empty().eraseToAnyPublisher()
+        }
+        
+        print(username, password)
+        
+        return Future { promise in
             DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: {
-                if dto.username.isEmpty || dto.password.isEmpty {
-                    promise(.failure(AppError.error(message: "Invalid username/password!")))
-                } else {
-                    promise(.success(()))
-                }
+                promise(.success(()))
             })
         }
         .eraseToAnyPublisher()

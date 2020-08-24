@@ -8,7 +8,7 @@
 
 import Combine
 import SwiftUI
-import Validator
+import ValidatedPropertyKit
 import CombineExt
 
 struct LoginViewModel {
@@ -44,7 +44,7 @@ extension LoginViewModel: ViewModel {
         let usernameValidation = Publishers
             .CombineLatest(input.$username, input.loginTrigger)
             .map { $0.0 }
-            .map(useCase.validateUserName(_:))
+            .map(LoginDto.validateUserName(_:))
         
         usernameValidation
             .asDriver()
@@ -55,7 +55,7 @@ extension LoginViewModel: ViewModel {
         let passwordValidation = Publishers
             .CombineLatest(input.$password, input.loginTrigger)
             .map { $0.0 }
-            .map(useCase.validatePassword(_:))
+            .map(LoginDto.validatePassword(_:))
             
         passwordValidation
             .asDriver()

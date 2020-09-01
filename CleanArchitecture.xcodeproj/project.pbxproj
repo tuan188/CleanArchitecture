@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1720C7BA24FE355800D616B2 /* GetPageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720C7B924FE355800D616B2 /* GetPageDto.swift */; };
+		1720C7BD24FE37F600D616B2 /* ValidatedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720C7BC24FE37F600D616B2 /* ValidatedProperty.swift */; };
+		1720C7BF24FE382200D616B2 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720C7BE24FE382200D616B2 /* Result+.swift */; };
+		1720C7C124FE383D00D616B2 /* Validation+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720C7C024FE383D00D616B2 /* Validation+Collection.swift */; };
 		1734926024C539220014F87E /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734925F24C539220014F87E /* ProductsView.swift */; };
 		1734926524C59D2A0014F87E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734926424C59D2A0014F87E /* AppError.swift */; };
 		173865A124D3BB470059E3AD /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A024D3BB470059E3AD /* Repo.swift */; };
@@ -154,6 +157,9 @@
 /* Begin PBXFileReference section */
 		0A93E2A29A422E7BB0B9BC5B /* Pods-CleanArchitecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanArchitecture.debug.xcconfig"; path = "Target Support Files/Pods-CleanArchitecture/Pods-CleanArchitecture.debug.xcconfig"; sourceTree = "<group>"; };
 		1720C7B924FE355800D616B2 /* GetPageDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageDto.swift; sourceTree = "<group>"; };
+		1720C7BC24FE37F600D616B2 /* ValidatedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedProperty.swift; sourceTree = "<group>"; };
+		1720C7BE24FE382200D616B2 /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
+		1720C7C024FE383D00D616B2 /* Validation+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validation+Collection.swift"; sourceTree = "<group>"; };
 		1734925F24C539220014F87E /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		1734926424C59D2A0014F87E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		173865A024D3BB470059E3AD /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -312,6 +318,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1720C7BB24FE37E300D616B2 /* Validations */ = {
+			isa = PBXGroup;
+			children = (
+				1720C7BC24FE37F600D616B2 /* ValidatedProperty.swift */,
+				1720C7BE24FE382200D616B2 /* Result+.swift */,
+				1720C7C024FE383D00D616B2 /* Validation+Collection.swift */,
+			);
+			path = Validations;
+			sourceTree = "<group>";
+		};
 		1734926324C59CC00014F87E /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +711,7 @@
 		1787235124BD56CD00D90F8E /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				1720C7BB24FE37E300D616B2 /* Validations */,
 				1742B36124D7AFEA00C82D15 /* Repo */,
 				176BAA5624D1679700324D3C /* Auth */,
 				1787235424BD570400D90F8E /* Product */,
@@ -980,6 +997,7 @@
 				1742B36E24D7B22B00C82D15 /* ReposViewController.swift in Sources */,
 				173865A424D3BB7A0059E3AD /* APIService.swift in Sources */,
 				178722F924BD537D00D90F8E /* SceneDelegate.swift in Sources */,
+				1720C7BF24FE382200D616B2 /* Result+.swift in Sources */,
 				17DCF1BB24BF028200D970B4 /* Double+.swift in Sources */,
 				17DCF1B924BF01ED00D970B4 /* Publisher+.swift in Sources */,
 				1787233E24BD556E00D90F8E /* LoginAssembler.swift in Sources */,
@@ -1039,6 +1057,7 @@
 				176BAA6224D2698500324D3C /* APIServiceBase.swift in Sources */,
 				1787235324BD56E400D90F8E /* Product.swift in Sources */,
 				1765B2CE24C6A79F0096D210 /* ProductDetailView.swift in Sources */,
+				1720C7C124FE383D00D616B2 /* Validation+Collection.swift in Sources */,
 				1787234924BD560500D90F8E /* MainAssembler.swift in Sources */,
 				176BAA6D24D26CD900324D3C /* APIOutputBase.swift in Sources */,
 				1787232D24BD547600D90F8E /* AppAssembler.swift in Sources */,
@@ -1065,6 +1084,7 @@
 				176BAA4B24D1319C00324D3C /* MenuCell.swift in Sources */,
 				176BAA5824D167A400324D3C /* LoggingIn.swift in Sources */,
 				1787234D24BD560500D90F8E /* MainViewModel.swift in Sources */,
+				1720C7BD24FE37F600D616B2 /* ValidatedProperty.swift in Sources */,
 				178809B024C0520000002215 /* ViewModel+GetList.swift in Sources */,
 				173865B024D40FBE0059E3AD /* ViewModel+GetItem.swift in Sources */,
 				1742B36B24D7B22B00C82D15 /* ReposAssembler.swift in Sources */,

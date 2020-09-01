@@ -13,7 +13,7 @@ protocol GettingRepos {
 }
 
 extension GettingRepos {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
-        repoGateway.getRepos(dto)
+    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
+        repoGateway.getRepos(dto: dto)
     }
 }

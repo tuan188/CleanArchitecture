@@ -10,11 +10,11 @@ import Combine
 import Foundation
 
 protocol RepoGatewayType {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>>
+    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>>
 }
 
 struct RepoGateway: RepoGatewayType {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
+    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
         let input = API.GetRepoListInput(dto: dto)
         
         return API.shared.getRepoList(input)
@@ -28,7 +28,7 @@ struct RepoGateway: RepoGatewayType {
 }
 
 struct PreviewRepoGateway: RepoGatewayType {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
+    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
         Future<PagingInfo<Repo>, Error> { promise in
             let repos = [
                 Repo(id: 0,

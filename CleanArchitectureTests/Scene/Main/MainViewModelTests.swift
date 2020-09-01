@@ -40,7 +40,7 @@ final class MainViewModelTests: XCTestCase {
         
         // assert
         wait {
-            XCTAssertEqual(self.output.menuSections.count, 4)
+            XCTAssertEqual(self.output.menuSections.count, 3)
         }
     }
     

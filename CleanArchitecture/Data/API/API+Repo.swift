@@ -16,7 +16,7 @@ extension API {
     }
     
     final class GetRepoListInput: APIInput {
-        init(dto: GetReposDto) {
+        init(dto: GetPageDto) {
             let params: Parameters = [
                 "q": "language:swift",
                 "per_page": dto.perPage,

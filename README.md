@@ -62,7 +62,7 @@ extension GettingRepos {
 }
 ```
 
-### Data transfer object - DTO
+#### Data transfer object - DTO
 
 DTO - an object that carries data between processes, it also performs data vertification:
 
@@ -534,5 +534,10 @@ final class ProductsViewModelTests: XCTestCase {
     - /Data
     - /Scenes
 ```
+
+## Links
+* [Using Clean Architecture in Flutter - codeburst](https://codeburst.io/using-clean-architecture-in-flutter-d0437d0c7f87)
+* [MVVM Responsibilities - Tutorialspoint](https://www.tutorialspoint.com/mvvm/mvvm_responsibilities.htm)
+* [Dependency Injection in Swift - Making Tuenti - Medium](https://medium.com/makingtuenti/dependency-injection-in-swift-part-1-236fddad144a)
 
 

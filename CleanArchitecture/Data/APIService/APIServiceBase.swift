@@ -9,6 +9,7 @@
 import Alamofire
 import Combine
 import UIKit
+import Foundation
 
 public typealias JSONDictionary = [String: Any]
 public typealias JSONArray = [JSONDictionary]
@@ -72,11 +73,9 @@ open class APIBase {
                     return APIResponse(header: apiResponse.header, data: t)
                 } catch {
                     throw APIInvalidResponseError()
-
                 }
             }
             .eraseToAnyPublisher()
-    
     }
     
     open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<T, Error> {
@@ -85,22 +84,30 @@ open class APIBase {
             .eraseToAnyPublisher()
     }
 
-//    open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<[T]>, Error> {
-//        let response: AnyPublisher<APIResponse<JSONArray>, Error> = requestJSON(input)
-//
-//        return response
-//            .map { apiResponse -> APIResponse<[T]> in
-//                return APIResponse(header: apiResponse.header,
-//                                   data: Mapper<T>().mapArray(JSONArray: apiResponse.data))
-//            }
-//            .eraseToAnyPublisher()
-//    }
+    open func request<T: Codable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<[T]>, Error> {
+        let response: AnyPublisher<APIResponse<JSONArray>, Error> = requestJSON(input)
+
+        return response
+            .tryMap { apiResponse -> APIResponse<[T]> in
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: apiResponse.data,
+                                                              options: .prettyPrinted)
+
+                    let items = try JSONDecoder().decode([T].self, from: jsonData)
+                    return APIResponse(header: apiResponse.header,
+                                       data: items)
+                } catch {
+                    throw APIInvalidResponseError()
+                }
+            }
+            .eraseToAnyPublisher()
+    }
     
-//    open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<[T], Error> {
-//        request(input)
-//            .map { $0.data }
-//            .eraseToAnyPublisher()
-//    }
+    open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<[T], Error> {
+        request(input)
+            .map { $0.data }
+            .eraseToAnyPublisher()
+    }
     
     open func requestJSON<U: JSONData>(_ input: APIInputBase) -> AnyPublisher<APIResponse<U>, Error> {
         let username = input.username

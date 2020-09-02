@@ -37,7 +37,7 @@ struct PreviewRepoGateway: RepoGatewayType {
                      urlString: "",
                      starCount: 10,
                      folkCount: 10,
-                     avatarURLString: "")
+                     owner: Repo.Owner(avatarUrl: ""))
             ]
             
             let page = PagingInfo<Repo>(page: 1, items: repos)

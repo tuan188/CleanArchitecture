@@ -38,15 +38,6 @@
         }
       },
       {
-        "package": "ObjectMapper",
-        "repositoryURL": "https://github.com/tristanhimmelman/ObjectMapper.git",
-        "state": {
-          "branch": null,
-          "revision": "0b96a734de3ea1c87374ae677064f86adb0716ec",
-          "version": "4.2.0"
-        }
-      },
-      {
         "package": "ESPullToRefresh",
         "repositoryURL": "https://github.com/eggswift/pull-to-refresh",
         "state": {

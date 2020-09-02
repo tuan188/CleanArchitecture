@@ -74,7 +74,6 @@
 		176BAA5C24D175C200324D3C /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5B24D175C200324D3C /* AuthGateway.swift */; };
 		176BAA5F24D2690300324D3C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 176BAA5E24D2690300324D3C /* Alamofire */; };
 		176BAA6224D2698500324D3C /* APIServiceBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6124D2698500324D3C /* APIServiceBase.swift */; };
-		176BAA6524D26A1A00324D3C /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 176BAA6424D26A1A00324D3C /* ObjectMapper */; };
 		176BAA6724D26A8100324D3C /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6624D26A8100324D3C /* CacheManager.swift */; };
 		176BAA6924D26AA300324D3C /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6824D26AA300324D3C /* String+Base64.swift */; };
 		176BAA6B24D26C8B00324D3C /* APIInputBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6A24D26C8B00324D3C /* APIInputBase.swift */; };
@@ -297,7 +296,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */,
-				176BAA6524D26A1A00324D3C /* ObjectMapper in Frameworks */,
 				1B425EAF24FF9058000F7F6B /* ESPullToRefresh in Frameworks */,
 				1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */,
 				177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */,
@@ -800,7 +798,6 @@
 				176BAA4024D1150700324D3C /* Reusable */,
 				176BAA4E24D1326100324D3C /* Then */,
 				176BAA5E24D2690300324D3C /* Alamofire */,
-				176BAA6424D26A1A00324D3C /* ObjectMapper */,
 				17A5B20324D962B0004BD209 /* CombineExt */,
 				17A5B20624D962CB004BD209 /* CombineCocoa */,
 				177428D424F3691B00C141E4 /* ValidatedPropertyKit */,
@@ -866,7 +863,6 @@
 				176BAA3F24D1150700324D3C /* XCRemoteSwiftPackageReference "Reusable" */,
 				176BAA4D24D1326100324D3C /* XCRemoteSwiftPackageReference "Then" */,
 				176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */,
-				176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 				17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */,
@@ -1356,14 +1352,6 @@
 				minimumVersion = 5.2.2;
 			};
 		};
-		176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.0;
-			};
-		};
 		177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SvenTiigi/ValidatedPropertyKit.git";
@@ -1434,11 +1422,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		176BAA6424D26A1A00324D3C /* ObjectMapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 176BAA6324D26A1A00324D3C /* XCRemoteSwiftPackageReference "ObjectMapper" */;
-			productName = ObjectMapper;
 		};
 		177428D424F3691B00C141E4 /* ValidatedPropertyKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,7 +6,6 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-import ObjectMapper
 import Alamofire
 
 // MARK: - GetRepoList
@@ -32,12 +31,10 @@ extension API {
         }
     }
     
-    final class GetRepoListOutput: APIOutput {
+    final class GetRepoListOutput: Decodable {
         private(set) var repos: [Repo]?
-        
-        override func mapping(map: Map) {
-            super.mapping(map: map)
-            repos <- map["items"]
+        private enum CodingKeys: String, CodingKey {
+            case repos = "items"
         }
     }
 }

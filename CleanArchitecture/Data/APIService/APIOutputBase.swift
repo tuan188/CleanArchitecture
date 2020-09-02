@@ -6,19 +6,10 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-import ObjectMapper
 
-open class APIOutputBase: Mappable {
+open class APIOutputBase: Codable {
     
     public init() {
-        
-    }
-    
-    public required init?(map: Map) {
-        
-    }
-    
-    open func mapping(map: Map) {
         
     }
 }

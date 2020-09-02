@@ -11,6 +11,33 @@
         }
       },
       {
+        "package": "CombineCocoa",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineCocoa.git",
+        "state": {
+          "branch": null,
+          "revision": "c31c85b6f8494247b69997324312dce8bf55b34b",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "CombineExt",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineExt.git",
+        "state": {
+          "branch": null,
+          "revision": "6664678135c6aec049c887a51c9da2545f184882",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "MBProgressHUD",
+        "repositoryURL": "https://github.com/jdg/MBProgressHUD",
+        "state": {
+          "branch": null,
+          "revision": "bca42b801100b2b3a4eda0ba8dd33d858c780b0d",
+          "version": "1.2.0"
+        }
+      },
+      {
         "package": "ObjectMapper",
         "repositoryURL": "https://github.com/tristanhimmelman/ObjectMapper.git",
         "state": {
@@ -20,12 +47,30 @@
         }
       },
       {
+        "package": "ESPullToRefresh",
+        "repositoryURL": "https://github.com/eggswift/pull-to-refresh",
+        "state": {
+          "branch": null,
+          "revision": "a858aaeb44abc6428af916e8496429d244fac053",
+          "version": "2.9.3"
+        }
+      },
+      {
         "package": "Reusable",
         "repositoryURL": "https://github.com/AliSoftware/Reusable.git",
         "state": {
           "branch": null,
           "revision": "86cd17aa27e80d20bfe2ea57dd08958cf64664f4",
           "version": "4.1.1"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
+        "state": {
+          "branch": null,
+          "revision": "ae3d0a7703eb883a876864f17a4591158199e9f2",
+          "version": "5.9.0"
         }
       },
       {
@@ -53,6 +98,15 @@
           "branch": null,
           "revision": "e421a7b3440a271834337694e6050133a3958bc7",
           "version": "2.7.0"
+        }
+      },
+      {
+        "package": "ValidatedPropertyKit",
+        "repositoryURL": "https://github.com/SvenTiigi/ValidatedPropertyKit.git",
+        "state": {
+          "branch": null,
+          "revision": "760c3c708e88c5e3c113e3a4dc26324ebaf351f7",
+          "version": "0.0.4"
         }
       }
     ]

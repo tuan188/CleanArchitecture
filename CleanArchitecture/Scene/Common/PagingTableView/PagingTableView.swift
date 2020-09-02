@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MJRefresh
+import ESPullToRefresh
 import Combine
 import CombineCocoa
 
@@ -26,9 +26,9 @@ open class PagingTableView: UITableView {
                 }
             } else {
                 if loading {
-                    tableView.mj_header?.beginRefreshing()
+                    tableView.es.startPullToRefresh()
                 } else {
-                    tableView.mj_header?.endRefreshing()
+                    tableView.es.stopPullToRefresh()
                 }
             }
         }
@@ -36,10 +36,8 @@ open class PagingTableView: UITableView {
     
     open var isLoadingMore: GenericSubscriber<Bool> {
         return GenericSubscriber(self) { tableView, loading in
-            if loading {
-                tableView.mj_footer?.beginRefreshing()
-            } else {
-                tableView.mj_footer?.endRefreshing()
+            if !loading {
+                tableView.es.stopLoadingMore()
             }
         }
     }
@@ -62,22 +60,21 @@ open class PagingTableView: UITableView {
         _loadMoreTrigger.eraseToAnyPublisher()
     }
     
-    open var refreshHeader: MJRefreshHeader? {
+    open var refreshHeader: (ESRefreshProtocol & ESRefreshAnimatorProtocol)? {
         didSet {
-            mj_header = refreshHeader
-            mj_header?.refreshingBlock = { [weak self] in
+            guard let header = refreshHeader else { return }
+            es.addPullToRefresh(animator: header) { [weak self] in
                 self?._refreshTrigger.send(())
             }
-            
             removeRefreshControl()
         }
     }
     
-    open var refreshFooter: MJRefreshFooter? {
+    open var refreshFooter: (ESRefreshProtocol & ESRefreshAnimatorProtocol)? {
         didSet {
-            mj_footer = refreshFooter
-            mj_footer?.refreshingBlock = { [weak self] in
-                self?._loadMoreTrigger.send(())
+            guard let footer = refreshFooter else { return }
+            es.addInfiniteScrolling(animator: footer) { [weak self] in
+                self?._loadMoreTrigger.send()
             }
         }
     }
@@ -85,7 +82,7 @@ open class PagingTableView: UITableView {
     override open func awakeFromNib() {
         super.awakeFromNib()
         addSubview(_refreshControl)
-        refreshFooter = RefreshAutoFooter()
+        refreshFooter = ESRefreshFooterAnimator(frame: .zero)
     }
     
     func addRefreshControl() {

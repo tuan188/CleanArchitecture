@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MJRefresh
+import ESPullToRefresh
 import Combine
 import CombineCocoa
 
@@ -26,9 +26,9 @@ open class PagingCollectionView: UICollectionView {
                 }
             } else {
                 if loading {
-                    collectionView.mj_header?.beginRefreshing()
+                    collectionView.es.startPullToRefresh()
                 } else {
-                    collectionView.mj_header?.endRefreshing()
+                    collectionView.es.stopPullToRefresh()
                 }
             }
         }
@@ -36,10 +36,8 @@ open class PagingCollectionView: UICollectionView {
     
     open var isLoadingMore: GenericSubscriber<Bool> {
         return GenericSubscriber(self) { collectionView, loading in
-            if loading {
-                collectionView.mj_footer?.beginRefreshing()
-            } else {
-                collectionView.mj_footer?.endRefreshing()
+            if !loading {
+                collectionView.es.stopLoadingMore()
             }
         }
     }
@@ -62,30 +60,29 @@ open class PagingCollectionView: UICollectionView {
         _loadMoreTrigger.eraseToAnyPublisher()
     }
     
-    open var refreshHeader: MJRefreshHeader? {
+    open var refreshHeader: (ESRefreshProtocol & ESRefreshAnimatorProtocol)? {
         didSet {
-            mj_header = refreshHeader
-            mj_header?.refreshingBlock = { [weak self] in
+            guard let header = refreshHeader else { return }
+            es.addPullToRefresh(animator: header) { [weak self] in
                 self?._refreshTrigger.send(())
             }
-            
             removeRefreshControl()
         }
     }
     
-    open var refreshFooter: MJRefreshFooter? {
+    open var refreshFooter: (ESRefreshProtocol & ESRefreshAnimatorProtocol)? {
         didSet {
-            mj_footer = refreshFooter
-            mj_footer?.refreshingBlock = { [weak self] in
-                self?._loadMoreTrigger.send(())
+            guard let footer = refreshFooter else { return }
+            es.addInfiniteScrolling(animator: footer) { [weak self] in
+                self?._loadMoreTrigger.send()
             }
         }
     }
-    
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         addSubview(_refreshControl)
-        refreshFooter = RefreshAutoFooter()
+        refreshFooter = ESRefreshFooterAnimator(frame: .zero)
     }
     
     func addRefreshControl() {

@@ -141,7 +141,10 @@
 		17DCF1B624BEE76800D970B4 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B524BEE76800D970B4 /* Driver.swift */; };
 		17DCF1B924BF01ED00D970B4 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B824BF01ED00D970B4 /* Publisher+.swift */; };
 		17DCF1BB24BF028200D970B4 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1BA24BF028200D970B4 /* Double+.swift */; };
-		50F936C2573C1C337A341E11 /* Pods_CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6DE70CE7BD48EA2202279 /* Pods_CleanArchitecture.framework */; };
+		1B425EAA24FF8D1A000F7F6B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1B425EA924FF8D1A000F7F6B /* SDWebImage */; };
+		1B425EAC24FF8D1A000F7F6B /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1B425EAB24FF8D1A000F7F6B /* SDWebImageMapKit */; };
+		1B425EAF24FF9058000F7F6B /* ESPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 1B425EAE24FF9058000F7F6B /* ESPullToRefresh */; };
+		1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD163F024FF8CA700EBC063 /* MBProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +158,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A93E2A29A422E7BB0B9BC5B /* Pods-CleanArchitecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanArchitecture.debug.xcconfig"; path = "Target Support Files/Pods-CleanArchitecture/Pods-CleanArchitecture.debug.xcconfig"; sourceTree = "<group>"; };
 		1720C7B924FE355800D616B2 /* GetPageDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageDto.swift; sourceTree = "<group>"; };
 		1720C7BC24FE37F600D616B2 /* ValidatedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedProperty.swift; sourceTree = "<group>"; };
 		1720C7BE24FE382200D616B2 /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
@@ -287,8 +289,6 @@
 		17DCF1B524BEE76800D970B4 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		17DCF1B824BF01ED00D970B4 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		17DCF1BA24BF028200D970B4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
-		6A3F64FFC29E95FABC0F8751 /* Pods-CleanArchitecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanArchitecture.release.xcconfig"; path = "Target Support Files/Pods-CleanArchitecture/Pods-CleanArchitecture.release.xcconfig"; sourceTree = "<group>"; };
-		AEC6DE70CE7BD48EA2202279 /* Pods_CleanArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,13 +298,16 @@
 			files = (
 				174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */,
 				176BAA6524D26A1A00324D3C /* ObjectMapper in Frameworks */,
+				1B425EAF24FF9058000F7F6B /* ESPullToRefresh in Frameworks */,
+				1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */,
 				177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */,
 				176BAA5F24D2690300324D3C /* Alamofire in Frameworks */,
 				176BAA4F24D1326100324D3C /* Then in Frameworks */,
 				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
 				176BAA4124D1150700324D3C /* Reusable in Frameworks */,
+				1B425EAA24FF8D1A000F7F6B /* SDWebImage in Frameworks */,
 				17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */,
-				50F936C2573C1C337A341E11 /* Pods_CleanArchitecture.framework in Frameworks */,
+				1B425EAC24FF8D1A000F7F6B /* SDWebImageMapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,8 +553,6 @@
 				178722F524BD537D00D90F8E /* CleanArchitecture */,
 				1787230C24BD537E00D90F8E /* CleanArchitectureTests */,
 				178722F424BD537D00D90F8E /* Products */,
-				C15BF2D66291DA6D4D495A48 /* Pods */,
-				1E358FD1B70A4EABF7C24440 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -777,23 +778,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		1E358FD1B70A4EABF7C24440 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AEC6DE70CE7BD48EA2202279 /* Pods_CleanArchitecture.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C15BF2D66291DA6D4D495A48 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0A93E2A29A422E7BB0B9BC5B /* Pods-CleanArchitecture.debug.xcconfig */,
-				6A3F64FFC29E95FABC0F8751 /* Pods-CleanArchitecture.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -801,12 +785,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1787231224BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitecture" */;
 			buildPhases = (
-				FD12B0F2C06F2FDF95CB3CBA /* [CP] Check Pods Manifest.lock */,
 				178722EF24BD537D00D90F8E /* Sources */,
 				178722F024BD537D00D90F8E /* Frameworks */,
 				178722F124BD537D00D90F8E /* Resources */,
 				17DCF1BC24BF02E400D970B4 /* SwiftLint */,
-				2EF818D0F074626AA274A627 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -822,6 +804,10 @@
 				17A5B20324D962B0004BD209 /* CombineExt */,
 				17A5B20624D962CB004BD209 /* CombineCocoa */,
 				177428D424F3691B00C141E4 /* ValidatedPropertyKit */,
+				1BD163F024FF8CA700EBC063 /* MBProgressHUD */,
+				1B425EA924FF8D1A000F7F6B /* SDWebImage */,
+				1B425EAB24FF8D1A000F7F6B /* SDWebImageMapKit */,
+				1B425EAE24FF9058000F7F6B /* ESPullToRefresh */,
 			);
 			productName = CleanArchitecture;
 			productReference = 178722F324BD537D00D90F8E /* CleanArchitecture.app */;
@@ -852,7 +838,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Tuan Truong";
 				TargetAttributes = {
 					178722F224BD537D00D90F8E = {
@@ -884,6 +870,9 @@
 				17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */,
+				1BD163EF24FF8CA700EBC063 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				1B425EA824FF8D1A000F7F6B /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				1B425EAD24FF9058000F7F6B /* XCRemoteSwiftPackageReference "pull-to-refresh" */,
 			);
 			productRefGroup = 178722F424BD537D00D90F8E /* Products */;
 			projectDirPath = "";
@@ -938,45 +927,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		2EF818D0F074626AA274A627 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CleanArchitecture/Pods-CleanArchitecture-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CleanArchitecture/Pods-CleanArchitecture-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CleanArchitecture/Pods-CleanArchitecture-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD12B0F2C06F2FDF95CB3CBA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CleanArchitecture-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1161,6 +1111,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1221,6 +1172,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1251,7 +1203,6 @@
 		};
 		1787231324BD537E00D90F8E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A93E2A29A422E7BB0B9BC5B /* Pods-CleanArchitecture.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1275,7 +1226,6 @@
 		};
 		1787231424BD537E00D90F8E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A3F64FFC29E95FABC0F8751 /* Pods-CleanArchitecture.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1438,6 +1388,30 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		1B425EA824FF8D1A000F7F6B /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+		1B425EAD24FF9058000F7F6B /* XCRemoteSwiftPackageReference "pull-to-refresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eggswift/pull-to-refresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.3;
+			};
+		};
+		1BD163EF24FF8CA700EBC063 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1480,6 +1454,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
+		};
+		1B425EA924FF8D1A000F7F6B /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B425EA824FF8D1A000F7F6B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		1B425EAB24FF8D1A000F7F6B /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B425EA824FF8D1A000F7F6B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		1B425EAE24FF9058000F7F6B /* ESPullToRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1B425EAD24FF9058000F7F6B /* XCRemoteSwiftPackageReference "pull-to-refresh" */;
+			productName = ESPullToRefresh;
+		};
+		1BD163F024FF8CA700EBC063 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BD163EF24FF8CA700EBC063 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

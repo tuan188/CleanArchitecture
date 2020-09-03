@@ -6,10 +6,10 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-import ObjectMapper
 import Alamofire
 import Combine
 import UIKit
+import Foundation
 
 public typealias JSONDictionary = [String: Any]
 public typealias JSONArray = [JSONDictionary]
@@ -61,39 +61,49 @@ open class APIBase {
         manager = Alamofire.Session(configuration: configuration)
     }
     
-    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<T>, Error> {
+    open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<T>, Error> {
         let response: AnyPublisher<APIResponse<JSONDictionary>, Error> = requestJSON(input)
         
         return response
             .tryMap { apiResponse -> APIResponse<T> in
-                if let t = T(JSON: apiResponse.data) {
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: apiResponse.data,
+                                                              options: .prettyPrinted)
+                    let t = try JSONDecoder().decode(T.self, from: jsonData)
                     return APIResponse(header: apiResponse.header, data: t)
+                } catch {
+                    throw APIInvalidResponseError()
                 }
-                
-                throw APIInvalidResponseError()
             }
             .eraseToAnyPublisher()
-    
     }
     
-    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<T, Error> {
+    open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<T, Error> {
         request(input)
             .map { $0.data }
             .eraseToAnyPublisher()
     }
 
-    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<[T]>, Error> {
+    open func request<T: Codable>(_ input: APIInputBase) -> AnyPublisher<APIResponse<[T]>, Error> {
         let response: AnyPublisher<APIResponse<JSONArray>, Error> = requestJSON(input)
-        
+
         return response
-            .map { apiResponse -> APIResponse<[T]> in
-                return APIResponse(header: apiResponse.header,
-                                   data: Mapper<T>().mapArray(JSONArray: apiResponse.data))
+            .tryMap { apiResponse -> APIResponse<[T]> in
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: apiResponse.data,
+                                                              options: .prettyPrinted)
+
+                    let items = try JSONDecoder().decode([T].self, from: jsonData)
+                    return APIResponse(header: apiResponse.header,
+                                       data: items)
+                } catch {
+                    throw APIInvalidResponseError()
+                }
             }
             .eraseToAnyPublisher()
     }
     
-    open func request<T: Mappable>(_ input: APIInputBase) -> AnyPublisher<[T], Error> {
+    open func request<T: Decodable>(_ input: APIInputBase) -> AnyPublisher<[T], Error> {
         request(input)
             .map { $0.data }
             .eraseToAnyPublisher()

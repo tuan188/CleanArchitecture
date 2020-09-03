@@ -6,12 +6,6 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-import ObjectMapper
-
 class APIOutput: APIOutputBase {  // swiftlint:disable:this final_class
     var message: String?
-    
-    override func mapping(map: Map) {
-        message <- map["message"]
-    }
 }

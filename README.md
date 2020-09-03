@@ -64,7 +64,7 @@ extension GettingRepos {
 
 #### Data transfer object - DTO
 
-DTO - an object that carries data between processes, it also performs data vertification:
+DTO - an object that carries data between processes, it also performs data verification:
 
 ```swift
 struct LoginDto: Dto {

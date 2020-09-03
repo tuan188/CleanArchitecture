@@ -6,7 +6,6 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-
 open class APIOutputBase: Codable {
     
     public init() {

@@ -60,7 +60,7 @@ public extension GetListInput where Item == MappedItem {
     }
 }
 
-public struct GetListOutput<Item> {
+public struct GetListResult<Item> {
     public var items: AnyPublisher<[Item], Never>
     public var error: AnyPublisher<Error, Never>
     public var isLoading: AnyPublisher<Bool, Never>
@@ -88,7 +88,7 @@ public struct GetListOutput<Item> {
 
 extension ViewModel {
     public func getList<TriggerInput, Item, MappedItem>(input: GetListInput<TriggerInput, Item, MappedItem>)
-        -> GetListOutput<MappedItem> {
+        -> GetListResult<MappedItem> {
             
         let loadingActivityTracker = ActivityTracker(false)
         let reloadingActivityTracker = ActivityTracker(false)
@@ -124,7 +124,7 @@ extension ViewModel {
         let isLoading = loadingActivityTracker.eraseToAnyPublisher()
         let isReloading = reloadingActivityTracker.eraseToAnyPublisher()
         
-        return GetListOutput(
+        return GetListResult(
             items: items,
             error: error,
             isLoading: isLoading,

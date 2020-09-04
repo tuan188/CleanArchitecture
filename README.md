@@ -515,7 +515,6 @@ final class ProductsViewModelTests: XCTestCase {
     - /Support
         - /Extension
             - UIViewController+.swift
-            - UIViewController+Rx.swift
             - UITableView+.swift
             ...
         - Utils.swift
@@ -532,6 +531,7 @@ final class ProductsViewModelTests: XCTestCase {
 ```
 
 ## Links
+* [Clean Architecture (RxSwift + UIKit)](https://github.com/tuan188/MGCleanArchitecture)
 * [Using Clean Architecture in Flutter - codeburst](https://codeburst.io/using-clean-architecture-in-flutter-d0437d0c7f87)
 * [MVVM Responsibilities - Tutorialspoint](https://www.tutorialspoint.com/mvvm/mvvm_responsibilities.htm)
 * [Dependency Injection in Swift - Making Tuenti - Medium](https://medium.com/makingtuenti/dependency-injection-in-swift-part-1-236fddad144a)

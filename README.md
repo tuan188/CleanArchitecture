@@ -1,9 +1,5 @@
 # iOS Clean Architecture (MVVM + Combine + SwiftUI/UIKit)
 
-## Installation
-```
-$ pod install
-```
 
 ## High Level Overview
 

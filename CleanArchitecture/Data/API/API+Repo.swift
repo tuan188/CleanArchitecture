@@ -33,6 +33,8 @@ extension API {
     
     final class GetRepoListOutput: Decodable {
         private(set) var repos: [Repo]?
+        
+        // swiftlint:disable:next nesting
         private enum CodingKeys: String, CodingKey {
             case repos = "items"
         }

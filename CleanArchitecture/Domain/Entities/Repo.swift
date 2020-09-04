@@ -19,6 +19,8 @@ struct Repo {
     
     struct Owner: Decodable {
         var avatarUrl: String?
+        
+        // swiftlint:disable:next nesting
         private enum CodingKeys: String, CodingKey {
             case avatarUrl = "avatar_url"
         }

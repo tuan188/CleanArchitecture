@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Dto
 
 struct GetPageDto: Dto {
     var page = 1

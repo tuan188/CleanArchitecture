@@ -9,6 +9,7 @@
 import Combine
 import Foundation
 import ValidatedPropertyKit
+import Dto
 
 struct LoginDto: Dto {
     @Validated(.nonEmpty(message: "Please enter user name"))

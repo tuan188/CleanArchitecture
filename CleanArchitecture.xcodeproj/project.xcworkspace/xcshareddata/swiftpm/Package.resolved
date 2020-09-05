@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "Dto",
+        "repositoryURL": "https://github.com/tuan188/Dto.git",
+        "state": {
+          "branch": null,
+          "revision": "b5465f7c05ab53fa976ceac229deceb1b82c82ac",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "MBProgressHUD",
         "repositoryURL": "https://github.com/jdg/MBProgressHUD",
         "state": {

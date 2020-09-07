@@ -120,13 +120,37 @@ open class APIBase {
                 }
             })
             .map { [unowned self] input -> DataRequest in
-                let request = self.manager.request(
-                    input.urlString,
-                    method: input.method,
-                    parameters: input.parameters,
-                    encoding: input.encoding,
-                    headers: input.headers
-                )
+                let request: DataRequest
+                
+                if let uploadInput = input as? APIUploadInputBase {
+                    request = self.manager.upload(
+                        multipartFormData: { (multipartFormData) in
+                            input.parameters?.forEach { key, value in
+                                if let data = String(describing: value).data(using: .utf8) {
+                                    multipartFormData.append(data, withName: key)
+                                }
+                            }
+                            uploadInput.data.forEach({
+                                multipartFormData.append(
+                                    $0.data,
+                                    withName: $0.name,
+                                    fileName: $0.fileName,
+                                    mimeType: $0.mimeType)
+                            })
+                        },
+                        to: uploadInput.urlString,
+                        method: uploadInput.method,
+                        headers: uploadInput.headers
+                    )
+                } else {
+                    request = self.manager.request(
+                        input.urlString,
+                        method: input.method,
+                        parameters: input.parameters,
+                        encoding: input.encoding,
+                        headers: input.headers
+                    )
+                }
                 
                 if let username = username, let password = password {
                     return request.authenticate(username: username, password: password)

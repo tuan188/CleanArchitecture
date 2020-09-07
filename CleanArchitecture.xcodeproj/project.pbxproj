@@ -131,8 +131,8 @@
 		17A5B1F624D81561004BD209 /* GenericSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F524D81561004BD209 /* GenericSubscriber.swift */; };
 		17A5B1F824D9026D004BD209 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F724D9026D004BD209 /* BaseViewController.swift */; };
 		17A5B1FC24D948BC004BD209 /* PagingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FB24D948BC004BD209 /* PagingTableView.swift */; };
-		17A5B1FF24D9514B004BD209 /* RefreshAutoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */; };
-		17A5B20124D95168004BD209 /* RefreshAutoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */; };
+		17A5B1FF24D9514B004BD209 /* RefreshFooterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */; };
+		17A5B20124D95168004BD209 /* RefreshHeaderAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */; };
 		17A5B20424D962B0004BD209 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20324D962B0004BD209 /* CombineExt */; };
 		17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20624D962CB004BD209 /* CombineCocoa */; };
 		17DCF1B624BEE76800D970B4 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B524BEE76800D970B4 /* Driver.swift */; };
@@ -278,8 +278,8 @@
 		17A5B1F524D81561004BD209 /* GenericSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSubscriber.swift; sourceTree = "<group>"; };
 		17A5B1F724D9026D004BD209 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		17A5B1FB24D948BC004BD209 /* PagingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTableView.swift; sourceTree = "<group>"; };
-		17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoFooter.swift; sourceTree = "<group>"; };
-		17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAutoHeader.swift; sourceTree = "<group>"; };
+		17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooterAnimator.swift; sourceTree = "<group>"; };
+		17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeaderAnimator.swift; sourceTree = "<group>"; };
 		17DCF1B524BEE76800D970B4 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		17DCF1B824BF01ED00D970B4 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		17DCF1BA24BF028200D970B4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
@@ -751,8 +751,8 @@
 			children = (
 				17A5B1FB24D948BC004BD209 /* PagingTableView.swift */,
 				1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */,
-				17A5B1FE24D9514B004BD209 /* RefreshAutoFooter.swift */,
-				17A5B20024D95168004BD209 /* RefreshAutoHeader.swift */,
+				17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */,
+				17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */,
 			);
 			path = PagingTableView;
 			sourceTree = "<group>";
@@ -1013,9 +1013,9 @@
 				1787234024BD556E00D90F8E /* LoginUseCase.swift in Sources */,
 				1781CF4124BD8FB8004ED1C6 /* ProductDetailNavigator.swift in Sources */,
 				1765B2D324C6D6D40096D210 /* ProductRow.swift in Sources */,
-				17A5B20124D95168004BD209 /* RefreshAutoHeader.swift in Sources */,
+				17A5B20124D95168004BD209 /* RefreshHeaderAnimator.swift in Sources */,
 				1770EC3324DAA9AC0022FBFE /* ShowingRepoCollection.swift in Sources */,
-				17A5B1FF24D9514B004BD209 /* RefreshAutoFooter.swift in Sources */,
+				17A5B1FF24D9514B004BD209 /* RefreshFooterAnimator.swift in Sources */,
 				1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */,
 				1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */,
 				176BAA7524D26E4C00324D3C /* LogOptions.swift in Sources */,
@@ -1195,6 +1195,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitecture/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CleanArchitecture/Info.plist;
@@ -1202,7 +1203,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitecture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitecture/CleanArchitecture-Bridging-Header.h";
@@ -1218,6 +1219,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitecture/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CleanArchitecture/Info.plist;
@@ -1225,7 +1227,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitecture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitecture/CleanArchitecture-Bridging-Header.h";

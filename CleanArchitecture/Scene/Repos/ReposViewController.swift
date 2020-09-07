@@ -51,7 +51,7 @@ final class ReposViewController: UIViewController, Bindable {
     func bindViewModel() {
         let input = ReposViewModel.Input(
             loadTrigger: Driver.just(()),
-            reloadTrigger: tableView.refreshTrigger,
+            reloadTrigger: tableView.refreshTrigger.print().asDriver(),
             loadMoreTrigger: tableView.loadMoreTrigger,
             selectRepoTrigger: selectRepoTrigger.asDriver()
         )

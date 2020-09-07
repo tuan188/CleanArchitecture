@@ -62,6 +62,11 @@ final class RepoCollectionViewController: UIViewController, Bindable {
         configView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.refreshHeader = RefreshHeaderAnimator(frame: .zero)
+    }
+    
     deinit {
         logDeinit()
     }
@@ -75,7 +80,7 @@ final class RepoCollectionViewController: UIViewController, Bindable {
             $0.prefetchDataSource = self
             $0.dataSource = self
             $0.delegate = self
-            $0.refreshHeader = RefreshAutoHeader(frame: .zero)
+//            $0.refreshHeader = RefreshAutoHeader(frame: .zero)
             // need to set the Estimate Size to None in the collection view size panel.
         }
         

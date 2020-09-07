@@ -124,7 +124,7 @@ open class APIBase {
                     input.urlString,
                     method: input.method,
                     parameters: input.parameters,
-                    encoding: input.endcoding,
+                    encoding: input.encoding,
                     headers: input.headers
                 )
                 

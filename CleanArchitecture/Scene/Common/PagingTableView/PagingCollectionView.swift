@@ -36,7 +36,9 @@ open class PagingCollectionView: UICollectionView {
     
     open var isLoadingMore: GenericSubscriber<Bool> {
         return GenericSubscriber(self) { collectionView, loading in
-            if !loading {
+            if loading {
+                collectionView.es.base.footer?.startRefreshing()
+            } else {
                 collectionView.es.stopLoadingMore()
             }
         }
@@ -45,13 +47,18 @@ open class PagingCollectionView: UICollectionView {
     private var _refreshTrigger = PassthroughSubject<Void, Never>()
     
     open var refreshTrigger: AnyPublisher<Void, Never> {
-        if refreshHeader == nil {
-            return _refreshControl.isRefreshingPublisher
+        return Publishers.Merge(
+            _refreshTrigger
+                .filter { [weak self] in
+                    self?.refreshControl == nil
+                },
+            _refreshControl.isRefreshingPublisher
+                .filter { [weak self] in
+                    $0 && self?.refreshControl != nil
+                }
                 .map { _ in }
-                .eraseToAnyPublisher()
-        } else {
-            return _refreshTrigger.eraseToAnyPublisher()
-        }
+        )
+            .eraseToAnyPublisher()
     }
     
     private var _loadMoreTrigger = PassthroughSubject<Void, Never>()
@@ -81,18 +88,17 @@ open class PagingCollectionView: UICollectionView {
 
     override open func awakeFromNib() {
         super.awakeFromNib()
-        addSubview(_refreshControl)
-        refreshFooter = ESRefreshFooterAnimator(frame: .zero)
+        expiredTimeInterval = 20.0
+        addRefreshControl()
+        refreshFooter = RefreshFooterAnimator(frame: .zero)
     }
     
     func addRefreshControl() {
-        guard !self.subviews.contains(_refreshControl) else { return }
-        
         refreshHeader = nil
-        addSubview(_refreshControl)
+        self.refreshControl = _refreshControl
     }
     
     func removeRefreshControl() {
-        _refreshControl.removeFromSuperview()
+        self.refreshControl = nil
     }
 }

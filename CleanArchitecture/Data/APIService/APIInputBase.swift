@@ -13,7 +13,7 @@ open class APIInputBase {
     public var headers: HTTPHeaders?
     public var urlString: String
     public var method: HTTPMethod
-    public var endcoding: ParameterEncoding
+    public var encoding: ParameterEncoding
     public var parameters: Parameters?
     public var requireAccessToken: Bool
     public var accessToken: String?
@@ -36,7 +36,7 @@ open class APIInputBase {
         self.urlString = urlString
         self.parameters = parameters
         self.method = method
-        self.endcoding = method == .get ? URLEncoding.default : JSONEncoding.default
+        self.encoding = method == .get ? URLEncoding.default : JSONEncoding.default
         self.requireAccessToken = requireAccessToken
     }
 }

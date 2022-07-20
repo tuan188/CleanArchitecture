@@ -530,6 +530,11 @@ final class ProductsViewModelTests: XCTestCase {
     - /Scenes
 ```
 
+## Tutorials
+
+* [Tutorial - Import Clean Architecture File Templates for Xcode](xcode_templates.md)
+
+
 ## Links
 * [Clean Architecture (RxSwift + UIKit)](https://github.com/tuan188/MGCleanArchitecture)
 * [Using Clean Architecture in Flutter - codeburst](https://codeburst.io/using-clean-architecture-in-flutter-d0437d0c7f87)

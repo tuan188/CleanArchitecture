@@ -39,7 +39,7 @@ struct LoginDto: Dto {
 }
 
 protocol LoggingIn {
-    var authGateway: AuthGatewayType { get }
+    var authGateway: AuthGatewayProtocol { get }
 }
 
 extension LoggingIn {

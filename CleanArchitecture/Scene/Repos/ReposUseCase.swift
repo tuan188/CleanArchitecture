@@ -10,8 +10,8 @@ protocol ReposUseCaseType {
     func getRepos(page: Int) -> Observable<PagingInfo<Repo>>
 }
 
-struct ReposUseCase: ReposUseCaseType, GettingRepos {
-    let repoGateway: RepoGatewayType
+struct ReposUseCase: ReposUseCaseType, GetRepoList {
+    let repoGateway: RepoGatewayProtocol
     
     func getRepos(page: Int) -> Observable<PagingInfo<Repo>> {
         let dto = GetPageDto(page: page, perPage: 10, usingCache: true)

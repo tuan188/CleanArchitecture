@@ -8,12 +8,13 @@
 
 import Combine
 import Foundation
+import Factory
 
-protocol ProductGatewayType {
+protocol ProductGatewayProtocol {
     func getProducts() -> Observable<[Product]>
 }
 
-struct ProductGateway: ProductGatewayType {
+struct ProductGateway: ProductGatewayProtocol {
     func getProducts() -> Observable<[Product]> {
         Future<[Product], Error> { promise in
             let products = [
@@ -30,7 +31,7 @@ struct ProductGateway: ProductGatewayType {
     }
 }
 
-struct PreviewProductGateway: ProductGatewayType {
+struct PreviewProductGateway: ProductGatewayProtocol {
     func getProducts() -> Observable<[Product]> {
         Future<[Product], Error> { promise in
             let products = [
@@ -41,5 +42,15 @@ struct PreviewProductGateway: ProductGatewayType {
             promise(.success(products))
         }
         .eraseToAnyPublisher()
+    }
+}
+
+extension Container {
+    var productGateway: Factory<ProductGatewayProtocol> {
+        Factory(self) { ProductGateway() }
+    }
+    
+    var previewProductGateway: Factory<ProductGatewayProtocol> {
+        Factory(self) { PreviewProductGateway() }
     }
 }

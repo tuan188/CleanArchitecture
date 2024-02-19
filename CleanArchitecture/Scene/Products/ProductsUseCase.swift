@@ -13,6 +13,6 @@ protocol ProductsUseCaseType {
 }
 
 struct ProductsUseCase: ProductsUseCaseType, GettingProducts {
-    let productGateway: ProductGatewayType
+    let productGateway: ProductGatewayProtocol
     
 }

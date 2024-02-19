@@ -10,7 +10,7 @@
 import UIKit
 import Combine
 
-final class AuthGatewayMock: AuthGatewayType {
+final class AuthGatewayMock: AuthGatewayProtocol {
     
     // MARK: - login
     

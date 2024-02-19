@@ -7,7 +7,6 @@
 //
 
 protocol Assembler: class,
-    ReposAssembler,
     ProductDetailAssembler,
     ProductsAssembler,
     MainAssembler,

@@ -1,115 +1,122 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "becd9a729a37bdbef5bc39dc3c702b99f9e3d046",
-          "version": "5.2.2"
-        }
-      },
-      {
-        "package": "CombineCocoa",
-        "repositoryURL": "https://github.com/CombineCommunity/CombineCocoa.git",
-        "state": {
-          "branch": null,
-          "revision": "c31c85b6f8494247b69997324312dce8bf55b34b",
-          "version": "0.1.0"
-        }
-      },
-      {
-        "package": "CombineExt",
-        "repositoryURL": "https://github.com/CombineCommunity/CombineExt.git",
-        "state": {
-          "branch": null,
-          "revision": "6664678135c6aec049c887a51c9da2545f184882",
-          "version": "1.2.0"
-        }
-      },
-      {
-        "package": "Dto",
-        "repositoryURL": "https://github.com/tuan188/Dto.git",
-        "state": {
-          "branch": null,
-          "revision": "b5465f7c05ab53fa976ceac229deceb1b82c82ac",
-          "version": "0.1.0"
-        }
-      },
-      {
-        "package": "MBProgressHUD",
-        "repositoryURL": "https://github.com/jdg/MBProgressHUD",
-        "state": {
-          "branch": null,
-          "revision": "bca42b801100b2b3a4eda0ba8dd33d858c780b0d",
-          "version": "1.2.0"
-        }
-      },
-      {
-        "package": "ESPullToRefresh",
-        "repositoryURL": "https://github.com/eggswift/pull-to-refresh",
-        "state": {
-          "branch": null,
-          "revision": "a858aaeb44abc6428af916e8496429d244fac053",
-          "version": "2.9.3"
-        }
-      },
-      {
-        "package": "Reusable",
-        "repositoryURL": "https://github.com/AliSoftware/Reusable.git",
-        "state": {
-          "branch": null,
-          "revision": "86cd17aa27e80d20bfe2ea57dd08958cf64664f4",
-          "version": "4.1.1"
-        }
-      },
-      {
-        "package": "SDWebImage",
-        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
-        "state": {
-          "branch": null,
-          "revision": "ae3d0a7703eb883a876864f17a4591158199e9f2",
-          "version": "5.9.0"
-        }
-      },
-      {
-        "package": "Introspect",
-        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
-        "state": {
-          "branch": null,
-          "revision": "de5c32c15ae169cfcb27397ffb2734dcd0e1e6d5",
-          "version": "0.1.0"
-        }
-      },
-      {
-        "package": "SwiftUIRefresh",
-        "repositoryURL": "https://github.com/timbersoftware/SwiftUIRefresh.git",
-        "state": {
-          "branch": null,
-          "revision": "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
-          "version": "0.0.3"
-        }
-      },
-      {
-        "package": "Then",
-        "repositoryURL": "https://github.com/devxoul/Then",
-        "state": {
-          "branch": null,
-          "revision": "e421a7b3440a271834337694e6050133a3958bc7",
-          "version": "2.7.0"
-        }
-      },
-      {
-        "package": "ValidatedPropertyKit",
-        "repositoryURL": "https://github.com/SvenTiigi/ValidatedPropertyKit.git",
-        "state": {
-          "branch": null,
-          "revision": "760c3c708e88c5e3c113e3a4dc26324ebaf351f7",
-          "version": "0.0.4"
-        }
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "3dc6a42c7727c49bf26508e29b0a0b35f9c7e1ad",
+        "version" : "5.8.1"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "combinecocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CombineCommunity/CombineCocoa.git",
+      "state" : {
+        "revision" : "7300c75ff9e072aa7fd0fccefcc88f74aae9bf56",
+        "version" : "0.4.1"
+      }
+    },
+    {
+      "identity" : "combineext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CombineCommunity/CombineExt.git",
+      "state" : {
+        "revision" : "d7b896fa9ca8b47fa7bcde6b43ef9b70bf8c1f56",
+        "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "dto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tuan188/Dto.git",
+      "state" : {
+        "revision" : "4c70b4b9515c687e92c6d6779ed05d0845a57c04",
+        "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "factory",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hmlongco/Factory",
+      "state" : {
+        "revision" : "8ca11a7bd1ede031e8e6d7a912bb116e2e43961b",
+        "version" : "2.3.1"
+      }
+    },
+    {
+      "identity" : "mbprogresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jdg/MBProgressHUD",
+      "state" : {
+        "revision" : "bca42b801100b2b3a4eda0ba8dd33d858c780b0d",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "pull-to-refresh",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/eggswift/pull-to-refresh",
+      "state" : {
+        "revision" : "a858aaeb44abc6428af916e8496429d244fac053",
+        "version" : "2.9.3"
+      }
+    },
+    {
+      "identity" : "reusable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AliSoftware/Reusable.git",
+      "state" : {
+        "revision" : "18674709421360e210c2ecd4e8e08b217d4ea61d",
+        "version" : "4.1.2"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage",
+      "state" : {
+        "revision" : "59730af512c06fb569c119d737df4c1c499e001d",
+        "version" : "5.18.10"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "121c146fe591b1320238d054ae35c81ffa45f45a",
+        "version" : "0.12.0"
+      }
+    },
+    {
+      "identity" : "swiftuirefresh",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/timbersoftware/SwiftUIRefresh.git",
+      "state" : {
+        "revision" : "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
+        "version" : "0.0.3"
+      }
+    },
+    {
+      "identity" : "then",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devxoul/Then",
+      "state" : {
+        "revision" : "e421a7b3440a271834337694e6050133a3958bc7",
+        "version" : "2.7.0"
+      }
+    },
+    {
+      "identity" : "validatedpropertykit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SvenTiigi/ValidatedPropertyKit.git",
+      "state" : {
+        "revision" : "760c3c708e88c5e3c113e3a4dc26324ebaf351f7",
+        "version" : "0.0.4"
+      }
+    }
+  ],
+  "version" : 2
 }

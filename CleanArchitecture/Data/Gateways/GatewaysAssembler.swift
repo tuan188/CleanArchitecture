@@ -7,35 +7,35 @@
 //
 
 protocol GatewaysAssembler {
-    func resolve() -> ProductGatewayType
-    func resolve() -> AuthGatewayType
-    func resolve() -> RepoGatewayType
+    func resolve() -> ProductGatewayProtocol
+    func resolve() -> AuthGatewayProtocol
+    func resolve() -> RepoGatewayProtocol
 }
 
 extension GatewaysAssembler where Self: DefaultAssembler {
-    func resolve() -> ProductGatewayType {
+    func resolve() -> ProductGatewayProtocol {
         ProductGateway()
     }
 
-    func resolve() -> AuthGatewayType {
+    func resolve() -> AuthGatewayProtocol {
         AuthGateway()
     }
 
-    func resolve() -> RepoGatewayType {
+    func resolve() -> RepoGatewayProtocol {
         RepoGateway()
     }
 }
 
 extension GatewaysAssembler where Self: PreviewAssembler {
-    func resolve() -> ProductGatewayType {
+    func resolve() -> ProductGatewayProtocol {
         PreviewProductGateway()
     }
     
-    func resolve() -> AuthGatewayType {
+    func resolve() -> AuthGatewayProtocol {
         AuthGateway()
     }
     
-    func resolve() -> RepoGatewayType {
+    func resolve() -> RepoGatewayProtocol {
         RepoGateway()
     }
 }

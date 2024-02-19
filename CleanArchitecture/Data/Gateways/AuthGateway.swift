@@ -8,12 +8,13 @@
 
 import Combine
 import Foundation
+import Factory
 
-protocol AuthGatewayType {
+protocol AuthGatewayProtocol {
     func login(dto: LoginDto) -> Observable<Void>
 }
 
-struct AuthGateway: AuthGatewayType {
+struct AuthGateway: AuthGatewayProtocol {
     func login(dto: LoginDto) -> Observable<Void> {
         guard let username = dto.username,
             let password = dto.password else {
@@ -28,5 +29,13 @@ struct AuthGateway: AuthGatewayType {
             })
         }
         .eraseToAnyPublisher()
+    }
+}
+
+extension Container {
+    var authGateway: Factory<AuthGatewayProtocol> {
+        Factory(self) {
+            AuthGateway()
+        }
     }
 }

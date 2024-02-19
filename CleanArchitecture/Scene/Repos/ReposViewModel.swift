@@ -9,12 +9,26 @@
 import Combine
 import UIKit
 
-struct ReposViewModel {
-    let navigator: ReposNavigatorType
-    let useCase: ReposUseCaseType
+// MARK: - ViewModelType
+class ReposViewModel: GetRepoList {
+    var repoGateway: RepoGatewayProtocol
+    
+    init(repoGateway: RepoGatewayProtocol) {
+        self.repoGateway = repoGateway
+    }
+    
+    // Use cases
+    func getRepos(page: Int) -> Observable<PagingInfo<Repo>> {
+        let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
+        return getRepos(dto: dto)
+    }
+    
+    // Navigation
+    func toRepoDetail(repo: Repo) {
+        
+    }
 }
 
-// MARK: - ViewModelType
 extension ReposViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
@@ -38,7 +52,7 @@ extension ReposViewModel: ViewModel {
         let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
                                         reloadTrigger: input.reloadTrigger,
                                         loadMoreTrigger: input.loadMoreTrigger,
-                                        getItems: useCase.getRepos)
+                                        getItems: getRepos)
         
         let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
 
@@ -48,9 +62,9 @@ extension ReposViewModel: ViewModel {
             .store(in: cancelBag)
         
         input.selectRepoTrigger
-            .handleEvents(receiveOutput: { indexPath in
+            .handleEvents(receiveOutput: { [unowned self] indexPath in
                 let repo = getPageInput.pageSubject.value.items[indexPath.row]
-                self.navigator.toRepoDetail(repo: repo)
+                self.toRepoDetail(repo: repo)
             })
             .sink()
             .store(in: cancelBag)

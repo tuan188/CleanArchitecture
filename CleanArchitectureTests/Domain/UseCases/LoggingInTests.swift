@@ -10,7 +10,7 @@
 import XCTest
 
 final class LoggingInTests: XCTestCase, LoggingIn {
-    var authGateway: AuthGatewayType {
+    var authGateway: AuthGatewayProtocol {
         return authGatewayMock
     }
     

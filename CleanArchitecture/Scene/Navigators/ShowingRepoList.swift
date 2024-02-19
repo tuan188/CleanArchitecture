@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Factory
 
 protocol ShowingRepoList {
     var assembler: Assembler { get }
@@ -15,7 +16,7 @@ protocol ShowingRepoList {
 
 extension ShowingRepoList {
     func showRepoList() {
-        let vc: ReposViewController = assembler.resolve(navigationController: navigationController)
+        let vc: ReposViewController = Container.shared.reposViewController(navigationController: navigationController)()
         navigationController.pushViewController(vc, animated: true)
     }
 }

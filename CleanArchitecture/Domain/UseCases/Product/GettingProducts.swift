@@ -9,7 +9,7 @@
 import Combine
 
 protocol GettingProducts {
-    var productGateway: ProductGatewayType { get }
+    var productGateway: ProductGatewayProtocol { get }
 }
 
 extension GettingProducts {

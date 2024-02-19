@@ -1,5 +1,5 @@
 //
-//  GettingRepos.swift
+//  GetRepoList.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 8/3/20.
@@ -8,11 +8,11 @@
 
 import Combine
 
-protocol GettingRepos {
-    var repoGateway: RepoGatewayType { get }
+protocol GetRepoList {
+    var repoGateway: RepoGatewayProtocol { get }
 }
 
-extension GettingRepos {
+extension GetRepoList {
     func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
         repoGateway.getRepos(dto: dto)
     }

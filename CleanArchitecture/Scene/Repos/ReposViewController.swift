@@ -10,6 +10,7 @@ import UIKit
 import Reusable
 import Combine
 import SDWebImage
+import Factory
 
 final class ReposViewController: UIViewController, Bindable {
     
@@ -124,4 +125,16 @@ extension ReposViewController {
 // MARK: - StoryboardSceneBased
 extension ReposViewController: StoryboardSceneBased {
     static var sceneStoryboard = Storyboards.repo
+}
+
+// MARK: - Factory
+extension Container {
+    func reposViewController(navigationController: UINavigationController) -> Factory<ReposViewController> {
+        Factory(self) {
+            let vc = ReposViewController.instantiate()
+            let vm = ReposViewModel(repoGateway: self.repoGateway())
+            vc.bindViewModel(to: vm)
+            return vc
+        }
+    }
 }

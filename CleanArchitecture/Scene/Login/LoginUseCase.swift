@@ -11,5 +11,5 @@ protocol LoginUseCaseType {
 }
 
 struct LoginUseCase: LoginUseCaseType, LoggingIn {
-    let authGateway: AuthGatewayType
+    let authGateway: AuthGatewayProtocol
 }

@@ -8,12 +8,11 @@
 
 import UIKit
 
-protocol ReposNavigatorType {
+protocol ReposNavigatorProtocol {
     func toRepoDetail(repo: Repo)
 }
 
-struct ReposNavigator: ReposNavigatorType {
-    unowned let assembler: Assembler
+struct ReposNavigator: ReposNavigatorProtocol {
     unowned let navigationController: UINavigationController
     
     func toRepoDetail(repo: Repo) {

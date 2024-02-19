@@ -15,7 +15,7 @@ protocol ShowingRepoCollection {
 
 extension ShowingRepoCollection {
     func showRepoCollection() {
-        let vc: RepoCollectionViewController = assembler.resolve(navigationController: navigationController)
-        navigationController.pushViewController(vc, animated: true)
+//        let vc: RepoCollectionViewController = assembler.resolve(navigationController: navigationController)
+//        navigationController.pushViewController(vc, animated: true)
     }
 }

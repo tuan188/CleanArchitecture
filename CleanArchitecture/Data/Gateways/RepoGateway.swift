@@ -8,12 +8,13 @@
 
 import Combine
 import Foundation
+import Factory
 
-protocol RepoGatewayType {
+protocol RepoGatewayProtocol {
     func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>>
 }
 
-struct RepoGateway: RepoGatewayType {
+struct RepoGateway: RepoGatewayProtocol {
     func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
         let input = API.GetRepoListInput(dto: dto)
         
@@ -27,7 +28,7 @@ struct RepoGateway: RepoGatewayType {
     }
 }
 
-struct PreviewRepoGateway: RepoGatewayType {
+struct PreviewRepoGateway: RepoGatewayProtocol {
     func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
         Future<PagingInfo<Repo>, Error> { promise in
             let repos = [
@@ -44,5 +45,19 @@ struct PreviewRepoGateway: RepoGatewayType {
             promise(.success(page))
         }
         .eraseToAnyPublisher()
+    }
+}
+
+extension Container {
+    var repoGateway: Factory<RepoGatewayProtocol> {
+        Factory(self) {
+            RepoGateway()
+        }
+    }
+    
+    var previewRepoGateway: Factory<RepoGatewayProtocol> {
+        Factory(self) {
+            PreviewRepoGateway()
+        }
     }
 }

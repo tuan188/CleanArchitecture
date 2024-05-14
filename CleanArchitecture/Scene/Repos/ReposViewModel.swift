@@ -9,7 +9,6 @@
 import Combine
 import UIKit
 
-// MARK: - ViewModelType
 class ReposViewModel: GetRepoList, ShowRepoDetail {
     var repoGateway: RepoGatewayProtocol
     
@@ -31,6 +30,7 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
     }
 }
 
+// MARK: - ViewModel
 extension ReposViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>

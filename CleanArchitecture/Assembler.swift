@@ -7,7 +7,6 @@
 //
 
 protocol Assembler: class,
-    ProductDetailAssembler,
     ProductsAssembler,
     MainAssembler,
     LoginAssembler,

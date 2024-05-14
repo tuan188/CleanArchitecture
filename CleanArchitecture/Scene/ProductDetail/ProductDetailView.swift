@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Factory
 
 struct ProductDetailView: View {
     @ObservedObject var output: ProductDetailViewModel.Output
@@ -45,8 +46,14 @@ struct ProductDetailView: View {
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let product = Product(id: 1, name: "iPhone", price: 999)
-        return ProductDetailView(
-            viewModel: PreviewAssembler().resolve(navigationController: UINavigationController(), product: product)
-        )
+        return Container.shared.productDetailView(product: product)()
+    }
+}
+
+extension Container {
+    func productDetailView(product: Product) -> Factory<ProductDetailView> {
+        Factory(self) {
+            ProductDetailView(viewModel: ProductDetailViewModel(product: product))
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Factory
 
 protocol ShowingProductDetail {
     var assembler: Assembler { get }
@@ -16,7 +17,7 @@ protocol ShowingProductDetail {
 
 extension ShowingProductDetail {
     func showProductDetail(product: Product) {
-        let view: ProductDetailView = assembler.resolve(navigationController: navigationController, product: product)
+        let view = Container.shared.productDetailView(product: product)()
         let vc = UIHostingController(rootView: view)
         vc.title = "Product Detail"
         navigationController.pushViewController(vc, animated: true)

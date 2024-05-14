@@ -9,12 +9,10 @@
 import Combine
 
 struct ProductDetailViewModel {
-    let navigator: ProductDetailNavigatorType
-    let useCase: ProductDetailUseCaseType
     let product: Product
 }
 
-// MARK: - ViewModelType
+// MARK: - ViewModel
 extension ProductDetailViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>

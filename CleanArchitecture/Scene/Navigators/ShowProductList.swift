@@ -1,5 +1,5 @@
 //
-//  ShowingProductList.swift
+//  ShowProductList.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 7/29/20.
@@ -8,15 +8,15 @@
 
 import UIKit
 import SwiftUI
+import Factory
 
-protocol ShowingProductList {
-    var assembler: Assembler { get }
+protocol ShowProductList {
     var navigationController: UINavigationController { get }
 }
 
-extension ShowingProductList {
+extension ShowProductList {
     func showProductList() {
-        let view: ProductsView = assembler.resolve(navigationController: navigationController)
+        let view = Container.shared.productsView(navigationController: navigationController)()
         let vc = UIHostingController(rootView: view)
         vc.title = "Product List"
         navigationController.pushViewController(vc, animated: true)

@@ -1,5 +1,5 @@
 //
-//  GettingProducts.swift
+//  GetProducts.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 7/14/20.
@@ -8,11 +8,11 @@
 
 import Combine
 
-protocol GettingProducts {
+protocol GetProducts {
     var productGateway: ProductGatewayProtocol { get }
 }
 
-extension GettingProducts {
+extension GetProducts {
     func getProducts() -> Observable<[Product]> {
         productGateway.getProducts()
     }

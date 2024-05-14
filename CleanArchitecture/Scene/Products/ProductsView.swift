@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import SwiftUIRefresh
+import Factory
 
 struct ProductsView: View {
     @ObservedObject var output: ProductsViewModel.Output
@@ -62,10 +63,16 @@ struct ProductsView: View {
 
 struct ProductsView_Preview: PreviewProvider {
     static var previews: some View {
-        let viewModel: ProductsViewModel = PreviewAssembler().resolve(
-            navigationController: UINavigationController()
-        )
-        
-        return ProductsView(viewModel: viewModel)
+        ProductsView(viewModel: ProductsViewModel(navigationController: UINavigationController(), 
+                                                  productGateway: Container.shared.previewProductGateway()))
+    }
+}
+
+extension Container {
+    func productsView(navigationController: UINavigationController) -> Factory<ProductsView> {
+        Factory(self) {
+            ProductsView(viewModel: ProductsViewModel(navigationController: navigationController, 
+                                                      productGateway: self.productGateway()))
+        }
     }
 }

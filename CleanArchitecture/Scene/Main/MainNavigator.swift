@@ -17,7 +17,7 @@ protocol MainNavigatorType {
     func toLogin()
 }
 
-struct MainNavigator: MainNavigatorType, ShowingProductList, ShowingLogin, ShowingRepoList, ShowingRepoCollection {
+struct MainNavigator: MainNavigatorType, ShowProductList, ShowingLogin, ShowingRepoList, ShowingRepoCollection {
     unowned let assembler: Assembler
     unowned let navigationController: UINavigationController
     

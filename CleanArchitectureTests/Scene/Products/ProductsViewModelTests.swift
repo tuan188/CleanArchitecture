@@ -11,9 +11,7 @@ import XCTest
 import Combine
 
 final class ProductsViewModelTests: XCTestCase {
-    private var viewModel: ProductsViewModel!
-    private var navigator: ProductsNavigatorMock!
-    private var useCase: ProductsUseCaseMock!
+    private var viewModel: TestProductsViewModel!
     
     private var input: ProductsViewModel.Input!
     private var output: ProductsViewModel.Output!
@@ -25,9 +23,8 @@ final class ProductsViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        navigator = ProductsNavigatorMock()
-        useCase = ProductsUseCaseMock()
-        viewModel = ProductsViewModel(navigator: navigator, useCase: useCase)
+        viewModel = TestProductsViewModel(navigationController: UINavigationController(),
+                                          productGateway: FakeProductGateway())
         
         input = ProductsViewModel.Input(loadTrigger: loadTrigger.eraseToAnyPublisher(),
                                         reloadTrigger: reloadTrigger.eraseToAnyPublisher(),
@@ -43,21 +40,21 @@ final class ProductsViewModelTests: XCTestCase {
         
         // assert
         wait {
-            XCTAssert(self.useCase.getProductsCalled)
+            XCTAssert(self.viewModel.getProductsCalled)
             XCTAssertEqual(self.output.products.count, 1)
         }
     }
     
     func test_loadTrigger_failed_showError() {
         // arrange
-        useCase.getProductsReturnValue = .failure(TestError())
+        viewModel.getProductsReturnValue = Fail(error: TestError()).eraseToAnyPublisher()
         
         // act
         loadTrigger.send(())
         
         // assert
         wait {
-            XCTAssert(self.useCase.getProductsCalled)
+            XCTAssert(self.viewModel.getProductsCalled)
             XCTAssert(self.output.alert.isShowing)
         }
     }
@@ -68,21 +65,21 @@ final class ProductsViewModelTests: XCTestCase {
         
         // assert
         wait {
-            XCTAssert(self.useCase.getProductsCalled)
+            XCTAssert(self.viewModel.getProductsCalled)
             XCTAssertEqual(self.output.products.count, 1)
         }
     }
     
     func test_reloadTrigger_failed_showError() {
         // arrange
-        useCase.getProductsReturnValue = .failure(TestError())
+        viewModel.getProductsReturnValue = Fail(error: TestError()).eraseToAnyPublisher()
         
         // act
         reloadTrigger.send(())
         
         // assert
         wait {
-            XCTAssert(self.useCase.getProductsCalled)
+            XCTAssert(self.viewModel.getProductsCalled)
             XCTAssert(self.output.alert.isShowing)
         }
     }
@@ -94,7 +91,26 @@ final class ProductsViewModelTests: XCTestCase {
         
         // assert
         wait {
-            XCTAssert(self.navigator.showProductDetailCalled)
+            XCTAssert(self.viewModel.showProductDetailCalled)
         }
+    }
+}
+
+final class TestProductsViewModel: ProductsViewModel {
+    var getProductsCalled = false
+    
+    var getProductsReturnValue = Just([Product].fake)
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+    
+    var showProductDetailCalled = false
+    
+    override func vmGetProducts() -> Observable<[Product]> {
+        getProductsCalled = true
+        return getProductsReturnValue
+    }
+    
+    override func vmShowProductDetail(product: Product) {
+        showProductDetailCalled = true
     }
 }

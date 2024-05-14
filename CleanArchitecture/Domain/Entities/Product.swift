@@ -11,3 +11,12 @@ struct Product: Identifiable {
     var name = ""
     var price = 0.0
 }
+
+// MARK: - Fake
+extension Array where Element == Product {
+    static var fake: Self {
+        [
+            Product()
+        ]
+    }
+}

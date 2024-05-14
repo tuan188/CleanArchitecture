@@ -11,7 +11,7 @@ import XCTest
 import Combine
 
 final class ReposViewModelTests: XCTestCase {
-    private var vm: TestReposViewModel!
+    private var viewModel: TestReposViewModel!
     private var cancelBag = CancelBag()
     private var output: ReposViewModel.Output!
     
@@ -21,7 +21,7 @@ final class ReposViewModelTests: XCTestCase {
     private var selectRepoTrigger = PassthroughSubject<IndexPath, Never>()
 
     override func setUpWithError() throws {
-        vm = TestReposViewModel(repoGateway: RepoGatewayFake())
+        viewModel = TestReposViewModel(repoGateway: RepoGatewayFake())
         cancelBag = CancelBag()
         
         let input = ReposViewModel.Input(
@@ -31,7 +31,7 @@ final class ReposViewModelTests: XCTestCase {
             selectRepoTrigger: selectRepoTrigger.eraseToAnyPublisher()
         )
         
-        output = vm.transform(input, cancelBag: cancelBag)
+        output = viewModel.transform(input, cancelBag: cancelBag)
     }
     
     func test_loadTrigger_getRepos() {
@@ -40,7 +40,7 @@ final class ReposViewModelTests: XCTestCase {
         
         // assert
         wait {
-            XCTAssert(self.vm.getReposCalled)
+            XCTAssert(self.viewModel.getReposCalled)
             XCTAssertEqual(self.output.repos.count, 1)
         }
     }

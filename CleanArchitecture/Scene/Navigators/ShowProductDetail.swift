@@ -1,5 +1,5 @@
 //
-//  ShowingProductDetail.swift
+//  ShowProductDetail.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 7/21/20.
@@ -10,12 +10,11 @@ import UIKit
 import SwiftUI
 import Factory
 
-protocol ShowingProductDetail {
-    var assembler: Assembler { get }
+protocol ShowProductDetail {
     var navigationController: UINavigationController { get }
 }
 
-extension ShowingProductDetail {
+extension ShowProductDetail {
     func showProductDetail(product: Product) {
         let view = Container.shared.productDetailView(product: product)()
         let vc = UIHostingController(rootView: view)

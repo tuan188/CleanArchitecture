@@ -9,12 +9,25 @@
 import Combine
 import UIKit
 
-struct ProductsViewModel {
-    let navigator: ProductsNavigatorType
-    let useCase: ProductsUseCaseType
+class ProductsViewModel: GetProducts, ShowProductDetail {
+    let navigationController: UINavigationController
+    let productGateway: ProductGatewayProtocol
+    
+    init(navigationController: UINavigationController, productGateway: ProductGatewayProtocol) {
+        self.navigationController = navigationController
+        self.productGateway = productGateway
+    }
+    
+    func vmShowProductDetail(product: Product) {
+        showProductDetail(product: product)
+    }
+    
+    func vmGetProducts() -> Observable<[Product]> {
+        getProducts()
+    }
 }
 
-// MARK: - ViewModelType
+// MARK: - ViewModel
 extension ProductsViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
@@ -32,7 +45,7 @@ extension ProductsViewModel: ViewModel {
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let getListInput = GetListInput(loadTrigger: input.loadTrigger,
                                         reloadTrigger: input.reloadTrigger,
-                                        getItems: useCase.getProducts)
+                                        getItems: self.vmGetProducts)
 
         let (products, error, isLoading, isReloading) = getList(input: getListInput).destructured
         
@@ -60,7 +73,7 @@ extension ProductsViewModel: ViewModel {
         input.selectTrigger
             .sink(receiveValue: { indexPath in
                 let product = output.products[indexPath.row].product
-                self.navigator.showProductDetail(product: product)
+                self.vmShowProductDetail(product: product)
             })
             .store(in: cancelBag)
         

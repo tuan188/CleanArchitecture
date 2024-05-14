@@ -10,22 +10,24 @@ import Combine
 import UIKit
 
 // MARK: - ViewModelType
-class ReposViewModel: GetRepoList {
+class ReposViewModel: GetRepoList, ShowRepoDetail {
     var repoGateway: RepoGatewayProtocol
     
     init(repoGateway: RepoGatewayProtocol) {
         self.repoGateway = repoGateway
     }
     
-    // Use cases
+    // MARK: - Use cases
+    
     func getRepos(page: Int) -> Observable<PagingInfo<Repo>> {
         let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
         return getRepos(dto: dto)
     }
     
-    // Navigation
-    func toRepoDetail(repo: Repo) {
-        
+    // // MARK: - Navigation
+    
+    func vmShowRepoDetail(repo: Repo) {
+        showRepoDetail(repo: repo)
     }
 }
 
@@ -64,7 +66,7 @@ extension ReposViewModel: ViewModel {
         input.selectRepoTrigger
             .handleEvents(receiveOutput: { [unowned self] indexPath in
                 let repo = getPageInput.pageSubject.value.items[indexPath.row]
-                self.toRepoDetail(repo: repo)
+                self.vmShowRepoDetail(repo: repo)
             })
             .sink()
             .store(in: cancelBag)

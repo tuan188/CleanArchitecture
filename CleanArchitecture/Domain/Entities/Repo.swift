@@ -43,3 +43,12 @@ extension Repo: Decodable {
         case owner
     }
 }
+
+// MARK: - Fake
+extension PagingInfo where T == Repo {
+    static var fake: Self {
+        PagingInfo<Repo>(page: 1, items: [
+            Repo()
+        ])
+    }
+}

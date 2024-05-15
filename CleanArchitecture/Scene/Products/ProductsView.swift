@@ -13,6 +13,7 @@ import Factory
 
 struct ProductsView: View {
     @ObservedObject var output: ProductsViewModel.Output
+    @ObservedObject var viewModel: ProductsViewModel
     
     private let cancelBag = CancelBag()
     private let loadTrigger = PassthroughSubject<Void, Never>()
@@ -58,6 +59,7 @@ struct ProductsView: View {
         
         self.output = viewModel.transform(input, cancelBag: cancelBag)
         self.loadTrigger.send(())
+        self.viewModel = viewModel
     }
 }
 

@@ -31,7 +31,7 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
 }
 
 // MARK: - ViewModel
-extension ReposViewModel: ViewModel {
+extension ReposViewModel: ObservableObject, ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
         let reloadTrigger: Driver<Void>

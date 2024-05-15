@@ -105,12 +105,12 @@ final class TestProductsViewModel: ProductsViewModel {
     
     var showProductDetailCalled = false
     
-    override func vmGetProducts() -> Observable<[Product]> {
+    override func vm_getProducts() -> Observable<[Product]> {
         getProductsCalled = true
         return getProductsReturnValue
     }
     
-    override func vmShowProductDetail(product: Product) {
+    override func vm_showProductDetail(product: Product) {
         showProductDetailCalled = true
     }
 }

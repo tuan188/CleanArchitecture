@@ -18,17 +18,17 @@ class ProductsViewModel: GetProducts, ShowProductDetail {
         self.productGateway = productGateway
     }
     
-    func vmShowProductDetail(product: Product) {
+    func vm_showProductDetail(product: Product) {
         showProductDetail(product: product)
     }
     
-    func vmGetProducts() -> Observable<[Product]> {
+    func vm_getProducts() -> Observable<[Product]> {
         getProducts()
     }
 }
 
 // MARK: - ViewModel
-extension ProductsViewModel: ViewModel {
+extension ProductsViewModel: ObservableObject, ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
         let reloadTrigger: Driver<Void>
@@ -45,7 +45,7 @@ extension ProductsViewModel: ViewModel {
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let getListInput = GetListInput(loadTrigger: input.loadTrigger,
                                         reloadTrigger: input.reloadTrigger,
-                                        getItems: self.vmGetProducts)
+                                        getItems: self.vm_getProducts)
 
         let (products, error, isLoading, isReloading) = getList(input: getListInput).destructured
         
@@ -71,9 +71,9 @@ extension ProductsViewModel: ViewModel {
             .store(in: cancelBag)
         
         input.selectTrigger
-            .sink(receiveValue: { indexPath in
+            .sink(receiveValue: { [unowned self] indexPath in
                 let product = output.products[indexPath.row].product
-                self.vmShowProductDetail(product: product)
+                self.vm_showProductDetail(product: product)
             })
             .store(in: cancelBag)
         

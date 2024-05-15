@@ -10,6 +10,7 @@ import UIKit
 import Reusable
 import Then
 import Combine
+import Factory
 
 final class MainViewController: UIViewController, Bindable {
     
@@ -82,4 +83,15 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - StoryboardSceneBased
 extension MainViewController: StoryboardSceneBased {
     static var sceneStoryboard = Storyboards.main
+}
+
+extension Container {
+    func mainViewController(navigationController: UINavigationController) -> Factory<MainViewController> {
+        Factory(self) {
+            let vc = MainViewController.instantiate()
+            let vm = MainViewModel(navigationController: navigationController)
+            vc.bindViewModel(to: vm)
+            return vc
+        }
+    }
 }

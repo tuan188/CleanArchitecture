@@ -9,13 +9,32 @@
 import UIKit
 import Combine
 
-struct MainViewModel {
-    let navigator: MainNavigatorType
-    let useCase: MainUseCaseType
+class MainViewModel: ShowProductList, ShowLogin, ShowRepoList, ShowRepoCollection {
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func vm_showProductList() {
+        showProductList()
+    }
+    
+    func vm_showLogin() {
+        showLogin()
+    }
+    
+    func vm_showRepoList() {
+        showRepoList()
+    }
+    
+    func vm_showRepoCollection() {
+        showRepoCollection()
+    }
 }
 
 // MARK: - ViewModelType
-extension MainViewModel: ViewModel {
+extension MainViewModel: ObservableObject, ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
         let selectMenuTrigger: Driver<IndexPath>
@@ -36,21 +55,21 @@ extension MainViewModel: ViewModel {
             .store(in: cancelBag)
         
         input.selectMenuTrigger
-            .handleEvents(receiveOutput: { indexPath in
+            .handleEvents(receiveOutput: { [unowned self] indexPath in
                 let menu = output.menuSections[indexPath.section].menus[indexPath.row]
                 switch menu {
                 case .products:
-                    self.navigator.toProducts()
+                    self.vm_showProductList()
 //                case .sectionedProducts:
 //                    self.navigator.toSectionedProducts()
                 case .repos:
-                    self.navigator.toRepos()
+                    self.vm_showRepoList()
                 case .repoCollection:
-                    self.navigator.toRepoCollection()
+                    self.vm_showRepoCollection()
 //                case .users:
 //                    self.navigator.toUsers()
                 case .login:
-                    self.navigator.toLogin()
+                    self.vm_showLogin()
                 }
             })
             .sink()

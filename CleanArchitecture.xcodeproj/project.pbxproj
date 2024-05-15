@@ -102,9 +102,6 @@
 		1787233124BD547600D90F8E /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787232C24BD547600D90F8E /* AppViewModel.swift */; };
 		1787233324BD54B600D90F8E /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787233224BD54B600D90F8E /* Assembler.swift */; };
 		1787234224BD556E00D90F8E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787233D24BD556E00D90F8E /* LoginViewModel.swift */; };
-		1787234924BD560500D90F8E /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787234424BD560500D90F8E /* MainAssembler.swift */; };
-		1787234A24BD560500D90F8E /* MainNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787234524BD560500D90F8E /* MainNavigator.swift */; };
-		1787234B24BD560500D90F8E /* MainUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787234624BD560500D90F8E /* MainUseCase.swift */; };
 		1787234D24BD560500D90F8E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787234824BD560500D90F8E /* MainViewModel.swift */; };
 		1787235324BD56E400D90F8E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787235224BD56E400D90F8E /* Product.swift */; };
 		1787235624BD571500D90F8E /* GetProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787235524BD571500D90F8E /* GetProducts.swift */; };
@@ -240,9 +237,6 @@
 		1787233224BD54B600D90F8E /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		1787233424BD551500D90F8E /* CleanArchitecture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleanArchitecture-Bridging-Header.h"; sourceTree = "<group>"; };
 		1787233D24BD556E00D90F8E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		1787234424BD560500D90F8E /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
-		1787234524BD560500D90F8E /* MainNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigator.swift; sourceTree = "<group>"; };
-		1787234624BD560500D90F8E /* MainUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUseCase.swift; sourceTree = "<group>"; };
 		1787234824BD560500D90F8E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1787235224BD56E400D90F8E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1787235524BD571500D90F8E /* GetProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProducts.swift; sourceTree = "<group>"; };
@@ -636,9 +630,6 @@
 		1787234324BD55FA00D90F8E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1787234424BD560500D90F8E /* MainAssembler.swift */,
-				1787234524BD560500D90F8E /* MainNavigator.swift */,
-				1787234624BD560500D90F8E /* MainUseCase.swift */,
 				1787234824BD560500D90F8E /* MainViewModel.swift */,
 				176BAA3D24D10F7500324D3C /* MainViewController.swift */,
 				176BAA4924D1319C00324D3C /* MenuCell.swift */,
@@ -960,16 +951,13 @@
 				176BAA7324D26DEF00324D3C /* APIResponse.swift in Sources */,
 				1734926524C59D2A0014F87E /* AppError.swift in Sources */,
 				17A5B1F224D804DA004BD209 /* UIViewController+.swift in Sources */,
-				1787234A24BD560500D90F8E /* MainNavigator.swift in Sources */,
 				1787232F24BD547600D90F8E /* AppUseCase.swift in Sources */,
 				1787236824BD5EC700D90F8E /* ProductsViewModel.swift in Sources */,
-				1787234B24BD560500D90F8E /* MainUseCase.swift in Sources */,
 				1742B37124D7B45C00C82D15 /* UIViewController+Debug.swift in Sources */,
 				176BAA6224D2698500324D3C /* APIServiceBase.swift in Sources */,
 				1787235324BD56E400D90F8E /* Product.swift in Sources */,
 				1765B2CE24C6A79F0096D210 /* ProductDetailView.swift in Sources */,
 				1720C7C124FE383D00D616B2 /* Validation+Collection.swift in Sources */,
-				1787234924BD560500D90F8E /* MainAssembler.swift in Sources */,
 				176BAA6D24D26CD900324D3C /* APIOutputBase.swift in Sources */,
 				1787232D24BD547600D90F8E /* AppAssembler.swift in Sources */,
 				173865AA24D3BC6A0059E3AD /* APIOutput.swift in Sources */,

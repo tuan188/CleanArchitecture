@@ -25,7 +25,7 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
     
     // // MARK: - Navigation
     
-    func vmShowRepoDetail(repo: Repo) {
+    func vm_showRepoDetail(repo: Repo) {
         showRepoDetail(repo: repo)
     }
 }
@@ -66,7 +66,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
         input.selectRepoTrigger
             .handleEvents(receiveOutput: { [unowned self] indexPath in
                 let repo = getPageInput.pageSubject.value.items[indexPath.row]
-                self.vmShowRepoDetail(repo: repo)
+                self.vm_showRepoDetail(repo: repo)
             })
             .sink()
             .store(in: cancelBag)

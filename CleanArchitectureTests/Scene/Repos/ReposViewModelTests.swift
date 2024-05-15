@@ -50,7 +50,7 @@ class TestReposViewModel: ReposViewModel {
     var vmShowRepoDetailCalled = false
     var getReposCalled = false
     
-    override func vmShowRepoDetail(repo: Repo) {
+    override func vm_showRepoDetail(repo: Repo) {
         vmShowRepoDetailCalled = true
     }
     

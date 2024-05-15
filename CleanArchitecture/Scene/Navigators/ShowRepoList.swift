@@ -10,7 +10,6 @@ import UIKit
 import Factory
 
 protocol ShowRepoList {
-    var assembler: Assembler { get }
     var navigationController: UINavigationController { get }
 }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Factory
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -28,7 +29,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let vc: MainViewController = assembler.resolve(navigationController: nav)
+            let vc = Container.shared.mainViewController(navigationController: nav)()
             nav.viewControllers = [vc]
             window.rootViewController = nav
             self.window = window

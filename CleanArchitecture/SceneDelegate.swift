@@ -13,7 +13,6 @@ import Factory
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let assembler: Assembler = DefaultAssembler()
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,

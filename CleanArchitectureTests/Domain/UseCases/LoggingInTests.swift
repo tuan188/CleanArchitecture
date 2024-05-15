@@ -9,7 +9,7 @@
 @testable import CleanArchitecture
 import XCTest
 
-final class LoggingInTests: XCTestCase, LoggingIn {
+final class LoggingInTests: XCTestCase, LogIn {
     var authGateway: AuthGatewayProtocol {
         return authGatewayMock
     }

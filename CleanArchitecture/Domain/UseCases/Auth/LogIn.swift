@@ -1,5 +1,5 @@
 //
-//  LoggingIn.swift
+//  LogIn.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 7/29/20.
@@ -38,11 +38,11 @@ struct LoginDto: Dto {
     }
 }
 
-protocol LoggingIn {
+protocol LogIn {
     var authGateway: AuthGatewayProtocol { get }
 }
 
-extension LoggingIn {
+extension LogIn {
     func login(dto: LoginDto) -> Observable<Void> {
         if let error = dto.validationError {
             return Fail(error: error).eraseToAnyPublisher()

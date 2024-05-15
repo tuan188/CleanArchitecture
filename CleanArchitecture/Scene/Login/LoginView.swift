@@ -8,10 +8,13 @@
 
 import SwiftUI
 import Combine
+import Factory
 
 struct LoginView: View {
     @ObservedObject var input: LoginViewModel.Input
     @ObservedObject var output: LoginViewModel.Output
+    @ObservedObject var viewModel: LoginViewModel
+    
     private let cancelBag = CancelBag()
     private let loginTrigger = PassthroughSubject<Void, Never>()
     
@@ -56,13 +59,21 @@ struct LoginView: View {
     init(viewModel: LoginViewModel) {
         let input = LoginViewModel.Input(loginTrigger: loginTrigger.asDriver())
         output = viewModel.transform(input, cancelBag: cancelBag)
+        self.viewModel = viewModel
         self.input = input
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel: LoginViewModel = PreviewAssembler().resolve(navigationController: UINavigationController())
-        return LoginView(viewModel: viewModel)
+        LoginView(viewModel: LoginViewModel(authGateway: Container.shared.previewAuthGateway()))
+    }
+}
+
+extension Container {
+    func loginView(navigationController: UINavigationController) -> Factory<LoginView> {
+        Factory(self) {
+            LoginView(viewModel: LoginViewModel(authGateway: self.authGateway()))
+        }
     }
 }

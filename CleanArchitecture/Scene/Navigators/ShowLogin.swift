@@ -1,5 +1,5 @@
 //
-//  ShowingLogin.swift
+//  ShowLogin.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 7/29/20.
@@ -8,15 +8,15 @@
 
 import UIKit
 import SwiftUI
+import Factory
 
-protocol ShowingLogin {
-    var assembler: Assembler { get }
+protocol ShowLogin {
     var navigationController: UINavigationController { get }
 }
 
-extension ShowingLogin {
+extension ShowLogin {
     func showLogin() {
-        let view: LoginView = assembler.resolve(navigationController: navigationController)
+        let view = Container.shared.loginView(navigationController: navigationController)()
         let vc = UIHostingController(rootView: view)
         vc.title = "Login"
         navigationController.pushViewController(vc, animated: true)

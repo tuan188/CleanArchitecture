@@ -32,10 +32,24 @@ struct AuthGateway: AuthGatewayProtocol {
     }
 }
 
+struct PreviewAuthGateway: AuthGatewayProtocol {
+    func login(dto: LoginDto) -> Observable<Void> {
+        Just(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+}
+
 extension Container {
     var authGateway: Factory<AuthGatewayProtocol> {
         Factory(self) {
             AuthGateway()
+        }
+    }
+    
+    var previewAuthGateway: Factory<AuthGatewayProtocol> {
+        Factory(self) {
+            PreviewAuthGateway()
         }
     }
 }

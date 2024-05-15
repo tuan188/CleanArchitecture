@@ -1,5 +1,5 @@
 //
-//  ShowingRepoList.swift
+//  ShowRepoList.swift
 //  CleanArchitecture
 //
 //  Created by Tuan Truong on 8/3/20.
@@ -9,14 +9,14 @@
 import UIKit
 import Factory
 
-protocol ShowingRepoList {
+protocol ShowRepoList {
     var assembler: Assembler { get }
     var navigationController: UINavigationController { get }
 }
 
-extension ShowingRepoList {
+extension ShowRepoList {
     func showRepoList() {
-        let vc: ReposViewController = Container.shared.reposViewController(navigationController: navigationController)()
+        let vc = Container.shared.reposViewController(navigationController: navigationController)()
         navigationController.pushViewController(vc, animated: true)
     }
 }

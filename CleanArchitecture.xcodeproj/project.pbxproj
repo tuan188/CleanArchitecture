@@ -29,7 +29,7 @@
 		1742B36E24D7B22B00C82D15 /* ReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B36924D7B22B00C82D15 /* ReposViewController.swift */; };
 		1742B37124D7B45C00C82D15 /* UIViewController+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37024D7B45C00C82D15 /* UIViewController+Debug.swift */; };
 		1742B37424D7B6F300C82D15 /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1742B37324D7B6F300C82D15 /* Repo.storyboard */; };
-		1742B37624D7B82C00C82D15 /* ShowingRepoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37524D7B82C00C82D15 /* ShowingRepoList.swift */; };
+		1742B37624D7B82C00C82D15 /* ShowRepoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37524D7B82C00C82D15 /* ShowRepoList.swift */; };
 		1742B37824D7C48400C82D15 /* RepoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37724D7C48400C82D15 /* RepoItemViewModel.swift */; };
 		1742B37B24D7E88900C82D15 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37A24D7E88900C82D15 /* AlertMessage.swift */; };
 		1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B37C24D7F52D00C82D15 /* RepoCell.swift */; };
@@ -84,7 +84,7 @@
 		1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */; };
 		1770EC2F24DAA6570022FBFE /* RepoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */; };
 		1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */; };
-		1770EC3324DAA9AC0022FBFE /* ShowingRepoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */; };
+		1770EC3324DAA9AC0022FBFE /* ShowRepoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3224DAA9AC0022FBFE /* ShowRepoCollection.swift */; };
 		1770EC4324DD2F2F0022FBFE /* ScreenLoadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC4224DD2F2F0022FBFE /* ScreenLoadingType.swift */; };
 		177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 177428D424F3691B00C141E4 /* ValidatedPropertyKit */; };
 		1781CF3924BD8D58004ED1C6 /* GatewaysAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3824BD8D58004ED1C6 /* GatewaysAssembler.swift */; };
@@ -170,7 +170,7 @@
 		1742B36924D7B22B00C82D15 /* ReposViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewController.swift; sourceTree = "<group>"; };
 		1742B37024D7B45C00C82D15 /* UIViewController+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Debug.swift"; sourceTree = "<group>"; };
 		1742B37324D7B6F300C82D15 /* Repo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repo.storyboard; sourceTree = "<group>"; };
-		1742B37524D7B82C00C82D15 /* ShowingRepoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingRepoList.swift; sourceTree = "<group>"; };
+		1742B37524D7B82C00C82D15 /* ShowRepoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepoList.swift; sourceTree = "<group>"; };
 		1742B37724D7C48400C82D15 /* RepoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoItemViewModel.swift; sourceTree = "<group>"; };
 		1742B37A24D7E88900C82D15 /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		1742B37C24D7F52D00C82D15 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 		1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionCell.swift; sourceTree = "<group>"; };
 		1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCollectionCell.xib; sourceTree = "<group>"; };
 		1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCompatibility.swift; sourceTree = "<group>"; };
-		1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowingRepoCollection.swift; sourceTree = "<group>"; };
+		1770EC3224DAA9AC0022FBFE /* ShowRepoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepoCollection.swift; sourceTree = "<group>"; };
 		1770EC4224DD2F2F0022FBFE /* ScreenLoadingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLoadingType.swift; sourceTree = "<group>"; };
 		1781CF3824BD8D58004ED1C6 /* GatewaysAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewaysAssembler.swift; sourceTree = "<group>"; };
 		1781CF3F24BD8FB8004ED1C6 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
@@ -463,8 +463,8 @@
 				1765B2D024C6D5550096D210 /* ShowProductDetail.swift */,
 				176BAA5024D1483200324D3C /* ShowProductList.swift */,
 				176BAA5924D16BAE00324D3C /* ShowingLogin.swift */,
-				1742B37524D7B82C00C82D15 /* ShowingRepoList.swift */,
-				1770EC3224DAA9AC0022FBFE /* ShowingRepoCollection.swift */,
+				1742B37524D7B82C00C82D15 /* ShowRepoList.swift */,
+				1770EC3224DAA9AC0022FBFE /* ShowRepoCollection.swift */,
 				171A69C22BF2F3D300AF276B /* ShowRepoDetail.swift */,
 			);
 			path = Navigators;
@@ -920,7 +920,7 @@
 				1742B36324D7B00000C82D15 /* GetRepoList.swift in Sources */,
 				1765B2D124C6D5550096D210 /* ShowProductDetail.swift in Sources */,
 				1787231C24BD53BF00D90F8E /* ViewModel.swift in Sources */,
-				1742B37624D7B82C00C82D15 /* ShowingRepoList.swift in Sources */,
+				1742B37624D7B82C00C82D15 /* ShowRepoList.swift in Sources */,
 				178722F724BD537D00D90F8E /* AppDelegate.swift in Sources */,
 				17A5B1F824D9026D004BD209 /* BaseViewController.swift in Sources */,
 				1787233124BD547600D90F8E /* AppViewModel.swift in Sources */,
@@ -996,7 +996,7 @@
 				1787234024BD556E00D90F8E /* LoginUseCase.swift in Sources */,
 				1765B2D324C6D6D40096D210 /* ProductRow.swift in Sources */,
 				17A5B20124D95168004BD209 /* RefreshHeaderAnimator.swift in Sources */,
-				1770EC3324DAA9AC0022FBFE /* ShowingRepoCollection.swift in Sources */,
+				1770EC3324DAA9AC0022FBFE /* ShowRepoCollection.swift in Sources */,
 				17A5B1FF24D9514B004BD209 /* RefreshFooterAnimator.swift in Sources */,
 				1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */,
 				171A69C32BF2F3D300AF276B /* ShowRepoDetail.swift in Sources */,

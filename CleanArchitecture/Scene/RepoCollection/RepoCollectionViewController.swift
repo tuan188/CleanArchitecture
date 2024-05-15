@@ -11,6 +11,7 @@ import ESPullToRefresh
 import SDWebImage
 import Combine
 import Reusable
+import Factory
 
 final class RepoCollectionViewController: UIViewController, Bindable {
     
@@ -177,5 +178,17 @@ extension RepoCollectionViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         
+    }
+}
+
+// MARK: - Factory
+extension Container {
+    func repoCollectionViewController(navigationController: UINavigationController) -> Factory<RepoCollectionViewController> {
+        Factory(self) {
+            let vc = RepoCollectionViewController.instantiate()
+            let vm = ReposViewModel(repoGateway: self.repoGateway())
+            vc.bindViewModel(to: vm)
+            return vc
+        }
     }
 }

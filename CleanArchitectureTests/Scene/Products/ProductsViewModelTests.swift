@@ -47,7 +47,7 @@ final class ProductsViewModelTests: XCTestCase {
     
     func test_loadTrigger_failed_showError() {
         // arrange
-        viewModel.getProductsReturnValue = Fail(error: TestError()).eraseToAnyPublisher()
+        viewModel.getProductsReturnValue = .failure(TestError())
         
         // act
         loadTrigger.send(())
@@ -72,7 +72,7 @@ final class ProductsViewModelTests: XCTestCase {
     
     func test_reloadTrigger_failed_showError() {
         // arrange
-        viewModel.getProductsReturnValue = Fail(error: TestError()).eraseToAnyPublisher()
+        viewModel.getProductsReturnValue = .failure(TestError())
         
         // act
         reloadTrigger.send(())
@@ -98,12 +98,12 @@ final class ProductsViewModelTests: XCTestCase {
 
 final class TestProductsViewModel: ProductsViewModel {
     var getProductsCalled = false
-    var getProductsReturnValue = Just([Product].fake).asObservable()
+    var getProductsReturnValue: Result<[Product], Error> = .success([Product].fake)
     var showProductDetailCalled = false
     
     override func vm_getProducts() -> AnyPublisher<[Product], Error> {
         getProductsCalled = true
-        return getProductsReturnValue
+        return getProductsReturnValue.publisher.eraseToAnyPublisher()
     }
     
     override func vm_showProductDetail(product: Product) {

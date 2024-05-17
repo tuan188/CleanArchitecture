@@ -14,7 +14,7 @@ final class LogInTests: XCTestCase, LogIn {
         return authGatewayMock
     }
     
-    private var authGatewayMock = AuthGatewayMock()
+    private var authGatewayMock = MockAuthGateway()
     private var cancelBag: CancelBag!
 
     override func setUpWithError() throws {

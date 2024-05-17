@@ -1,5 +1,5 @@
 //
-//  AuthGatewayMock.swift
+//  MockAuthGateway.swift
 //  CleanArchitectureTests
 //
 //  Created by Tuan Truong on 8/11/20.
@@ -10,7 +10,7 @@
 import UIKit
 import Combine
 
-final class AuthGatewayMock: AuthGatewayProtocol {
+final class MockAuthGateway: AuthGatewayProtocol {
     
     // MARK: - login
     

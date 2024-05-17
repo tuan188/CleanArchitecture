@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		171A69C32BF2F3D300AF276B /* ShowRepoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C22BF2F3D300AF276B /* ShowRepoDetail.swift */; };
 		171A69C52BF2F48400AF276B /* ReposViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C42BF2F48400AF276B /* ReposViewModelTests.swift */; };
-		171A69C72BF2F6F000AF276B /* RepoGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C62BF2F6F000AF276B /* RepoGatewayMock.swift */; };
+		171A69C72BF2F6F000AF276B /* MockRepoGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C62BF2F6F000AF276B /* MockRepoGateway.swift */; };
 		1734926024C539220014F87E /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734925F24C539220014F87E /* ProductsView.swift */; };
 		1734926524C59D2A0014F87E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734926424C59D2A0014F87E /* AppError.swift */; };
 		173865A124D3BB470059E3AD /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A024D3BB470059E3AD /* Repo.swift */; };
@@ -34,7 +34,7 @@
 		1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B38024D7F66400C82D15 /* UIImageView+SDWebImage.swift */; };
 		1745D6FA24E0F130009B0608 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6F924E0F130009B0608 /* XCTestCase+.swift */; };
 		1745D70524E2489D009B0608 /* LogInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70424E2489D009B0608 /* LogInTests.swift */; };
-		1745D70924E2496C009B0608 /* AuthGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70824E2496C009B0608 /* AuthGatewayMock.swift */; };
+		1745D70924E2496C009B0608 /* MockAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70824E2496C009B0608 /* MockAuthGateway.swift */; };
 		1745D71024E24B22009B0608 /* ProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D70C24E24B22009B0608 /* ProductsViewModelTests.swift */; };
 		1745D71424E25378009B0608 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D71324E25378009B0608 /* TestError.swift */; };
 		174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 174A188924C81EEA00AB39D9 /* SwiftUIRefresh */; };
@@ -131,7 +131,7 @@
 /* Begin PBXFileReference section */
 		171A69C22BF2F3D300AF276B /* ShowRepoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepoDetail.swift; sourceTree = "<group>"; };
 		171A69C42BF2F48400AF276B /* ReposViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewModelTests.swift; sourceTree = "<group>"; };
-		171A69C62BF2F6F000AF276B /* RepoGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoGatewayMock.swift; sourceTree = "<group>"; };
+		171A69C62BF2F6F000AF276B /* MockRepoGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepoGateway.swift; sourceTree = "<group>"; };
 		1734925F24C539220014F87E /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		1734926424C59D2A0014F87E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		173865A024D3BB470059E3AD /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		1745D6FC24E0F295009B0608 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		1745D6FD24E0F295009B0608 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		1745D70424E2489D009B0608 /* LogInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTests.swift; sourceTree = "<group>"; };
-		1745D70824E2496C009B0608 /* AuthGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGatewayMock.swift; sourceTree = "<group>"; };
+		1745D70824E2496C009B0608 /* MockAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthGateway.swift; sourceTree = "<group>"; };
 		1745D70C24E24B22009B0608 /* ProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModelTests.swift; sourceTree = "<group>"; };
 		1745D71324E25378009B0608 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		174A188C24C8219300AB39D9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -390,8 +390,8 @@
 		1745D70724E2494A009B0608 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				1745D70824E2496C009B0608 /* AuthGatewayMock.swift */,
-				171A69C62BF2F6F000AF276B /* RepoGatewayMock.swift */,
+				1745D70824E2496C009B0608 /* MockAuthGateway.swift */,
+				171A69C62BF2F6F000AF276B /* MockRepoGateway.swift */,
 				175F97D22BF3258E00A3AEF4 /* MockProductGateway.swift */,
 			);
 			path = Gateways;
@@ -927,12 +927,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				171A69C72BF2F6F000AF276B /* RepoGatewayMock.swift in Sources */,
+				171A69C72BF2F6F000AF276B /* MockRepoGateway.swift in Sources */,
 				1745D70524E2489D009B0608 /* LogInTests.swift in Sources */,
 				175F97D32BF3258E00A3AEF4 /* MockProductGateway.swift in Sources */,
 				1745D6FA24E0F130009B0608 /* XCTestCase+.swift in Sources */,
 				1745D71024E24B22009B0608 /* ProductsViewModelTests.swift in Sources */,
-				1745D70924E2496C009B0608 /* AuthGatewayMock.swift in Sources */,
+				1745D70924E2496C009B0608 /* MockAuthGateway.swift in Sources */,
 				17FEE64C2BF70C2E00E66C77 /* MainViewModelTests.swift in Sources */,
 				171A69C52BF2F48400AF276B /* ReposViewModelTests.swift in Sources */,
 				1745D71424E25378009B0608 /* TestError.swift in Sources */,

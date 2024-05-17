@@ -1,5 +1,5 @@
 //
-//  RepoGatewayMock.swift
+//  MockRepoGateway.swift
 //  CleanArchitectureTests
 //
 //  Created by Tuan Truong on 14/5/24.
@@ -10,9 +10,13 @@
 import UIKit
 import Combine
 
-final class RepoGatewayMock: RepoGatewayProtocol {
+final class MockRepoGateway: RepoGatewayProtocol {
+    var getReposCalled = false
+    var getReposResult: Result<PagingInfo<Repo>, Error> = .success(PagingInfo<Repo>.fake)
+    
     func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
-        Just(PagingInfo<Repo>.fake).asObservable()
+        getReposCalled = true
+        return getReposResult.publisher.eraseToAnyPublisher()
     }
 }
 

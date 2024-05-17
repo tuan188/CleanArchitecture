@@ -9,7 +9,7 @@
 import Combine
 import UIKit
 
-class ProductsViewModel: GetProducts, ShowProductDetail {
+class ProductsViewModel: GetProducts, ShowProductDetail { // swiftlint:disable:this final_class
     let navigationController: UINavigationController
     let productGateway: ProductGatewayProtocol
     
@@ -22,7 +22,7 @@ class ProductsViewModel: GetProducts, ShowProductDetail {
         showProductDetail(product: product)
     }
     
-    func vm_getProducts() -> Observable<[Product]> {
+    func vm_getProducts() -> AnyPublisher<[Product], Error> {
         getProducts()
     }
 }
@@ -30,9 +30,9 @@ class ProductsViewModel: GetProducts, ShowProductDetail {
 // MARK: - ViewModel
 extension ProductsViewModel: ObservableObject, ViewModel {
     struct Input {
-        let loadTrigger: Driver<Void>
-        let reloadTrigger: Driver<Void>
-        let selectTrigger: Driver<IndexPath>
+        let loadTrigger: AnyPublisher<Void, Never>
+        let reloadTrigger: AnyPublisher<Void, Never>
+        let selectTrigger: AnyPublisher<IndexPath, Never>
     }
     
     final class Output: ObservableObject {

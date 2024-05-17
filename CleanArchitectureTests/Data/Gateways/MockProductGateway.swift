@@ -8,9 +8,11 @@
 
 @testable import CleanArchitecture
 import Foundation
+import Combine
 
 final class FakeProductGateway: ProductGatewayProtocol {
-    func getProducts() -> CleanArchitecture.Observable<[CleanArchitecture.Product]> {
-        fatalError()
+    // swiftlint:disable:next unavailable_function
+    func getProducts() -> AnyPublisher<[CleanArchitecture.Product], Error> {
+        fatalError("N/A")
     }
 }

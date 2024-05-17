@@ -15,7 +15,7 @@ struct ProductDetailViewModel {
 // MARK: - ViewModel
 extension ProductDetailViewModel: ViewModel {
     struct Input {
-        let loadTrigger: Driver<Void>
+        let loadTrigger: AnyPublisher<Void, Never>
     }
     
     final class Output: ObservableObject {

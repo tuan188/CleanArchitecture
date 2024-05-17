@@ -9,20 +9,26 @@
 import Combine
 import Foundation
 
-public typealias Driver<T> = AnyPublisher<T, Never>
-
 extension Publisher {
-    public func asDriver() -> Driver<Output> {
-        return self.catch { _ in Empty() }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+    /// Converts the publisher into a driver, ensuring events are received on the main thread and ignoring errors.
+    ///
+    /// - Returns: A publisher that never emits errors and receives events on the main thread.
+    public func asDriver() -> AnyPublisher<Output, Never> {
+        self.catch { _ in Empty() } // Ignore errors
+            .receive(on: RunLoop.main) // Receive events on the main thread
+            .share(replay: 1) // Share the subscription among multiple subscribers with replay
+            .eraseToAnyPublisher() // Erase to AnyPublisher
     }
     
-    public static func just(_ output: Output) -> Driver<Output> {
-        return Just(output).eraseToAnyPublisher()
-    }
-    
-    public static func empty() -> Driver<Output> {
-        return Empty().eraseToAnyPublisher()
+    /// Converts the publisher into a driver, ensuring events are received on the main thread and replacing errors with a default value.
+    ///
+    /// - Parameter defaultValue: The default value to emit in case of errors.
+    /// - Returns: A publisher that never emits errors and receives events on the main thread.
+    public func asDriver(defaultValue: Output) -> AnyPublisher<Output, Never> {
+        self.replaceError(with: defaultValue) // Replace errors with a default value
+            .receive(on: RunLoop.main) // Receive events on the main thread
+            .share(replay: 1) // Share the subscription among multiple subscribers with replay
+            .eraseToAnyPublisher() // Erase to AnyPublisher
     }
 }
+

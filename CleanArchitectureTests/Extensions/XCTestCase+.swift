@@ -49,7 +49,7 @@ extension XCTestCase {
         
         let cancellable = publisher
             .sink(receiveCompletion: { completion in
-                if case .failure(_) = completion {
+                if case .failure = completion {
                     exp.fulfill()
                 }
             }, receiveValue: { _ in })

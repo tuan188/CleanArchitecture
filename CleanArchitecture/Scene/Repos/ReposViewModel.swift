@@ -9,7 +9,7 @@
 import Combine
 import UIKit
 
-class ReposViewModel: GetRepoList, ShowRepoDetail {
+class ReposViewModel: GetRepoList, ShowRepoDetail { // swiftlint:disable:this final_class
     var repoGateway: RepoGatewayProtocol
     
     init(repoGateway: RepoGatewayProtocol) {
@@ -18,7 +18,7 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
     
     // MARK: - Use cases
     
-    func getRepos(page: Int) -> Observable<PagingInfo<Repo>> {
+    func vm_getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
         let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
         return getRepos(dto: dto)
     }
@@ -33,10 +33,10 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
 // MARK: - ViewModel
 extension ReposViewModel: ObservableObject, ViewModel {
     struct Input {
-        let loadTrigger: Driver<Void>
-        let reloadTrigger: Driver<Void>
-        let loadMoreTrigger: Driver<Void>
-        let selectRepoTrigger: Driver<IndexPath>
+        let loadTrigger: AnyPublisher<Void, Never>
+        let reloadTrigger: AnyPublisher<Void, Never>
+        let loadMoreTrigger: AnyPublisher<Void, Never>
+        let selectRepoTrigger: AnyPublisher<IndexPath, Never>
     }
     
     final class Output: ObservableObject {
@@ -54,7 +54,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
         let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
                                         reloadTrigger: input.reloadTrigger,
                                         loadMoreTrigger: input.loadMoreTrigger,
-                                        getItems: getRepos)
+                                        getItems: vm_getRepos)
         
         let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
 

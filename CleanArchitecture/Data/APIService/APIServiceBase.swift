@@ -34,10 +34,8 @@ extension JSONArray: JSONData {
         
         guard leftArray.count == rightArray.count else { return false }
         
-        for i in 0..<leftArray.count {
-            if !JSONDictionary.equal(left: leftArray[i], right: rightArray[i]) {
-                return false
-            }
+        for i in 0..<leftArray.count where !JSONDictionary.equal(left: leftArray[i], right: rightArray[i]) {
+            return false
         }
         
         return true

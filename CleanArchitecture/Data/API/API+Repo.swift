@@ -7,10 +7,11 @@
 //
 
 import Alamofire
+import Combine
 
 // MARK: - GetRepoList
 extension API {
-    func getRepoList(_ input: GetRepoListInput) -> Observable<GetRepoListOutput> {
+    func getRepoList(_ input: GetRepoListInput) -> AnyPublisher<GetRepoListOutput, Error> {
         return request(input)
     }
     

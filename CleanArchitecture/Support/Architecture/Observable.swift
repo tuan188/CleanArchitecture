@@ -2,28 +2,16 @@
 //  Observable.swift
 //  CleanArchitecture
 //
-//  Created by Tuan Truong on 7/16/20.
-//  Copyright © 2020 Tuan Truong. All rights reserved.
+//  Created by Tuan Truong on 17/5/24.
+//  Copyright © 2024 Tuan Truong. All rights reserved.
 //
 
+import Foundation
 import Combine
 
-public typealias Observable<T> = AnyPublisher<T, Error>
-
 extension Publisher {
-    public func asObservable() -> Observable<Output> {
-        self
-            .mapError { $0 }
+    public func asObservable() -> AnyPublisher<Output, Error> {
+        self.mapError { $0 }
             .eraseToAnyPublisher()
-    }
-    
-    public static func just(_ output: Output) -> Observable<Output> {
-        Just(output)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-    
-    public static func empty() -> Observable<Output> {
-        return Empty().eraseToAnyPublisher()
     }
 }

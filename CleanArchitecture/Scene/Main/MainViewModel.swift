@@ -9,7 +9,10 @@
 import UIKit
 import Combine
 
-class MainViewModel: ShowProductList, ShowLogin, ShowRepoList, ShowRepoCollection {
+class MainViewModel: ShowProductList, // swiftlint:disable:this final_class
+                     ShowLogin,
+                     ShowRepoList,
+                     ShowRepoCollection {
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -36,8 +39,8 @@ class MainViewModel: ShowProductList, ShowLogin, ShowRepoList, ShowRepoCollectio
 // MARK: - ViewModelType
 extension MainViewModel: ObservableObject, ViewModel {
     struct Input {
-        let loadTrigger: Driver<Void>
-        let selectMenuTrigger: Driver<IndexPath>
+        let loadTrigger: AnyPublisher<Void, Never>
+        let selectMenuTrigger: AnyPublisher<IndexPath, Never>
     }
     
     final class Output: ObservableObject {

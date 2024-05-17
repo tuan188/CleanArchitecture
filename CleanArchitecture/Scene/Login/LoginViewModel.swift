@@ -11,14 +11,14 @@ import SwiftUI
 import ValidatedPropertyKit
 import CombineExt
 
-class LoginViewModel: LogIn {
+class LoginViewModel: LogIn { // swiftlint:disable:this final_class
     let authGateway: AuthGatewayProtocol
     
     init(authGateway: AuthGatewayProtocol) {
         self.authGateway = authGateway
     }
     
-    func vm_login(dto: LoginDto) -> Observable<Void> {
+    func vm_login(dto: LoginDto) -> AnyPublisher<Void, Error> {
         login(dto: dto)
     }
 }
@@ -28,9 +28,9 @@ extension LoginViewModel: ObservableObject, ViewModel {
     final class Input: ObservableObject {
         @Published var username = ""
         @Published var password = ""
-        let loginTrigger: Driver<Void>
+        let loginTrigger: AnyPublisher<Void, Never>
         
-        init(loginTrigger: Driver<Void>) {
+        init(loginTrigger: AnyPublisher<Void, Never>) {
             self.loginTrigger = loginTrigger
         }
     }

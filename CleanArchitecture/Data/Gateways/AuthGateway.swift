@@ -11,11 +11,11 @@ import Foundation
 import Factory
 
 protocol AuthGatewayProtocol {
-    func login(dto: LoginDto) -> Observable<Void>
+    func login(dto: LoginDto) -> AnyPublisher<Void, Error>
 }
 
 struct AuthGateway: AuthGatewayProtocol {
-    func login(dto: LoginDto) -> Observable<Void> {
+    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
         guard let username = dto.username,
             let password = dto.password else {
             return Empty().eraseToAnyPublisher()
@@ -33,7 +33,7 @@ struct AuthGateway: AuthGatewayProtocol {
 }
 
 struct PreviewAuthGateway: AuthGatewayProtocol {
-    func login(dto: LoginDto) -> Observable<Void> {
+    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
         Just(())
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()

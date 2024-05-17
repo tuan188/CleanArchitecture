@@ -98,14 +98,10 @@ final class ProductsViewModelTests: XCTestCase {
 
 final class TestProductsViewModel: ProductsViewModel {
     var getProductsCalled = false
-    
-    var getProductsReturnValue = Just([Product].fake)
-        .setFailureType(to: Error.self)
-        .eraseToAnyPublisher()
-    
+    var getProductsReturnValue = Just([Product].fake).asObservable()
     var showProductDetailCalled = false
     
-    override func vm_getProducts() -> Observable<[Product]> {
+    override func vm_getProducts() -> AnyPublisher<[Product], Error> {
         getProductsCalled = true
         return getProductsReturnValue
     }

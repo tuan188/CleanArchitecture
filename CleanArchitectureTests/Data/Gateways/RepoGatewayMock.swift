@@ -11,13 +11,14 @@ import UIKit
 import Combine
 
 final class RepoGatewayMock: RepoGatewayProtocol {
-    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
-        fatalError()
+    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        Just(PagingInfo<Repo>.fake).asObservable()
     }
 }
 
 final class RepoGatewayFake: RepoGatewayProtocol {
-    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
-        fatalError()
+    // swiftlint:disable:next unavailable_function
+    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        fatalError("N/A")
     }
 }

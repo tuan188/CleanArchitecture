@@ -91,7 +91,7 @@ final class RepoCollectionViewController: UIViewController, Bindable {
     
     func bindViewModel() {
         let input = ReposViewModel.Input(
-            loadTrigger: Driver.just(()),
+            loadTrigger: Just(()).asDriver(),
             reloadTrigger: collectionView.refreshTrigger,
             loadMoreTrigger: collectionView.loadMoreTrigger,
             selectRepoTrigger: selectRepoTrigger.asDriver()
@@ -183,7 +183,8 @@ extension RepoCollectionViewController: UICollectionViewDataSourcePrefetching {
 
 // MARK: - Factory
 extension Container {
-    func repoCollectionViewController(navigationController: UINavigationController) -> Factory<RepoCollectionViewController> {
+    func repoCollectionViewController(navigationController: UINavigationController)
+    -> Factory<RepoCollectionViewController> {
         Factory(self) {
             let vc = RepoCollectionViewController.instantiate()
             let vm = ReposViewModel(repoGateway: self.repoGateway())

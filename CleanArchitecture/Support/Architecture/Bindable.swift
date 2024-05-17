@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Bindable: class {
+public protocol Bindable: AnyObject {
     associatedtype ViewModelType
     
     var viewModel: ViewModelType! { get set }

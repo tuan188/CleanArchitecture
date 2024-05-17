@@ -11,9 +11,7 @@ import XCTest
 import Combine
 
 final class MainViewModelTests: XCTestCase {
-    private var viewModel: MainViewModel!
-    private var navigator: MainNavigatorMock!
-    private var useCase: MainUseCaseMock!
+    private var viewModel: TestMainViewModel!
     
     private var input: MainViewModel.Input!
     private var output: MainViewModel.Output!
@@ -24,9 +22,7 @@ final class MainViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        navigator = MainNavigatorMock()
-        useCase = MainUseCaseMock()
-        viewModel = MainViewModel(navigator: navigator, useCase: useCase)
+        viewModel = TestMainViewModel(navigationController: UINavigationController())
         cancelBag = CancelBag()
         
         input = MainViewModel.Input(loadTrigger: loadTrigger.asDriver(),
@@ -51,7 +47,15 @@ final class MainViewModelTests: XCTestCase {
         
         // assert
         wait {
-            XCTAssert(self.navigator.toProductsCalled)
+            XCTAssert(self.viewModel.showProductListCalled)
         }
+    }
+}
+
+final class TestMainViewModel: MainViewModel {
+    var showProductListCalled = false
+    
+    override func vm_showProductList() {
+        showProductListCalled = true
     }
 }

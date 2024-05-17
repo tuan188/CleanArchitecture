@@ -40,7 +40,7 @@ final class MainViewController: UIViewController, Bindable {
     
     func bindViewModel() {
         let input = MainViewModel.Input(
-            loadTrigger: Driver.just(()),
+            loadTrigger: Just(()).asDriver(),
             selectMenuTrigger: selectMenuTrigger.asDriver()
         )
         

@@ -43,7 +43,7 @@ protocol LogIn {
 }
 
 extension LogIn {
-    func login(dto: LoginDto) -> Observable<Void> {
+    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
         if let error = dto.validationError {
             return Fail(error: error).eraseToAnyPublisher()
         }

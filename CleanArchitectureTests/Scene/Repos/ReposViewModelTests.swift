@@ -46,19 +46,17 @@ final class ReposViewModelTests: XCTestCase {
     }
 }
 
-class TestReposViewModel: ReposViewModel {
+final class TestReposViewModel: ReposViewModel {
     var vmShowRepoDetailCalled = false
     var getReposCalled = false
+    var getReposReturnValue = Just(PagingInfo.fake).asObservable()
     
     override func vm_showRepoDetail(repo: Repo) {
         vmShowRepoDetailCalled = true
     }
     
-    override func getRepos(page: Int) -> Observable<PagingInfo<Repo>> {
+    override func vm_getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
         getReposCalled = true
-        
-        return Just(PagingInfo.fake)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+        return getReposReturnValue
     }
 }

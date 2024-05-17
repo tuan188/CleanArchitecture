@@ -18,7 +18,7 @@ open class APIInputBase {
     public var requireAccessToken: Bool
     public var accessToken: String?
     
-    public var usingCache: Bool = false {
+    public var usingCache = false {
         didSet {
             if method != .get || self is APIUploadInputBase {
                 fatalError()  // swiftlint:disable:this fatal_error_message
@@ -42,7 +42,7 @@ open class APIInputBase {
 }
 
 extension APIInputBase {
-    open var urlEncodingString: String {
+    public var urlEncodingString: String {
         guard
             let url = URL(string: urlString),
             var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
@@ -68,7 +68,7 @@ extension APIInputBase {
         return urlComponents.url?.absoluteString ?? urlString
     }
     
-    open func description(isIncludedParameters: Bool) -> String {
+    public func description(isIncludedParameters: Bool) -> String {
         if method == .get || !isIncludedParameters {
             return "🌎 \(method.rawValue) \(urlEncodingString)"
         }

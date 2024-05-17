@@ -13,7 +13,7 @@ protocol GetProducts {
 }
 
 extension GetProducts {
-    func getProducts() -> Observable<[Product]> {
+    func getProducts() -> AnyPublisher<[Product], Error> {
         productGateway.getProducts()
     }
 }

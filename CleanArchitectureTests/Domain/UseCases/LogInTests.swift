@@ -1,5 +1,5 @@
 //
-//  LoggingInTests.swift
+//  LogInTests.swift
 //  CleanArchitectureTests
 //
 //  Created by Tuan Truong on 8/11/20.
@@ -9,7 +9,7 @@
 @testable import CleanArchitecture
 import XCTest
 
-final class LoggingInTests: XCTestCase, LogIn {
+final class LogInTests: XCTestCase, LogIn {
     var authGateway: AuthGatewayProtocol {
         return authGatewayMock
     }

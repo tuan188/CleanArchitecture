@@ -7,17 +7,28 @@
 //
 
 import Combine
-import UIKit
 
+// typealias for ActivityTracker, a CurrentValueSubject that tracks activity status (true/false)
 public typealias ActivityTracker = CurrentValueSubject<Bool, Never>
 
 extension Publisher where Failure: Error {
+    /// Track activity status of the publisher using an ActivityTracker.
+    ///
+    /// - Parameter activityTracker: An instance of ActivityTracker used to track activity status of the publisher.
+    /// - Returns: A publisher that emits the same output and failure types as the original publisher.
     public func trackActivity(_ activityTracker: ActivityTracker) -> AnyPublisher<Output, Failure> {
-        return handleEvents(receiveSubscription: { _ in
-            activityTracker.send(true)
-        }, receiveCompletion: { _ in
-            activityTracker.send(false)
-        })
+        return handleEvents(
+            // When subscription is received, send true to activityTracker indicating activity is in progress
+            receiveSubscription: { _ in
+                activityTracker.send(true)
+            },
+            // When completion (success or failure) is received, send false to activityTracker indicating activity has ended
+            receiveCompletion: { _ in
+                activityTracker.send(false)
+            }
+        )
+        // Erase the type of the publisher to AnyPublisher to hide implementation details
         .eraseToAnyPublisher()
     }
 }
+

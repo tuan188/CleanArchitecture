@@ -11,11 +11,11 @@ import Foundation
 import Factory
 
 protocol ProductGatewayProtocol {
-    func getProducts() -> Observable<[Product]>
+    func getProducts() -> AnyPublisher<[Product], Error>
 }
 
 struct ProductGateway: ProductGatewayProtocol {
-    func getProducts() -> Observable<[Product]> {
+    func getProducts() -> AnyPublisher<[Product], Error> {
         Future<[Product], Error> { promise in
             let products = [
                 Product(id: 0, name: "iPhone", price: 999),
@@ -32,7 +32,7 @@ struct ProductGateway: ProductGatewayProtocol {
 }
 
 struct PreviewProductGateway: ProductGatewayProtocol {
-    func getProducts() -> Observable<[Product]> {
+    func getProducts() -> AnyPublisher<[Product], Error> {
         Future<[Product], Error> { promise in
             let products = [
                 Product(id: 0, name: "iPhone", price: 999),

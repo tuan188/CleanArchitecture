@@ -11,11 +11,11 @@ import Foundation
 import Factory
 
 protocol RepoGatewayProtocol {
-    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>>
+    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error>
 }
 
 struct RepoGateway: RepoGatewayProtocol {
-    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
+    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error> {
         let input = API.GetRepoListInput(dto: dto)
         
         return API.shared.getRepoList(input)
@@ -29,7 +29,7 @@ struct RepoGateway: RepoGatewayProtocol {
 }
 
 struct PreviewRepoGateway: RepoGatewayProtocol {
-    func getRepos(dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
+    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error> {
         Future<PagingInfo<Repo>, Error> { promise in
             let repos = [
                 Repo(id: 0,

@@ -18,9 +18,8 @@ class ReposViewModel: GetRepoList, ShowRepoDetail { // swiftlint:disable:this fi
     
     // MARK: - Use cases
     
-    func vm_getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
-        let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
-        return getRepos(dto: dto)
+    func getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        return getRepos(page: page, perPage: 10)
     }
     
     // // MARK: - Navigation
@@ -54,7 +53,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
         let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
                                         reloadTrigger: input.reloadTrigger,
                                         loadMoreTrigger: input.loadMoreTrigger,
-                                        getItems: vm_getRepos)
+                                        getItems: getRepos)
         
         let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
 

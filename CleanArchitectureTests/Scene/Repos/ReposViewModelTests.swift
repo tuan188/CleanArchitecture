@@ -55,7 +55,7 @@ final class TestReposViewModel: ReposViewModel {
         vmShowRepoDetailCalled = true
     }
     
-    override func vm_getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+    override func getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
         getReposCalled = true
         return getReposReturnValue
     }

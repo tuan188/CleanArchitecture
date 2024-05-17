@@ -8,46 +8,29 @@
 
 import Combine
 import Foundation
-import ValidatedPropertyKit
-import Dto
-
-struct LoginDto: Dto {
-    @Validated(.nonEmpty(message: "Please enter user name"))
-    var username: String?
-
-    @Validated(.nonEmpty(message: "Please enter password"))
-    var password: String?
-    
-    var validatedProperties: [ValidatedProperty] {
-        return [_username, _password]
-    }
-    
-    init(username: String, password: String) {
-        self.username = username
-        self.password = password
-    }
-    
-    init() { }
-    
-    static func validateUserName(_ username: String) -> Result<String, ValidationError> {
-        LoginDto()._username.isValid(value: username)
-    }
-    
-    static func validatePassword(_ password: String) -> Result<String, ValidationError> {
-        LoginDto()._password.isValid(value: password)
-    }
-}
 
 protocol LogIn {
     var authGateway: AuthGatewayProtocol { get }
 }
 
 extension LogIn {
-    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
-        if let error = dto.validationError {
-            return Fail(error: error).eraseToAnyPublisher()
+    func login(username: String, password: String) -> AnyPublisher<Void, Error> {
+        authGateway.login(username: username, password: username)
+    }
+    
+    func validateUserName(_ userName: String) -> ValidationResult {
+        if userName.isEmpty {
+            return .failure(.init(message: "You must provide a name"))
         }
         
-        return authGateway.login(dto: dto)
+        return .success(())
+    }
+    
+    func validatePassword(_ password: String) -> ValidationResult {
+        if password.isEmpty {
+            return .failure(.init(message: "You must provide a password"))
+        }
+        
+        return .success(())
     }
 }

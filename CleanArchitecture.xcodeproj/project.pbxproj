@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1716DE5D250385C5005111BF /* Dto in Frameworks */ = {isa = PBXBuildFile; productRef = 1716DE5C250385C5005111BF /* Dto */; };
 		171A69C32BF2F3D300AF276B /* ShowRepoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C22BF2F3D300AF276B /* ShowRepoDetail.swift */; };
 		171A69C52BF2F48400AF276B /* ReposViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C42BF2F48400AF276B /* ReposViewModelTests.swift */; };
 		171A69C72BF2F6F000AF276B /* RepoGatewayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A69C62BF2F6F000AF276B /* RepoGatewayMock.swift */; };
-		1720C7BA24FE355800D616B2 /* GetPageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720C7B924FE355800D616B2 /* GetPageDto.swift */; };
-		1720C7C124FE383D00D616B2 /* Validation+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720C7C024FE383D00D616B2 /* Validation+Collection.swift */; };
 		1734926024C539220014F87E /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734925F24C539220014F87E /* ProductsView.swift */; };
 		1734926524C59D2A0014F87E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734926424C59D2A0014F87E /* AppError.swift */; };
 		173865A124D3BB470059E3AD /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A024D3BB470059E3AD /* Repo.swift */; };
@@ -78,7 +75,6 @@
 		1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */; };
 		1770EC3324DAA9AC0022FBFE /* ShowRepoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC3224DAA9AC0022FBFE /* ShowRepoCollection.swift */; };
 		1770EC4324DD2F2F0022FBFE /* ScreenLoadingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC4224DD2F2F0022FBFE /* ScreenLoadingType.swift */; };
-		177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 177428D424F3691B00C141E4 /* ValidatedPropertyKit */; };
 		1781CF4424BD8FB8004ED1C6 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781CF3F24BD8FB8004ED1C6 /* ProductDetailViewModel.swift */; };
 		178722F724BD537D00D90F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178722F624BD537D00D90F8E /* AppDelegate.swift */; };
 		178722F924BD537D00D90F8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178722F824BD537D00D90F8E /* SceneDelegate.swift */; };
@@ -113,6 +109,8 @@
 		17FEE64C2BF70C2E00E66C77 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6FD24E0F295009B0608 /* MainViewModelTests.swift */; };
 		17FEE64D2BF70C4600E66C77 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745D6FC24E0F295009B0608 /* MainViewControllerTests.swift */; };
 		17FEE64F2BF70D3200E66C77 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEE64E2BF70D3200E66C77 /* Observable.swift */; };
+		17FEE6512BF72E3100E66C77 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEE6502BF72E3100E66C77 /* ValidationResult.swift */; };
+		17FEE6532BF72E8B00E66C77 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEE6522BF72E8B00E66C77 /* ValidationError.swift */; };
 		17FFEFF92B6A225F00008867 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 17FFEFF82B6A225F00008867 /* Factory */; };
 		1B425EAA24FF8D1A000F7F6B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1B425EA924FF8D1A000F7F6B /* SDWebImage */; };
 		1B425EAC24FF8D1A000F7F6B /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1B425EAB24FF8D1A000F7F6B /* SDWebImageMapKit */; };
@@ -134,8 +132,6 @@
 		171A69C22BF2F3D300AF276B /* ShowRepoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepoDetail.swift; sourceTree = "<group>"; };
 		171A69C42BF2F48400AF276B /* ReposViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposViewModelTests.swift; sourceTree = "<group>"; };
 		171A69C62BF2F6F000AF276B /* RepoGatewayMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoGatewayMock.swift; sourceTree = "<group>"; };
-		1720C7B924FE355800D616B2 /* GetPageDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageDto.swift; sourceTree = "<group>"; };
-		1720C7C024FE383D00D616B2 /* Validation+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Validation+Collection.swift"; sourceTree = "<group>"; };
 		1734925F24C539220014F87E /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		1734926424C59D2A0014F87E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		173865A024D3BB470059E3AD /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -234,6 +230,8 @@
 		17DCF1B824BF01ED00D970B4 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		17DCF1BA24BF028200D970B4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		17FEE64E2BF70D3200E66C77 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		17FEE6502BF72E3100E66C77 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		17FEE6522BF72E8B00E66C77 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,10 +242,8 @@
 				174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */,
 				1B425EAF24FF9058000F7F6B /* ESPullToRefresh in Frameworks */,
 				1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */,
-				177428D524F3691B00C141E4 /* ValidatedPropertyKit in Frameworks */,
 				176BAA5F24D2690300324D3C /* Alamofire in Frameworks */,
 				176BAA4F24D1326100324D3C /* Then in Frameworks */,
-				1716DE5D250385C5005111BF /* Dto in Frameworks */,
 				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
 				176BAA4124D1150700324D3C /* Reusable in Frameworks */,
 				1B425EAA24FF8D1A000F7F6B /* SDWebImage in Frameworks */,
@@ -270,7 +266,8 @@
 		1720C7BB24FE37E300D616B2 /* Validations */ = {
 			isa = PBXGroup;
 			children = (
-				1720C7C024FE383D00D616B2 /* Validation+Collection.swift */,
+				17FEE6502BF72E3100E66C77 /* ValidationResult.swift */,
+				17FEE6522BF72E8B00E66C77 /* ValidationError.swift */,
 			);
 			path = Validations;
 			sourceTree = "<group>";
@@ -623,7 +620,6 @@
 				1742B36124D7AFEA00C82D15 /* Repo */,
 				176BAA5624D1679700324D3C /* Auth */,
 				1787235424BD570400D90F8E /* Product */,
-				1720C7B924FE355800D616B2 /* GetPageDto.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -712,12 +708,10 @@
 				176BAA5E24D2690300324D3C /* Alamofire */,
 				17A5B20324D962B0004BD209 /* CombineExt */,
 				17A5B20624D962CB004BD209 /* CombineCocoa */,
-				177428D424F3691B00C141E4 /* ValidatedPropertyKit */,
 				1BD163F024FF8CA700EBC063 /* MBProgressHUD */,
 				1B425EA924FF8D1A000F7F6B /* SDWebImage */,
 				1B425EAB24FF8D1A000F7F6B /* SDWebImageMapKit */,
 				1B425EAE24FF9058000F7F6B /* ESPullToRefresh */,
-				1716DE5C250385C5005111BF /* Dto */,
 				17FFEFF82B6A225F00008867 /* Factory */,
 			);
 			productName = CleanArchitecture;
@@ -779,11 +773,9 @@
 				176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
-				177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */,
 				1BD163EF24FF8CA700EBC063 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				1B425EA824FF8D1A000F7F6B /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				1B425EAD24FF9058000F7F6B /* XCRemoteSwiftPackageReference "pull-to-refresh" */,
-				1716DE5B250385C5005111BF /* XCRemoteSwiftPackageReference "Dto" */,
 				17FFEFF72B6A225F00008867 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = 178722F424BD537D00D90F8E /* Products */;
@@ -891,6 +883,7 @@
 				176BAA6B24D26C8B00324D3C /* APIInputBase.swift in Sources */,
 				1787234224BD556E00D90F8E /* LoginViewModel.swift in Sources */,
 				1765B2D524C6DF8B0096D210 /* ProductItemViewModel.swift in Sources */,
+				17FEE6512BF72E3100E66C77 /* ValidationResult.swift in Sources */,
 				176BAA4624D1154F00324D3C /* Storyboards.swift in Sources */,
 				1787235624BD571500D90F8E /* GetProducts.swift in Sources */,
 				176BAA7324D26DEF00324D3C /* APIResponse.swift in Sources */,
@@ -901,11 +894,9 @@
 				176BAA6224D2698500324D3C /* APIServiceBase.swift in Sources */,
 				1787235324BD56E400D90F8E /* Product.swift in Sources */,
 				1765B2CE24C6A79F0096D210 /* ProductDetailView.swift in Sources */,
-				1720C7C124FE383D00D616B2 /* Validation+Collection.swift in Sources */,
 				176BAA6D24D26CD900324D3C /* APIOutputBase.swift in Sources */,
 				173865AA24D3BC6A0059E3AD /* APIOutput.swift in Sources */,
 				1770EC4324DD2F2F0022FBFE /* ScreenLoadingType.swift in Sources */,
-				1720C7BA24FE355800D616B2 /* GetPageDto.swift in Sources */,
 				178722FB24BD537D00D90F8E /* ContentView.swift in Sources */,
 				1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */,
 				176BAA5124D1483200324D3C /* ShowProductList.swift in Sources */,
@@ -916,6 +907,7 @@
 				1770EC3324DAA9AC0022FBFE /* ShowRepoCollection.swift in Sources */,
 				17FEE64F2BF70D3200E66C77 /* Observable.swift in Sources */,
 				17A5B1FF24D9514B004BD209 /* RefreshFooterAnimator.swift in Sources */,
+				17FEE6532BF72E8B00E66C77 /* ValidationError.swift in Sources */,
 				1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */,
 				171A69C32BF2F3D300AF276B /* ShowRepoDetail.swift in Sources */,
 				1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */,
@@ -1211,14 +1203,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1716DE5B250385C5005111BF /* XCRemoteSwiftPackageReference "Dto" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tuan188/Dto.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 		174A188824C81EEA00AB39D9 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
@@ -1249,14 +1233,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.2.2;
-			};
-		};
-		177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SvenTiigi/ValidatedPropertyKit.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.0.4;
 			};
 		};
 		17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
@@ -1310,11 +1286,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1716DE5C250385C5005111BF /* Dto */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1716DE5B250385C5005111BF /* XCRemoteSwiftPackageReference "Dto" */;
-			productName = Dto;
-		};
 		174A188924C81EEA00AB39D9 /* SwiftUIRefresh */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 174A188824C81EEA00AB39D9 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
@@ -1334,11 +1305,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		177428D424F3691B00C141E4 /* ValidatedPropertyKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 177428D324F3691B00C141E4 /* XCRemoteSwiftPackageReference "ValidatedPropertyKit" */;
-			productName = ValidatedPropertyKit;
 		};
 		17A5B20324D962B0004BD209 /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,4 +1,5 @@
 {
+  "originHash" : "0277fe3e967ce22a25c015893e618ebd446003497c3d7d9db9833e54f2f643be",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -25,15 +26,6 @@
       "state" : {
         "revision" : "d7b896fa9ca8b47fa7bcde6b43ef9b70bf8c1f56",
         "version" : "1.8.1"
-      }
-    },
-    {
-      "identity" : "dto",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tuan188/Dto.git",
-      "state" : {
-        "revision" : "4c70b4b9515c687e92c6d6779ed05d0845a57c04",
-        "version" : "0.2.0"
       }
     },
     {
@@ -107,16 +99,7 @@
         "revision" : "e421a7b3440a271834337694e6050133a3958bc7",
         "version" : "2.7.0"
       }
-    },
-    {
-      "identity" : "validatedpropertykit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SvenTiigi/ValidatedPropertyKit.git",
-      "state" : {
-        "revision" : "760c3c708e88c5e3c113e3a4dc26324ebaf351f7",
-        "version" : "0.0.4"
-      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

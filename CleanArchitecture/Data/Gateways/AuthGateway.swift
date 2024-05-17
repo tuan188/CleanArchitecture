@@ -11,18 +11,11 @@ import Foundation
 import Factory
 
 protocol AuthGatewayProtocol {
-    func login(dto: LoginDto) -> AnyPublisher<Void, Error>
+    func login(username: String, password: String) -> AnyPublisher<Void, Error>
 }
 
 struct AuthGateway: AuthGatewayProtocol {
-    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
-        guard let username = dto.username,
-            let password = dto.password else {
-            return Empty().eraseToAnyPublisher()
-        }
-        
-        print(username, password)
-        
+    func login(username: String, password: String) -> AnyPublisher<Void, Error> {
         return Future { promise in
             DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: {
                 promise(.success(()))
@@ -33,7 +26,7 @@ struct AuthGateway: AuthGatewayProtocol {
 }
 
 struct PreviewAuthGateway: AuthGatewayProtocol {
-    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
+    func login(username: String, password: String) -> AnyPublisher<Void, Error> {
         Just(())
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()

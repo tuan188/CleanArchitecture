@@ -13,7 +13,7 @@ protocol GetRepoList {
 }
 
 extension GetRepoList {
-    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error> {
-        repoGateway.getRepos(dto: dto)
+    func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        repoGateway.getRepos(page: page, perPage: perPage)
     }
 }

@@ -17,7 +17,7 @@ final class AuthGatewayMock: AuthGatewayProtocol {
     var loginCalled = false
     var loginReturnValue: Result<Void, Error> = .success(())
     
-    func login(dto: LoginDto) -> AnyPublisher<Void, Error> {
+    func login(username: String, password: String) -> AnyPublisher<Void, Error> {
         loginCalled = true
         return loginReturnValue.publisher.eraseToAnyPublisher()
     }

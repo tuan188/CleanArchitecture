@@ -17,10 +17,6 @@ class LoginViewModel: LogIn { // swiftlint:disable:this final_class
     init(authGateway: AuthGatewayProtocol) {
         self.authGateway = authGateway
     }
-    
-    func vm_login(dto: LoginDto) -> AnyPublisher<Void, Error> {
-        login(dto: dto)
-    }
 }
 
 // MARK: - ViewModelType
@@ -51,22 +47,22 @@ extension LoginViewModel: ObservableObject, ViewModel {
         let usernameValidation = Publishers
             .CombineLatest(input.$username, input.loginTrigger)
             .map { $0.0 }
-            .map(LoginDto.validateUserName(_:))
+            .map(validateUserName(_:))
         
         usernameValidation
             .asDriver()
-            .map { $0.message }
+            .map { $0.message ?? "" }
             .assign(to: \.usernameValidationMessage, on: output)
             .store(in: cancelBag)
         
         let passwordValidation = Publishers
             .CombineLatest(input.$password, input.loginTrigger)
             .map { $0.0 }
-            .map(LoginDto.validatePassword(_:))
+            .map(validatePassword(_:))
             
         passwordValidation
             .asDriver()
-            .map { $0.message }
+            .map { $0.message ?? "" }
             .assign(to: \.passwordValidationMessage, on: output)
             .store(in: cancelBag)
         
@@ -80,7 +76,7 @@ extension LoginViewModel: ObservableObject, ViewModel {
             .delay(for: 0.1, scheduler: RunLoop.main)  // waiting for username/password validation
             .filter { output.isLoginEnabled }
             .map { [unowned self] _ in
-                self.vm_login(dto: LoginDto(username: input.username, password: input.password))
+                self.login(username: input.username, password: input.password)
                     .trackError(errorTracker)
                     .trackActivity(activityTracker)
                     .asDriver()

@@ -22,7 +22,7 @@ final class LogInTests: XCTestCase, LogIn {
     }
     
     func test_login() {
-        let result = expectValue(of: self.login(dto: LoginDto(username: "username", password: "password")),
+        let result = expectValue(of: self.login(username: "username", password: "password"),
                                  equals: [ { _ in true } ])
         wait(for: [result.expectation], timeout: 1)
     }
@@ -30,7 +30,7 @@ final class LogInTests: XCTestCase, LogIn {
     func test_login_failed() {
         authGatewayMock.loginReturnValue = .failure(TestError())
         
-        let result = expectFailure(of: self.login(dto: LoginDto()))
+        let result = expectFailure(of: self.login(username: "user", password: "password"))
         wait(for: [result.expectation], timeout: 1)
     }
 }

@@ -9,20 +9,36 @@
 import Combine
 import Foundation
 import Factory
+import APIService
 
 protocol RepoGatewayProtocol {
     func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error>
 }
 
 struct RepoGateway: RepoGatewayProtocol {
+    private struct GetReposResult: Decodable {
+        var items = [Repo]()
+    }
+    
     func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
-        let input = API.GetRepoListInput(page: page, perPage: perPage)
-        
-        return API.shared.getRepoList(input)
-            .map { (output) -> [Repo]? in
-                return output.repos
+        GitEndpoint.repos(page: page, perPage: perPage)
+            .add(headers: { ep in
+                let token = "a token"
+                
+                if var currentHeaders = ep.headers {
+                    currentHeaders["token"] = token
+                    return currentHeaders
+                }
+                
+                return ["token": token]
+            })
+            .publisher
+            .map { ep in
+                DefaultAPIService.shared
+                    .request(ep, decodingType: GetReposResult.self)
             }
-            .replaceNil(with: [])
+            .switchToLatest()
+            .map { $0.items }
             .map { PagingInfo(page: page, items: $0) }
             .eraseToAnyPublisher()
     }

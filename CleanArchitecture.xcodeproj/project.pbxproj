@@ -13,12 +13,6 @@
 		1734926024C539220014F87E /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734925F24C539220014F87E /* ProductsView.swift */; };
 		1734926524C59D2A0014F87E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734926424C59D2A0014F87E /* AppError.swift */; };
 		173865A124D3BB470059E3AD /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A024D3BB470059E3AD /* Repo.swift */; };
-		173865A424D3BB7A0059E3AD /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A324D3BB7A0059E3AD /* APIService.swift */; };
-		173865A624D3BC130059E3AD /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A524D3BC130059E3AD /* APIError.swift */; };
-		173865A824D3BC490059E3AD /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A724D3BC490059E3AD /* APIInput.swift */; };
-		173865AA24D3BC6A0059E3AD /* APIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865A924D3BC6A0059E3AD /* APIOutput.swift */; };
-		173865AC24D3BC840059E3AD /* API+Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865AB24D3BC840059E3AD /* API+Repo.swift */; };
-		173865AE24D3BCBC0059E3AD /* APIUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865AD24D3BCBC0059E3AD /* APIUrls.swift */; };
 		173865B024D40FBE0059E3AD /* ViewModel+GetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865AF24D40FBE0059E3AD /* ViewModel+GetItem.swift */; };
 		173865B224D419700059E3AD /* ViewModel+GetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173865B124D419700059E3AD /* ViewModel+GetPage.swift */; };
 		1742B36324D7B00000C82D15 /* GetRepoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1742B36224D7B00000C82D15 /* GetRepoList.swift */; };
@@ -60,14 +54,6 @@
 		176BAA5A24D16BAE00324D3C /* ShowLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5924D16BAE00324D3C /* ShowLogin.swift */; };
 		176BAA5C24D175C200324D3C /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5B24D175C200324D3C /* AuthGateway.swift */; };
 		176BAA5F24D2690300324D3C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 176BAA5E24D2690300324D3C /* Alamofire */; };
-		176BAA6224D2698500324D3C /* APIServiceBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6124D2698500324D3C /* APIServiceBase.swift */; };
-		176BAA6724D26A8100324D3C /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6624D26A8100324D3C /* CacheManager.swift */; };
-		176BAA6924D26AA300324D3C /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6824D26AA300324D3C /* String+Base64.swift */; };
-		176BAA6B24D26C8B00324D3C /* APIInputBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6A24D26C8B00324D3C /* APIInputBase.swift */; };
-		176BAA6D24D26CD900324D3C /* APIOutputBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6C24D26CD900324D3C /* APIOutputBase.swift */; };
-		176BAA6F24D26CF800324D3C /* APIErrorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA6E24D26CF800324D3C /* APIErrorBase.swift */; };
-		176BAA7324D26DEF00324D3C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA7224D26DEF00324D3C /* APIResponse.swift */; };
-		176BAA7524D26E4C00324D3C /* LogOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA7424D26E4C00324D3C /* LogOptions.swift */; };
 		1770EC2824DAA55B0022FBFE /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */; };
 		1770EC2B24DAA5ED0022FBFE /* RepoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */; };
 		1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */; };
@@ -103,6 +89,8 @@
 		17A5B20124D95168004BD209 /* RefreshHeaderAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */; };
 		17A5B20424D962B0004BD209 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20324D962B0004BD209 /* CombineExt */; };
 		17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20624D962CB004BD209 /* CombineCocoa */; };
+		17CB2EAB2C2BEC3000D6DD37 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 17CB2EAA2C2BEC3000D6DD37 /* APIService */; };
+		17CB2EAD2C2BEEEC00D6DD37 /* GitEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB2EAC2C2BEEEC00D6DD37 /* GitEndpoint.swift */; };
 		17DCF1B624BEE76800D970B4 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B524BEE76800D970B4 /* Driver.swift */; };
 		17DCF1B924BF01ED00D970B4 /* Publisher+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1B824BF01ED00D970B4 /* Publisher+.swift */; };
 		17DCF1BB24BF028200D970B4 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DCF1BA24BF028200D970B4 /* Double+.swift */; };
@@ -135,12 +123,6 @@
 		1734925F24C539220014F87E /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		1734926424C59D2A0014F87E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		173865A024D3BB470059E3AD /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
-		173865A324D3BB7A0059E3AD /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		173865A524D3BC130059E3AD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		173865A724D3BC490059E3AD /* APIInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
-		173865A924D3BC6A0059E3AD /* APIOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOutput.swift; sourceTree = "<group>"; };
-		173865AB24D3BC840059E3AD /* API+Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Repo.swift"; sourceTree = "<group>"; };
-		173865AD24D3BCBC0059E3AD /* APIUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUrls.swift; sourceTree = "<group>"; };
 		173865AF24D40FBE0059E3AD /* ViewModel+GetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+GetItem.swift"; sourceTree = "<group>"; };
 		173865B124D419700059E3AD /* ViewModel+GetPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+GetPage.swift"; sourceTree = "<group>"; };
 		1742B36224D7B00000C82D15 /* GetRepoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRepoList.swift; sourceTree = "<group>"; };
@@ -180,14 +162,6 @@
 		176BAA5724D167A400324D3C /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		176BAA5924D16BAE00324D3C /* ShowLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLogin.swift; sourceTree = "<group>"; };
 		176BAA5B24D175C200324D3C /* AuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateway.swift; sourceTree = "<group>"; };
-		176BAA6124D2698500324D3C /* APIServiceBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceBase.swift; sourceTree = "<group>"; };
-		176BAA6624D26A8100324D3C /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
-		176BAA6824D26AA300324D3C /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
-		176BAA6A24D26C8B00324D3C /* APIInputBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInputBase.swift; sourceTree = "<group>"; };
-		176BAA6C24D26CD900324D3C /* APIOutputBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIOutputBase.swift; sourceTree = "<group>"; };
-		176BAA6E24D26CF800324D3C /* APIErrorBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorBase.swift; sourceTree = "<group>"; };
-		176BAA7224D26DEF00324D3C /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
-		176BAA7424D26E4C00324D3C /* LogOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOptions.swift; sourceTree = "<group>"; };
 		1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionView.swift; sourceTree = "<group>"; };
 		1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewController.swift; sourceTree = "<group>"; };
 		1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionCell.swift; sourceTree = "<group>"; };
@@ -226,6 +200,7 @@
 		17A5B1FB24D948BC004BD209 /* PagingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTableView.swift; sourceTree = "<group>"; };
 		17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooterAnimator.swift; sourceTree = "<group>"; };
 		17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeaderAnimator.swift; sourceTree = "<group>"; };
+		17CB2EAC2C2BEEEC00D6DD37 /* GitEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitEndpoint.swift; sourceTree = "<group>"; };
 		17DCF1B524BEE76800D970B4 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		17DCF1B824BF01ED00D970B4 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
 		17DCF1BA24BF028200D970B4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
@@ -244,6 +219,7 @@
 				1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */,
 				176BAA5F24D2690300324D3C /* Alamofire in Frameworks */,
 				176BAA4F24D1326100324D3C /* Then in Frameworks */,
+				17CB2EAB2C2BEC3000D6DD37 /* APIService in Frameworks */,
 				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
 				176BAA4124D1150700324D3C /* Reusable in Frameworks */,
 				1B425EAA24FF8D1A000F7F6B /* SDWebImage in Frameworks */,
@@ -290,18 +266,6 @@
 				17A5B1F524D81561004BD209 /* GenericSubscriber.swift */,
 			);
 			path = Architecture;
-			sourceTree = "<group>";
-		};
-		173865A224D3BB660059E3AD /* API */ = {
-			isa = PBXGroup;
-			children = (
-				173865A324D3BB7A0059E3AD /* APIService.swift */,
-				173865A724D3BC490059E3AD /* APIInput.swift */,
-				173865A924D3BC6A0059E3AD /* APIOutput.swift */,
-				173865A524D3BC130059E3AD /* APIError.swift */,
-				173865AB24D3BC840059E3AD /* API+Repo.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		1742B36024D7AEC200C82D15 /* Repos */ = {
@@ -436,21 +400,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		176BAA6024D2692400324D3C /* APIService */ = {
-			isa = PBXGroup;
-			children = (
-				176BAA6124D2698500324D3C /* APIServiceBase.swift */,
-				176BAA7224D26DEF00324D3C /* APIResponse.swift */,
-				176BAA6A24D26C8B00324D3C /* APIInputBase.swift */,
-				176BAA6C24D26CD900324D3C /* APIOutputBase.swift */,
-				176BAA6E24D26CF800324D3C /* APIErrorBase.swift */,
-				176BAA7424D26E4C00324D3C /* LogOptions.swift */,
-				176BAA6624D26A8100324D3C /* CacheManager.swift */,
-				176BAA6824D26AA300324D3C /* String+Base64.swift */,
-			);
-			path = APIService;
-			sourceTree = "<group>";
-		};
 		1770EC2924DAA5B80022FBFE /* RepoCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,8 +481,6 @@
 		1787231824BD53A400D90F8E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				173865A224D3BB660059E3AD /* API */,
-				176BAA6024D2692400324D3C /* APIService */,
 				1787235924BD577C00D90F8E /* Gateways */,
 			);
 			path = Data;
@@ -587,7 +534,6 @@
 		1787234E24BD565E00D90F8E /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				173865AD24D3BCBC0059E3AD /* APIUrls.swift */,
 				1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */,
 			);
 			path = Config;
@@ -638,6 +584,7 @@
 				1787235A24BD578500D90F8E /* ProductGateway.swift */,
 				176BAA5B24D175C200324D3C /* AuthGateway.swift */,
 				1742B36424D7B01600C82D15 /* RepoGateway.swift */,
+				17CB2EAC2C2BEEEC00D6DD37 /* GitEndpoint.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -713,6 +660,7 @@
 				1B425EAB24FF8D1A000F7F6B /* SDWebImageMapKit */,
 				1B425EAE24FF9058000F7F6B /* ESPullToRefresh */,
 				17FFEFF82B6A225F00008867 /* Factory */,
+				17CB2EAA2C2BEC3000D6DD37 /* APIService */,
 			);
 			productName = CleanArchitecture;
 			productReference = 178722F324BD537D00D90F8E /* CleanArchitecture.app */;
@@ -777,6 +725,7 @@
 				1B425EA824FF8D1A000F7F6B /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				1B425EAD24FF9058000F7F6B /* XCRemoteSwiftPackageReference "pull-to-refresh" */,
 				17FFEFF72B6A225F00008867 /* XCRemoteSwiftPackageReference "Factory" */,
+				17CB2EA92C2BEC3000D6DD37 /* XCRemoteSwiftPackageReference "tech-standard-ios-api" */,
 			);
 			productRefGroup = 178722F424BD537D00D90F8E /* Products */;
 			projectDirPath = "";
@@ -847,14 +796,10 @@
 				178722F724BD537D00D90F8E /* AppDelegate.swift in Sources */,
 				17A5B1F824D9026D004BD209 /* BaseViewController.swift in Sources */,
 				1770EC2B24DAA5ED0022FBFE /* RepoCollectionViewController.swift in Sources */,
-				173865AC24D3BC840059E3AD /* API+Repo.swift in Sources */,
 				1742B36E24D7B22B00C82D15 /* ReposViewController.swift in Sources */,
-				173865A424D3BB7A0059E3AD /* APIService.swift in Sources */,
 				178722F924BD537D00D90F8E /* SceneDelegate.swift in Sources */,
 				17DCF1BB24BF028200D970B4 /* Double+.swift in Sources */,
 				17DCF1B924BF01ED00D970B4 /* Publisher+.swift in Sources */,
-				176BAA6F24D26CF800324D3C /* APIErrorBase.swift in Sources */,
-				173865AE24D3BCBC0059E3AD /* APIUrls.swift in Sources */,
 				17A5B1F624D81561004BD209 /* GenericSubscriber.swift in Sources */,
 				1787235824BD575E00D90F8E /* PagingInfo.swift in Sources */,
 				1770EC3124DAA7940022FBFE /* ColorCompatibility.swift in Sources */,
@@ -864,9 +809,7 @@
 				1781CF4424BD8FB8004ED1C6 /* ProductDetailViewModel.swift in Sources */,
 				17A5B1FC24D948BC004BD209 /* PagingTableView.swift in Sources */,
 				1742B37824D7C48400C82D15 /* RepoItemViewModel.swift in Sources */,
-				173865A624D3BC130059E3AD /* APIError.swift in Sources */,
-				176BAA6924D26AA300324D3C /* String+Base64.swift in Sources */,
-				176BAA6724D26A8100324D3C /* CacheManager.swift in Sources */,
+				17CB2EAD2C2BEEEC00D6DD37 /* GitEndpoint.swift in Sources */,
 				174A188D24C8219300AB39D9 /* ActivityIndicator.swift in Sources */,
 				17A5B1F424D8080B004BD209 /* UIViewController+Combine.swift in Sources */,
 				17DCF1B624BEE76800D970B4 /* Driver.swift in Sources */,
@@ -875,27 +818,21 @@
 				1742B37B24D7E88900C82D15 /* AlertMessage.swift in Sources */,
 				176BAA5C24D175C200324D3C /* AuthGateway.swift in Sources */,
 				176BAA5A24D16BAE00324D3C /* ShowLogin.swift in Sources */,
-				173865A824D3BC490059E3AD /* APIInput.swift in Sources */,
 				1734926024C539220014F87E /* ProductsView.swift in Sources */,
 				178809AC24C0446B00002215 /* ErrorTracker.swift in Sources */,
 				173865A124D3BB470059E3AD /* Repo.swift in Sources */,
 				178809AE24C04A7E00002215 /* ActivityTracker.swift in Sources */,
-				176BAA6B24D26C8B00324D3C /* APIInputBase.swift in Sources */,
 				1787234224BD556E00D90F8E /* LoginViewModel.swift in Sources */,
 				1765B2D524C6DF8B0096D210 /* ProductItemViewModel.swift in Sources */,
 				17FEE6512BF72E3100E66C77 /* ValidationResult.swift in Sources */,
 				176BAA4624D1154F00324D3C /* Storyboards.swift in Sources */,
 				1787235624BD571500D90F8E /* GetProducts.swift in Sources */,
-				176BAA7324D26DEF00324D3C /* APIResponse.swift in Sources */,
 				1734926524C59D2A0014F87E /* AppError.swift in Sources */,
 				17A5B1F224D804DA004BD209 /* UIViewController+.swift in Sources */,
 				1787236824BD5EC700D90F8E /* ProductsViewModel.swift in Sources */,
 				1742B37124D7B45C00C82D15 /* UIViewController+Debug.swift in Sources */,
-				176BAA6224D2698500324D3C /* APIServiceBase.swift in Sources */,
 				1787235324BD56E400D90F8E /* Product.swift in Sources */,
 				1765B2CE24C6A79F0096D210 /* ProductDetailView.swift in Sources */,
-				176BAA6D24D26CD900324D3C /* APIOutputBase.swift in Sources */,
-				173865AA24D3BC6A0059E3AD /* APIOutput.swift in Sources */,
 				1770EC4324DD2F2F0022FBFE /* ScreenLoadingType.swift in Sources */,
 				178722FB24BD537D00D90F8E /* ContentView.swift in Sources */,
 				1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */,
@@ -911,7 +848,6 @@
 				1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */,
 				171A69C32BF2F3D300AF276B /* ShowRepoDetail.swift in Sources */,
 				1742B37E24D7F52D00C82D15 /* RepoCell.swift in Sources */,
-				176BAA7524D26E4C00324D3C /* LogOptions.swift in Sources */,
 				176BAA4824D130B800324D3C /* Bindable.swift in Sources */,
 				176BAA4B24D1319C00324D3C /* MenuCell.swift in Sources */,
 				176BAA5824D167A400324D3C /* LogIn.swift in Sources */,
@@ -1088,6 +1024,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitecture/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CleanArchitecture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1112,6 +1049,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitecture/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CleanArchitecture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1133,7 +1071,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CleanArchitectureTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1156,7 +1094,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CleanArchitectureTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1251,6 +1189,14 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		17CB2EA92C2BEC3000D6DD37 /* XCRemoteSwiftPackageReference "tech-standard-ios-api" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sun-asterisk/tech-standard-ios-api";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		17FFEFF72B6A225F00008867 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -1315,6 +1261,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
 			productName = CombineCocoa;
+		};
+		17CB2EAA2C2BEC3000D6DD37 /* APIService */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 17CB2EA92C2BEC3000D6DD37 /* XCRemoteSwiftPackageReference "tech-standard-ios-api" */;
+			productName = APIService;
 		};
 		17FFEFF82B6A225F00008867 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -8,7 +8,6 @@
 
 import Combine
 import SwiftUI
-import ValidatedPropertyKit
 import CombineExt
 
 class LoginViewModel: LogIn { // swiftlint:disable:this final_class

@@ -1,104 +1,99 @@
-# iOS Clean Architecture (MVVM + Combine + SwiftUI/UIKit)
+# iOS Clean Architecture
 
+This project demonstrates the implementation of a repository list using Clean Architecture, MVVM, and Combine in Swift.
 
-## High Level Overview
+## Table of Contents
+
+- [Clean Architecture](#ios-clean-architecture)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Architecture](#architecture)
+    - [Domain Layer](#domain-layer)
+    - [Data Layer](#data-layer)
+    - [UI Layer](#ui-layer)
+  - [Dependency Injection](#dependency-injection)
+  - [Unit Tests](#unit-tests)
+ 
+## Introduction
+
+CleanArchitecture is an example application built to demonstrate the usage of Clean Architecture along with MVVM and Combine frameworks in Swift. The application fetches and displays a list of repositories from a remote API.
+
+## Architecture
+
+The architecture is structured into three main layers:
+
+1. **Data Layer**: Responsible for data retrieval and manipulation: Gateway Implementations + API (Network) + Database
+2. **Domain Layer**: Contains business logic and use cases: Entities + Use Cases + Gateway Protocols
+3. **UI/Presentation Layer**: Manages user interface and user interactions: ViewModels + ViewControllers/Views + Navigator
+
+Each layer has a clear responsibility and communicates with other layers via protocols and Combine publishers.
 
 <img width="600" alt="High Level Overview" src="images/high_level_overview.png">
-
-* **Domain Layer**: Entities + Use Cases + Gateway Protocols
-* **Data Layer**: Gateway Implementations + API (Network) + Database
-* **Presentation Layer**: ViewModels + Views  + Navigator + Scene Use Cases
 
 **Dependency Direction**
 
 <img width="500" alt="Dependency Direction" src="images/dependency_direction.png">
 
 
-## Detail Overview
-
-<img width="800" alt="Detail Overview" src="images/detail_overview.png">
-
-
 ### Domain Layer
+
+The Domain Layer contains the application’s business logic and use cases.
 
 <img width="500" alt="Domain Layer" src="images/domain.png">
 
 #### Entities
-Entities encapsulate enterprise-wide Critical Business Rules. An entity can be an object with methods, or it can be a set of data structures and functions. It doesn’t matter so long as the entities can be used by many different applications in the enterprise. - _Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin)_
+
+Entities encapsulate enterprise-wide Critical Business Rules. An entity can be an object with methods, or it can be a set of data structures and functions. It doesn’t matter so long as the entities can be used by many different applications in the enterprise.
+— Clean Architecture: A Craftsman’s Guide to Software Structure and Design (Robert C. Martin)
 
 Entities are simple data structures:
 
 ```swift
 struct Repo {
-    var id = 0
-    var name = ""
-    var fullname = ""
-    var urlString = ""
-    var starCount = 0
-    var folkCount = 0
-    var avatarURLString = ""
+    var id: Int?
+    var name: String?
+    var fullname: String?
+    var urlString: String?
+    var starCount: Int?
+    var folkCount: Int?
+    var owner: Owner?
+    
+    struct Owner: Decodable {
+        var avatarUrl: String?
+        
+        private enum CodingKeys: String, CodingKey {
+            case avatarUrl = "avatar_url"
+        }
+    }
 }
 ```
 
 #### Use Cases
 
-The software in the use cases layer contains application-specific business rules. It encapsulates and implements all of the use cases of the system. These use cases orchestrate the flow of data to and from the entities, and direct those entities to use their Critical Business Rules to achieve the goals of the use case. - _Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin)_
+The software in the use cases layer contains application-specific business rules. It encapsulates and implements all of the use cases of the system. These use cases orchestrate the flow of data to and from the entities, and direct those entities to use their Critical Business Rules to achieve the goals of the use case.
+— Clean Architecture: A Craftsman’s Guide to Software Structure and Design (Robert C. Martin)
 
 UseCases are protocols which do one specific thing:
 
 ```swift
-protocol GettingRepos {
-    var repoGateway: RepoGatewayType { get }
+protocol GetRepoList {
+    var repoGateway: RepoGatewayProtocol { get }
 }
 
-extension GettingRepos {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
-        repoGateway.getRepos(dto)
+extension GetRepoList {
+    func getRepos(dto: GetPageDto) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        repoGateway.getRepos(dto: dto)
     }
 }
 ```
-
-#### Data transfer object - DTO
-
-DTO - an object that carries data between processes, it also performs data verification:
-
-```swift
-struct LoginDto: Dto {
-    @Validated(.nonEmpty(message: "Please enter user name"))
-    var username: String?
-
-    @Validated(.nonEmpty(message: "Please enter password"))
-    var password: String?
-    
-    var validatedProperties: [ValidatedProperty] {
-        return [_username, _password]
-    }
-    
-    init(username: String, password: String) {
-        self.username = username
-        self.password = password
-    }
-    
-    init() { }
-    
-    static func validateUserName(_ username: String) -> Result<String, ValidationError> {
-        LoginDto()._username.isValid(value: username)
-    }
-    
-    static func validatePassword(_ password: String) -> Result<String, ValidationError> {
-        LoginDto()._password.isValid(value: password)
-    }
-}
-
-```
-
 
 #### Gateway Protocols
+
 Generally gateway is just another abstraction that will hide the actual implementation behind, similarly to the Facade Pattern. It could a Data Store (the Repository pattern), an API gateway, etc. Such as Database gateways will have methods to meet the demands of an application. However do not try to hide complex business rules behind such gateways. All queries to the database should relatively simple like CRUD operations, of course some filtering is also acceptable. - [Source](https://crosp.net/blog/software-architecture/clean-architecture-part-2-the-clean-architecture/)
 
 ```swift
-protocol RepoGatewayType {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>>
+protocol RepoGatewayProtocol {
+    func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error>
 }
 ```
 
@@ -108,104 +103,33 @@ _Note: For simplicity we put the Gateway protocols and implementations in the sa
 
 <img width="500" alt="Data Layer" src="images/data.png">
 
-Data Layer contains Gateway Implementations and one or many Data Stores. Gateways are responsible for coordinating data from different Data Stores. Data Store can be Remote or Local (for example persistent database). Data Layer depends only on the Domain Layer.
+The Data Layer is responsible for fetching data from the network and decoding it into usable models. It contains Gateway Implementations and one or many Data Stores. Gateways are responsible for coordinating data from different Data Stores. Data Store can be Remote or Local (for example persistent database). Data Layer depends only on the Domain Layer.
 
 #### Gateway Implementations
 
 ```swift
-struct RepoGateway: RepoGatewayType {
-    func getRepos(_ dto: GetPageDto) -> Observable<PagingInfo<Repo>> {
-        let input = API.GetRepoListInput(dto: dto)
-        
-        return API.shared.getRepoList(input)
-            .map { (output) -> [Repo]? in
-                return output.repos
-            }
-            .replaceNil(with: [])
-            .map { PagingInfo(page: dto.page, items: $0) }
+struct RepoGateway: RepoGatewayProtocol {
+    private struct GetReposResult: Decodable {
+        var items = [Repo]()
+    }
+    
+    func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        APIServices.default
+            .request(GitEndpoint.repos(page: page, perPage: perPage))
+            .data(type: GetReposResult.self)
+            .map { $0.items }
+            .map { PagingInfo(page: page, items: $0) }
             .eraseToAnyPublisher()
     }
 }
 ```
 
-#### UserDefaults
+### UI Layer
 
-```swift
-enum AppSettings {
-    @Storage(key: "didInit", defaultValue: false)
-    static var didInit: Bool
-}
-```
-
-#### APIs
-
-```swift
-extension API {
-    func getRepoList(_ input: GetRepoListInput) -> Observable<GetRepoListOutput> {
-        return request(input)
-    }
-    
-    final class GetRepoListInput: APIInput {
-        init(dto: GetPageDto) {
-            let params: Parameters = [
-                "q": "language:swift",
-                "per_page": dto.perPage,
-                "page": dto.page
-            ]
-            
-            super.init(urlString: API.Urls.getRepoList,
-                       parameters: params,
-                       method: .get,
-                       requireAccessToken: true)
-            
-            usingCache = dto.usingCache
-        }
-    }
-    
-    final class GetRepoListOutput: APIOutput {
-        private(set) var repos: [Repo]?
-        
-        override func mapping(map: Map) {
-            super.mapping(map: map)
-            repos <- map["items"]
-        }
-    }
-}
-```
-
-Map JSON Data to Domain Entities using ObjectMapper:
-
-```swift
-import ObjectMapper 
-
-extension Repo: Mappable {
-    
-    init?(map: Map) {
-        self.init()
-    }
-    
-    mutating func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
-        fullname <- map["full_name"]
-        urlString <- map["html_url"]
-        starCount <- map["stargazers_count"]
-        folkCount <- map["forks"]
-        avatarURLString <- map["owner.avatar_url"]
-    }
-}
-
-```
-
-_Note: Again, for simplicity we put entities and mappings in the same files and use entities as data models for APIs. You can create data models for APIs and map to entities._
-
-### Presentation Layer
+The UI Layer is responsible for presenting data to the user and handling user interactions.
 
 <img width="500" alt="Presentation Layer" src="images/presentation.png">
 
-In the current example, Presentation is implemented with the MVVM pattern and heavy use of Combine, which makes binding very easy.
-
-<img width="500" alt="Presentation Layer" src="images/mvvm_pattern.png">
 
 #### ViewModel
 
@@ -228,18 +152,29 @@ public protocol ViewModel {
 ```
 
 ```swift
-struct ReposViewModel {
-    let navigator: ReposNavigatorType
-    let useCase: ReposUseCaseType
+class ReposViewModel: GetRepoList, ShowRepoDetail {
+    var repoGateway: RepoGatewayProtocol
+    
+    init(repoGateway: RepoGatewayProtocol) {
+        self.repoGateway = repoGateway
+    }
+    
+    func vm_getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
+        return getRepos(dto: dto)
+    }
+    
+    func vm_showRepoDetail(repo: Repo) {
+        showRepoDetail(repo: repo)
+    }
 }
 
-// MARK: - ViewModelType
-extension ReposViewModel: ViewModel {
+extension ReposViewModel: ObservableObject, ViewModel {
     struct Input {
-        let loadTrigger: Driver<Void>
-        let reloadTrigger: Driver<Void>
-        let loadMoreTrigger: Driver<Void>
-        let selectRepoTrigger: Driver<IndexPath>
+        let loadTrigger: AnyPublisher<Void, Never>
+        let reloadTrigger: AnyPublisher<Void, Never>
+        let loadMoreTrigger: AnyPublisher<Void, Never>
+        let selectRepoTrigger: AnyPublisher<IndexPath, Never>
     }
     
     final class Output: ObservableObject {
@@ -257,7 +192,7 @@ extension ReposViewModel: ViewModel {
         let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
                                         reloadTrigger: input.reloadTrigger,
                                         loadMoreTrigger: input.loadMoreTrigger,
-                                        getItems: useCase.getRepos)
+                                        getItems: vm_getRepos)
         
         let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
 
@@ -267,9 +202,9 @@ extension ReposViewModel: ViewModel {
             .store(in: cancelBag)
         
         input.selectRepoTrigger
-            .handleEvents(receiveOutput: { indexPath in
+            .handleEvents(receiveOutput: { [unowned self] indexPath in
                 let repo = getPageInput.pageSubject.value.items[indexPath.row]
-                self.navigator.toRepoDetail(repo: repo)
+                self.vm_showRepoDetail(repo: repo)
             })
             .sink()
             .store(in: cancelBag)
@@ -297,112 +232,43 @@ extension ReposViewModel: ViewModel {
 }
 ```
 
-A ViewModel can be injected into a ViewController via property injection or initializer. In the current example, this is done by Assembler.
+## Dependency Injection
+
+A ViewModel can be injected into a ViewController via property injection or initializer. Here is how the dependency injection is set up using Factory.
 
 ```swift
-protocol ReposAssembler {
-    func resolve(navigationController: UINavigationController) -> ReposViewController
-    func resolve(navigationController: UINavigationController) -> RepoCollectionViewController
-    func resolve(navigationController: UINavigationController) -> ReposViewModel
-    func resolve(navigationController: UINavigationController) -> ReposNavigatorType
-    func resolve() -> ReposUseCaseType
-}
+import Factory
 
-extension ReposAssembler {
-    func resolve(navigationController: UINavigationController) -> ReposViewController {
-        let vc = ReposViewController.instantiate()
-        let vm: ReposViewModel = resolve(navigationController: navigationController)
-        vc.bindViewModel(to: vm)
-        return vc
-    }
-    
-    func resolve(navigationController: UINavigationController) -> RepoCollectionViewController {
-        let vc = RepoCollectionViewController.instantiate()
-        let vm: ReposViewModel = resolve(navigationController: navigationController)
-        vc.bindViewModel(to: vm)
-        return vc
-    }
-    
-    func resolve(navigationController: UINavigationController) -> ReposViewModel {
-        return ReposViewModel(
-            navigator: resolve(navigationController: navigationController),
-            useCase: resolve()
-        )
-    }
-}
-
-extension ReposAssembler where Self: DefaultAssembler {
-    func resolve(navigationController: UINavigationController) -> ReposNavigatorType {
-        return ReposNavigator(assembler: self, navigationController: navigationController)
-    }
-    
-    func resolve() -> ReposUseCaseType {
-        return ReposUseCase(repoGateway: resolve())
-    }
-}
-
-extension ReposAssembler where Self: PreviewAssembler {
-    func resolve(navigationController: UINavigationController) -> ReposNavigatorType {
-        return ReposNavigator(assembler: self, navigationController: navigationController)
-    }
-    
-    func resolve() -> ReposUseCaseType {
-        return ReposUseCase(repoGateway: resolve())
+extension Container {
+    func reposViewController(navigationController: UINavigationController) -> Factory<ReposViewController> {
+        Factory(self) {
+            let vc = ReposViewController.instantiate()
+            let vm = ReposViewModel(repoGateway: self.repoGateway())
+            vc.bindViewModel(to: vm)
+            return vc
+        }
     }
 }
 ```
 
-ViewModels provide data and functionality to be used by views:
+## Unit Tests
 
-```swift
-struct RepoItemViewModel {
-    let repo: Repo
-    let name: String
-    let url: URL?
-    
-    init(repo: Repo) {
-        self.repo = repo
-        name = repo.name
-        url = URL(string: repo.avatarURLString)
-    }
-}
-```
-
-#### Scene Use Case
-Scene Use Case acts as an intermediary between the Presentation Layer and the Domain Layer. It includes individual use cases for each screen, which makes testing the ViewModel easier.
-
-Scene Use Case uses the Facade pattern.
-
-```swift
-protocol ReposUseCaseType {
-    func getRepos(page: Int) -> Observable<PagingInfo<Repo>>
-}
-
-struct ReposUseCase: ReposUseCaseType, GettingRepos {
-    let repoGateway: RepoGatewayType
-    
-    func getRepos(page: Int) -> Observable<PagingInfo<Repo>> {
-        let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
-        return getRepos(dto: dto)
-    }
-}
-```
-
-## Testing
 ### What to test?
-In this architecture, we can test Use Cases, ViewModels and Entities (if they contain business logic).
 
-#### Use Case
+Unit tests are crucial for verifying the functionality and reliability of your application. In this architecture, we can test Use Cases, ViewModels, and Entities (if they contain business logic).
+
+#### Use Case Tests
 
 ```swift
+@testable import CleanArchitecture
 import XCTest
 
-final class LoggingInTests: XCTestCase, LoggingIn {
-    var authGateway: AuthGatewayType {
+final class LogInTests: XCTestCase, LogIn {
+    var authGateway: AuthGatewayProtocol {
         return authGatewayMock
     }
     
-    private var authGatewayMock = AuthGatewayMock()
+    private var authGatewayMock = MockAuthGateway()
     private var cancelBag: CancelBag!
 
     override func setUpWithError() throws {
@@ -410,7 +276,7 @@ final class LoggingInTests: XCTestCase, LoggingIn {
     }
     
     func test_login() {
-        let result = expectValue(of: self.login(dto: LoginDto(username: "username", password: "password")),
+        let result = expectValue(of: self.login(username: "username", password: "password"),
                                  equals: [ { _ in true } ])
         wait(for: [result.expectation], timeout: 1)
     }
@@ -418,55 +284,67 @@ final class LoggingInTests: XCTestCase, LoggingIn {
     func test_login_failed() {
         authGatewayMock.loginReturnValue = .failure(TestError())
         
-        let result = expectFailure(of: self.login(dto: LoginDto()))
+        let result = expectFailure(of: self.login(username: "user", password: "password"))
         wait(for: [result.expectation], timeout: 1)
     }
 }
 ```
 
-#### ViewModel
+#### ViewModel Tests
 
 ```swift
-final class ProductsViewModelTests: XCTestCase {
-    private var viewModel: ProductsViewModel!
-    private var navigator: ProductsNavigatorMock!
-    private var useCase: ProductsUseCaseMock!
+import XCTest
+import Combine
+
+final class ReposViewModelTests: XCTestCase {
+    private var viewModel: TestReposViewModel!
+    private var cancelBag = CancelBag()
+    private var output: ReposViewModel.Output!
     
-    private var input: ProductsViewModel.Input!
-    private var output: ProductsViewModel.Output!
     private var loadTrigger = PassthroughSubject<Void, Never>()
     private var reloadTrigger = PassthroughSubject<Void, Never>()
-    private var selectTrigger = PassthroughSubject<IndexPath, Never>()
-    
-    private var cancelBag: CancelBag!
-    
-    override func setUp() {
-        super.setUp()
-        navigator = ProductsNavigatorMock()
-        useCase = ProductsUseCaseMock()
-        viewModel = ProductsViewModel(navigator: navigator, useCase: useCase)
-        
-        input = ProductsViewModel.Input(loadTrigger: loadTrigger.eraseToAnyPublisher(),
-                                        reloadTrigger: reloadTrigger.eraseToAnyPublisher(),
-                                        selectTrigger: selectTrigger.eraseToAnyPublisher())
-        
+    private var loadMoreTrigger = PassthroughSubject<Void, Never>()
+    private var selectRepoTrigger = PassthroughSubject<IndexPath, Never>()
+
+    override func setUpWithError() throws {
+        viewModel = TestReposViewModel(repoGateway: RepoGatewayFake())
         cancelBag = CancelBag()
+        
+        let input = ReposViewModel.Input(
+            loadTrigger: loadTrigger.eraseToAnyPublisher(),
+            reloadTrigger: reloadTrigger.eraseToAnyPublisher(),
+            loadMoreTrigger: loadMoreTrigger.eraseToAnyPublisher(),
+            selectRepoTrigger: selectRepoTrigger.eraseToAnyPublisher()
+        )
+        
         output = viewModel.transform(input, cancelBag: cancelBag)
     }
     
-    func test_loadTrigger_getProducts() {
-        // act
+    func test_loadTrigger_getRepos() {
+        // Act
         loadTrigger.send(())
         
-        // assert
+        // Assert
         wait {
-            XCTAssert(self.useCase.getProductsCalled)
-            XCTAssertEqual(self.output.products.count, 1)
+            XCTAssert(self.viewModel.getReposCalled)
+            XCTAssertEqual(self.output.repos.count, 1)
         }
     }
+}
 
-    ...
-
+final class TestReposViewModel: ReposViewModel {
+    var vmShowRepoDetailCalled = false
+    var getReposCalled = false
+    var getReposReturnValue: Result<PagingInfo<Repo>, Error> = .success(PagingInfo.fake)
+    
+    override func vm_showRepoDetail(repo: Repo) {
+        vmShowRepoDetailCalled = true
+    }
+    
+    override func getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        getReposCalled = true
+        return getReposReturnValue.publisher.eraseToAnyPublisher()
+    }
 }
 ```
 
@@ -477,9 +355,9 @@ final class ProductsViewModelTests: XCTestCase {
     - /Domain
         - /UseCases
             - /Product
-                - GettingProductList.swift
-                - UpdatingProduct.swift
-                - DeletingProduct.swift
+                - GetProductList.swift
+                - UpdateProduct.swift
+                - DeleteProduct.swift
                 ...
             - /Login
             - /App
@@ -521,7 +399,6 @@ final class ProductsViewModelTests: XCTestCase {
     - /Resources
         - /Assets.xcassets
     - AppDelegate.swift
-    - Assembler.swift
     - ...
 
 - /CleanArchitectureTests
@@ -529,6 +406,12 @@ final class ProductsViewModelTests: XCTestCase {
     - /Data
     - /Scenes
 ```
+
+## Conclusion
+
+CleanArchitecture demonstrates the implementation of Clean Architecture, MVVM, and Combine in a Swift application. The architecture separates concerns into distinct layers, making the codebase more maintainable, testable, and scalable. By following these principles, you can build robust applications that are easy to extend and adapt to changing requirements.
+
+Feel free to explore the code and adapt the architecture to your needs. Contributions and feedback are welcome!
 
 ## Tutorials
 

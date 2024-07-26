@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sun-asterisk/tech-standard-ios-api",
       "state" : {
-        "revision" : "5dc5457e37968651835e478c18c74098b0f83b1b",
-        "version" : "0.1.1"
+        "revision" : "e52e554d5034dd88f51594d91bb8858d011ee5be",
+        "version" : "0.10.0"
       }
     },
     {

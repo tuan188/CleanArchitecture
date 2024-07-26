@@ -21,23 +21,9 @@ struct RepoGateway: RepoGatewayProtocol {
     }
     
     func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
-        GitEndpoint.repos(page: page, perPage: perPage)
-            .add(headers: { ep in
-                let token = "a token"
-                
-                if var currentHeaders = ep.headers {
-                    currentHeaders["token"] = token
-                    return currentHeaders
-                }
-                
-                return ["token": token]
-            })
-            .publisher
-            .map { ep in
-                DefaultAPIService.shared
-                    .request(ep, decodingType: GetReposResult.self)
-            }
-            .switchToLatest()
+        APIServices.default
+            .request(GitEndpoint.repos(page: page, perPage: perPage))
+            .data(type: GetReposResult.self)
             .map { $0.items }
             .map { PagingInfo(page: page, items: $0) }
             .eraseToAnyPublisher()

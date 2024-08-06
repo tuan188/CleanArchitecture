@@ -251,6 +251,7 @@
 		1734926324C59CC00014F87E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1787235724BD575E00D90F8E /* PagingInfo.swift */,
 				178809AB24C0446B00002215 /* ErrorTracker.swift */,
 				178809AD24C04A7E00002215 /* ActivityIndicator.swift */,
 				1787231B24BD53BF00D90F8E /* ViewModel.swift */,
@@ -550,7 +551,6 @@
 			children = (
 				1787235224BD56E400D90F8E /* Product.swift */,
 				173865A024D3BB470059E3AD /* Repo.swift */,
-				1787235724BD575E00D90F8E /* PagingInfo.swift */,
 				1734926424C59D2A0014F87E /* AppError.swift */,
 			);
 			path = Entities;

@@ -1,22 +1,15 @@
-//
-//  CancelBag.swift
-//  CleanArchitecture
-//
-//  Created by Tuan Truong on 7/21/20.
-//  Copyright © 2020 Tuan Truong. All rights reserved.
-//
-
 import Combine
 
 /// A container that holds a collection of cancellable subscriptions.
+/// Useful for managing the lifecycle of multiple Combine subscriptions.
 open class CancelBag {
     /// The set of cancellable subscriptions.
-    public var subscriptions = Set<AnyCancellable>()
+    public fileprivate(set) var subscriptions = Set<AnyCancellable>()
     
     /// Cancels all the subscriptions stored in the `CancelBag`.
     public func cancel() {
         subscriptions.forEach { $0.cancel() }
-        subscriptions.removeAll()
+        subscriptions.removeAll(keepingCapacity: false)
     }
 }
 

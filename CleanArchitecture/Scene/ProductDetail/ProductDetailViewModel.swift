@@ -8,8 +8,12 @@
 
 import Combine
 
-struct ProductDetailViewModel {
+final class ProductDetailViewModel {
     let product: Product
+    
+    init(product: Product) {
+        self.product = product
+    }
 }
 
 // MARK: - ViewModel

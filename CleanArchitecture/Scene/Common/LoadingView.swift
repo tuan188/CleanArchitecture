@@ -24,12 +24,12 @@ struct LoadingView<Content>: View where Content: View {
                 
                 VStack {
                     if !self.text.isEmpty {
-                        ActivityIndicator(isAnimating: .constant(true), style: .large)
+                        ActivityIndicatorView(isAnimating: .constant(true), style: .large)
                             .padding(.top)
                         Text(self.text)
                             .padding([.leading, .trailing, .bottom])
                     } else {
-                        ActivityIndicator(isAnimating: .constant(true), style: .large)
+                        ActivityIndicatorView(isAnimating: .constant(true), style: .large)
                     }
                 }
                 .frame(minWidth: 78,

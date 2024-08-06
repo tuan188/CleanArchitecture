@@ -43,11 +43,11 @@ extension ProductsViewModel: ObservableObject, ViewModel {
     }
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
-        let getListInput = GetListInput(loadTrigger: input.loadTrigger,
-                                        reloadTrigger: input.reloadTrigger,
-                                        getItems: self.vm_getProducts)
-
-        let (products, error, isLoading, isReloading) = getList(input: getListInput).destructured
+        let config = ListFetchConfig(initialLoadTrigger: input.loadTrigger,
+                                     reloadTrigger: input.reloadTrigger,
+                                     fetchItems: self.vm_getProducts)
+        
+        let (products, error, isLoading, isReloading) = fetchList(config: config).destructured
         
         let output = Output()
         

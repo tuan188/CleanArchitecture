@@ -50,12 +50,12 @@ extension ReposViewModel: ObservableObject, ViewModel {
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let output = Output()
         
-        let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
-                                        reloadTrigger: input.reloadTrigger,
-                                        loadMoreTrigger: input.loadMoreTrigger,
-                                        getItems: getRepos)
+        let config = PageFetchConfig(initialLoadTrigger: input.loadTrigger,
+                                     reloadTrigger: input.reloadTrigger,
+                                     loadMoreTrigger: input.loadMoreTrigger,
+                                     fetchItems: getRepos)
         
-        let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
+        let (page, error, isLoading, isReloading, isLoadingMore) = fetchPage(config: config).destructured
 
         page
             .map { $0.items.map(RepoItemViewModel.init) }
@@ -64,7 +64,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
         
         input.selectRepoTrigger
             .handleEvents(receiveOutput: { [unowned self] indexPath in
-                let repo = getPageInput.pageSubject.value.items[indexPath.row]
+                let repo = config.pageSubject.value.items[indexPath.row]
                 self.vm_showRepoDetail(repo: repo)
             })
             .sink()

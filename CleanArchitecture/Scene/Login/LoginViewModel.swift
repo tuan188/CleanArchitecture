@@ -40,7 +40,7 @@ extension LoginViewModel: ObservableObject, ViewModel {
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let errorTracker = ErrorTracker()
-        let activityTracker = ActivityTracker(false)
+        let activityTracker = ActivityIndicator(false)
         let output = Output()
         
         let usernameValidation = Publishers

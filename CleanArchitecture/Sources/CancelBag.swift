@@ -6,6 +6,9 @@ open class CancelBag {
     /// The set of cancellable subscriptions.
     public fileprivate(set) var subscriptions = Set<AnyCancellable>()
     
+    /// Initializes a new instance of `CancelBag`.
+    public init() {}
+    
     /// Cancels all the subscriptions stored in the `CancelBag`.
     public func cancel() {
         subscriptions.forEach { $0.cancel() }
@@ -21,4 +24,3 @@ extension AnyCancellable {
         cancelBag.subscriptions.insert(self)
     }
 }
-

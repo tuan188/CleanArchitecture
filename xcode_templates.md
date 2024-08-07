@@ -1,4 +1,4 @@
-# Tutorial - Import Clean Architecture Templates for Xcode
+# Import Clean Architecture Templates for Xcode
 
 Download [Xcode template files](files/xcode_templates.zip) and unzip to folder:
 

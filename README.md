@@ -14,6 +14,9 @@ This project demonstrates the implementation of a repository list using Clean Ar
     - [UI Layer](#ui-layer)
   - [Dependency Injection](#dependency-injection)
   - [Unit Tests](#unit-tests)
+  - [Xcode Template](#xcode-template)
+  - [Conclusion](#conclusion)
+  - [Links](#links)
  
 ## Introduction
 
@@ -425,16 +428,15 @@ final class TestReposViewModel: ReposViewModel {
     - /Scenes
 ```
 
+## Xcode Template
+
+* [Import Clean Architecture File Templates for Xcode](xcode_templates.md)
+
 ## Conclusion
 
 CleanArchitecture demonstrates the implementation of Clean Architecture, MVVM, and Combine in a Swift application. The architecture separates concerns into distinct layers, making the codebase more maintainable, testable, and scalable. By following these principles, you can build robust applications that are easy to extend and adapt to changing requirements.
 
 Feel free to explore the code and adapt the architecture to your needs. Contributions and feedback are welcome!
-
-## Tutorials
-
-* [Tutorial - Import Clean Architecture File Templates for Xcode](xcode_templates.md)
-
 
 ## Links
 * [APIService](https://github.com/sun-asterisk/tech-standard-ios-api)

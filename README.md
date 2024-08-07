@@ -7,6 +7,7 @@ This project demonstrates the implementation of a repository list using Clean Ar
 - [Clean Architecture](#ios-clean-architecture)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
+  - [Installation](#installation)
   - [Architecture](#architecture)
     - [Domain Layer](#domain-layer)
     - [Data Layer](#data-layer)
@@ -17,6 +18,23 @@ This project demonstrates the implementation of a repository list using Clean Ar
 ## Introduction
 
 CleanArchitecture is an example application built to demonstrate the usage of Clean Architecture along with MVVM and Combine frameworks in Swift. The application fetches and displays a list of repositories from a remote API.
+
+## Installation
+
+To install the necessary files using Swift Package Manager, follow these steps:
+
+1. Open your Xcode project.
+2. Select `File` > `Add Packages...`
+3. Enter the URL of this repository: `https://github.com/tuan188/CleanArchitecture`
+4. Select the appropriate package options and add the package to your project.
+
+Alternatively, you can add the following dependency to your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/tuan188/CleanArchitecture", .upToNextMajor(from: "2.0.3"))   
+]
+```
 
 ## Architecture
 

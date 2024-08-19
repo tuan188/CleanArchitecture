@@ -16,6 +16,8 @@ open class CancelBag {
     }
 }
 
+extension CancelBag: ObservableObject { }
+
 extension AnyCancellable {
     /// Stores the cancellable subscription in the specified `CancelBag`.
     ///

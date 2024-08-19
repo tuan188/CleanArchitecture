@@ -36,7 +36,7 @@ Alternatively, you can add the following dependency to your `Package.swift` file
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/tuan188/CleanArchitecture", .upToNextMajor(from: "2.0.3"))   
+    .package(url: "https://github.com/tuan188/CleanArchitecture", .upToNextMajor(from: "2.0.5"))   
 ]
 ```
 

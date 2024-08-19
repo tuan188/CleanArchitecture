@@ -16,7 +16,8 @@ This project demonstrates the implementation of a repository list using Clean Ar
   - [Unit Tests](#unit-tests)
   - [Xcode Template](#xcode-template)
   - [Conclusion](#conclusion)
-  - [Links](#links)
+  - [License](#license)
+  - [Related](#related)
  
 ## Introduction
 
@@ -180,16 +181,20 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
         self.repoGateway = repoGateway
     }
     
-    func vm_getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
-        let dto = GetPageDto(page: page, perPage: 10, usingCache: true)
-        return getRepos(dto: dto)
+    // MARK: - Use cases
+    
+    func getRepos(page: Int) -> AnyPublisher<PagingInfo<Repo>, Error> {
+        return getRepos(page: page, perPage: 10)
     }
+    
+    // // MARK: - Navigation
     
     func vm_showRepoDetail(repo: Repo) {
         showRepoDetail(repo: repo)
     }
 }
 
+// MARK: - ViewModel
 extension ReposViewModel: ObservableObject, ViewModel {
     struct Input {
         let loadTrigger: AnyPublisher<Void, Never>
@@ -210,12 +215,12 @@ extension ReposViewModel: ObservableObject, ViewModel {
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let output = Output()
         
-        let getPageInput = GetPageInput(loadTrigger: input.loadTrigger,
-                                        reloadTrigger: input.reloadTrigger,
-                                        loadMoreTrigger: input.loadMoreTrigger,
-                                        getItems: vm_getRepos)
+        let config = PageFetchConfig(initialLoadTrigger: input.loadTrigger,
+                                     reloadTrigger: input.reloadTrigger,
+                                     loadMoreTrigger: input.loadMoreTrigger,
+                                     fetchItems: getRepos)
         
-        let (page, error, isLoading, isReloading, isLoadingMore) = getPage(input: getPageInput).destructured
+        let (page, error, isLoading, isReloading, isLoadingMore) = fetchPage(config: config).destructured
 
         page
             .map { $0.items.map(RepoItemViewModel.init) }
@@ -224,7 +229,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
         
         input.selectRepoTrigger
             .handleEvents(receiveOutput: { [unowned self] indexPath in
-                let repo = getPageInput.pageSubject.value.items[indexPath.row]
+                let repo = config.pageSubject.value.items[indexPath.row]
                 self.vm_showRepoDetail(repo: repo)
             })
             .sink()
@@ -431,6 +436,7 @@ final class TestReposViewModel: ReposViewModel {
 ## Xcode Template
 
 * [Import Clean Architecture File Templates for Xcode](xcode_templates.md)
+* [Import Clean Architecture Project Template for Xcode](xcode_project_template.md)
 
 ## Conclusion
 
@@ -438,10 +444,10 @@ CleanArchitecture demonstrates the implementation of Clean Architecture, MVVM, a
 
 Feel free to explore the code and adapt the architecture to your needs. Contributions and feedback are welcome!
 
-## Links
+## License
+
+`CleanArchitecture` is available under the MIT license. See the [LICENSE](LICENSE) file for more information.
+
+## Related
 * [APIService](https://github.com/sun-asterisk/tech-standard-ios-api)
 * [Clean Architecture (RxSwift + UIKit)](https://github.com/tuan188/MGCleanArchitecture)
-* [Using Clean Architecture in Flutter - codeburst](https://codeburst.io/using-clean-architecture-in-flutter-d0437d0c7f87)
-* [MVVM Responsibilities - Tutorialspoint](https://www.tutorialspoint.com/mvvm/mvvm_responsibilities.htm)
-
-

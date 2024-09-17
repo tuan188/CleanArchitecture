@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -107,6 +107,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1773B0312C980E8D00575110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 178722EB24BD537D00D90F8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178722F224BD537D00D90F8E;
+			remoteInfo = CleanArchitecture;
+		};
 		1787230A24BD537E00D90F8E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 178722EB24BD537D00D90F8E /* Project object */;
@@ -170,6 +177,7 @@
 		1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCompatibility.swift; sourceTree = "<group>"; };
 		1770EC3224DAA9AC0022FBFE /* ShowRepoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepoCollection.swift; sourceTree = "<group>"; };
 		1770EC4224DD2F2F0022FBFE /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		1773B02B2C980E8D00575110 /* CleanArchitectureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitectureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1781CF3F24BD8FB8004ED1C6 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		178722F324BD537D00D90F8E /* CleanArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		178722F624BD537D00D90F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,7 +217,18 @@
 		17FEE6522BF72E8B00E66C77 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1773B02C2C980E8D00575110 /* CleanArchitectureUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CleanArchitectureUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		1773B0282C980E8D00575110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		178722F024BD537D00D90F8E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +441,7 @@
 			children = (
 				178722F524BD537D00D90F8E /* CleanArchitecture */,
 				1787230C24BD537E00D90F8E /* CleanArchitectureTests */,
+				1773B02C2C980E8D00575110 /* CleanArchitectureUITests */,
 				178722F424BD537D00D90F8E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -431,6 +451,7 @@
 			children = (
 				178722F324BD537D00D90F8E /* CleanArchitecture.app */,
 				1787230924BD537E00D90F8E /* CleanArchitectureTests.xctest */,
+				1773B02B2C980E8D00575110 /* CleanArchitectureUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -634,6 +655,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1773B02A2C980E8D00575110 /* CleanArchitectureUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1773B0352C980E8D00575110 /* Build configuration list for PBXNativeTarget "CleanArchitectureUITests" */;
+			buildPhases = (
+				1773B0272C980E8D00575110 /* Sources */,
+				1773B0282C980E8D00575110 /* Frameworks */,
+				1773B0292C980E8D00575110 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1773B0322C980E8D00575110 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1773B02C2C980E8D00575110 /* CleanArchitectureUITests */,
+			);
+			name = CleanArchitectureUITests;
+			packageProductDependencies = (
+			);
+			productName = CleanArchitectureUITests;
+			productReference = 1773B02B2C980E8D00575110 /* CleanArchitectureUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		178722F224BD537D00D90F8E /* CleanArchitecture */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1787231224BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitecture" */;
@@ -690,10 +734,14 @@
 		178722EB24BD537D00D90F8E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Tuan Truong";
 				TargetAttributes = {
+					1773B02A2C980E8D00575110 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 178722F224BD537D00D90F8E;
+					};
 					178722F224BD537D00D90F8E = {
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
@@ -733,11 +781,19 @@
 			targets = (
 				178722F224BD537D00D90F8E /* CleanArchitecture */,
 				1787230824BD537E00D90F8E /* CleanArchitectureTests */,
+				1773B02A2C980E8D00575110 /* CleanArchitectureUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1773B0292C980E8D00575110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		178722F124BD537D00D90F8E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -785,6 +841,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1773B0272C980E8D00575110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		178722EF24BD537D00D90F8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -879,6 +942,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1773B0322C980E8D00575110 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178722F224BD537D00D90F8E /* CleanArchitecture */;
+			targetProxy = 1773B0312C980E8D00575110 /* PBXContainerItemProxy */;
+		};
 		1787230B24BD537E00D90F8E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 178722F224BD537D00D90F8E /* CleanArchitecture */;
@@ -898,6 +966,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1773B0332C980E8D00575110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NN74NJ78BB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CleanArchitecture;
+			};
+			name = Debug;
+		};
+		1773B0342C980E8D00575110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NN74NJ78BB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CleanArchitecture;
+			};
+			name = Release;
+		};
 		1787231024BD537E00D90F8E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1111,6 +1226,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1773B0352C980E8D00575110 /* Build configuration list for PBXNativeTarget "CleanArchitectureUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1773B0332C980E8D00575110 /* Debug */,
+				1773B0342C980E8D00575110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		178722EE24BD537D00D90F8E /* Build configuration list for PBXProject "CleanArchitecture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

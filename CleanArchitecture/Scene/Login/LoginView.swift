@@ -24,6 +24,7 @@ struct LoginView: View {
                 Text("User name:")
                 TextField("", text: self.$input.username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .accessibilityIdentifier("userTextField")
                 Text(self.output.usernameValidationMessage)
                     .foregroundColor(.red)
                     .font(.footnote)
@@ -31,6 +32,7 @@ struct LoginView: View {
                     .padding(.top)
                 SecureField("", text: self.$input.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .accessibilityIdentifier("passwordTextField")
                 Text(self.output.passwordValidationMessage)
                     .foregroundColor(.red)
                     .font(.footnote)
@@ -41,6 +43,7 @@ struct LoginView: View {
                     }
                     .disabled(!self.output.isLoginEnabled)
                     .padding(.top)
+                    .accessibilityIdentifier("loginButton")
                     Spacer()
                 }
                 Spacer()

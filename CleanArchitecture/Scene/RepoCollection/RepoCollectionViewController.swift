@@ -187,7 +187,7 @@ extension Container {
     -> Factory<RepoCollectionViewController> {
         Factory(self) {
             let vc = RepoCollectionViewController.instantiate()
-            let vm = ReposViewModel(repoGateway: self.repoGateway())
+            let vm = ReposViewModel()
             vc.bindViewModel(to: vm)
             return vc
         }

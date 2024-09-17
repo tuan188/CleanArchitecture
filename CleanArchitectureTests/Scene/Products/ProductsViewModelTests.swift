@@ -23,8 +23,7 @@ final class ProductsViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        viewModel = TestProductsViewModel(navigationController: UINavigationController(),
-                                          productGateway: FakeProductGateway())
+        viewModel = TestProductsViewModel(navigationController: UINavigationController())
         
         input = ProductsViewModel.Input(loadTrigger: loadTrigger.eraseToAnyPublisher(),
                                         reloadTrigger: reloadTrigger.eraseToAnyPublisher(),

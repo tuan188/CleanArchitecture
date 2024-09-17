@@ -11,11 +11,14 @@ import Combine
 import Factory
 
 struct ProductDetailView: View {
-    @ObservedObject var output: ProductDetailViewModel.Output
+    final class Triggers: ObservableObject {
+        var load = PassthroughSubject<Void, Never>()
+    }
     
-    private let viewModel: ProductDetailViewModel
-    private let cancelBag = CancelBag()
-    private let loadTrigger = PassthroughSubject<Void, Never>()
+    @StateObject var viewModel: ProductDetailViewModel
+    @StateObject var output: ProductDetailViewModel.Output
+    @StateObject var cancelBag: CancelBag
+    @StateObject var triggers: Triggers
     
     var body: some View {
         VStack {
@@ -33,13 +36,21 @@ struct ProductDetailView: View {
             .padding([.leading, .top])
             Spacer()
         }
+        .onLoad {
+            triggers.load.send(())
+        }
     }
     
     init(viewModel: ProductDetailViewModel) {
-        self.viewModel = viewModel
-        let input = ProductDetailViewModel.Input(loadTrigger: loadTrigger.asDriver())
-        self.output = viewModel.transform(input, cancelBag: cancelBag)
-        loadTrigger.send(())
+        let cancelBag = CancelBag()
+        let triggers = Triggers()
+        let input = ProductDetailViewModel.Input(loadTrigger: triggers.load.eraseToAnyPublisher())
+        let output = viewModel.transform(input, cancelBag: cancelBag)
+        
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._output = StateObject(wrappedValue: output)
+        self._cancelBag = StateObject(wrappedValue: cancelBag)
+        self._triggers = StateObject(wrappedValue: triggers)
     }
 }
 
@@ -53,7 +64,8 @@ struct ProductDetailView_Previews: PreviewProvider {
 extension Container {
     func productDetailView(product: Product) -> Factory<ProductDetailView> {
         Factory(self) {
-            ProductDetailView(viewModel: ProductDetailViewModel(product: product))
+            let vm = ProductDetailViewModel(product: product)
+            return ProductDetailView(viewModel: vm)
         }
     }
 }

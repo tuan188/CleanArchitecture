@@ -21,7 +21,7 @@ final class ReposViewModelTests: XCTestCase {
     private var selectRepoTrigger = PassthroughSubject<IndexPath, Never>()
 
     override func setUpWithError() throws {
-        viewModel = TestReposViewModel(repoGateway: RepoGatewayFake())
+        viewModel = TestReposViewModel()
         cancelBag = CancelBag()
         
         let input = ReposViewModel.Input(

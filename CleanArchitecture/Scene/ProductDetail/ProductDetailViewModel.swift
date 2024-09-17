@@ -29,7 +29,9 @@ extension ProductDetailViewModel: ViewModel {
     
     func transform(_ input: Input, cancelBag: CancelBag) -> Output {
         let product = input.loadTrigger
-            .map { self.product }
+            .map {
+                self.product
+            }
         
         let output = Output()
         

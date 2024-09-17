@@ -11,12 +11,15 @@ import Combine
 import Factory
 
 struct LoginView: View {
-    @ObservedObject var input: LoginViewModel.Input
-    @ObservedObject var output: LoginViewModel.Output
-    @ObservedObject var viewModel: LoginViewModel
+    final class Triggers: ObservableObject {
+        var login = PassthroughSubject<Void, Never>()
+    }
     
-    private let cancelBag = CancelBag()
-    private let loginTrigger = PassthroughSubject<Void, Never>()
+    @StateObject var viewModel: LoginViewModel
+    @StateObject var input: LoginViewModel.Input
+    @StateObject var output: LoginViewModel.Output
+    @StateObject var cancelBag: CancelBag
+    @StateObject var triggers: Triggers
     
     var body: some View {
         LoadingView(isShowing: $output.isLoading, text: .constant("")) {
@@ -39,7 +42,7 @@ struct LoginView: View {
                 HStack {
                     Spacer()
                     Button("Login") {
-                        self.loginTrigger.send(())
+                        self.triggers.login.send(())
                     }
                     .disabled(!self.output.isLoginEnabled)
                     .padding(.top)
@@ -60,10 +63,16 @@ struct LoginView: View {
     }
     
     init(viewModel: LoginViewModel) {
-        let input = LoginViewModel.Input(loginTrigger: loginTrigger.asDriver())
-        output = viewModel.transform(input, cancelBag: cancelBag)
-        self.viewModel = viewModel
-        self.input = input
+        let cancelBag = CancelBag()
+        let triggers = Triggers()
+        let input = LoginViewModel.Input(loginTrigger: triggers.login.eraseToAnyPublisher())
+        let output = viewModel.transform(input, cancelBag: cancelBag)
+        
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._input = StateObject(wrappedValue: input)
+        self._output = StateObject(wrappedValue: output)
+        self._cancelBag = StateObject(wrappedValue: cancelBag)
+        self._triggers = StateObject(wrappedValue: triggers)
     }
 }
 

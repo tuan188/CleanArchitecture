@@ -8,13 +8,11 @@
 
 import Combine
 import UIKit
+import Factory
 
 class ReposViewModel: GetRepoList, ShowRepoDetail { // swiftlint:disable:this final_class
+    @Injected(\.repoGateway) 
     var repoGateway: RepoGatewayProtocol
-    
-    init(repoGateway: RepoGatewayProtocol) {
-        self.repoGateway = repoGateway
-    }
     
     // MARK: - Use cases
     

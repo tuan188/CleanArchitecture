@@ -8,14 +8,16 @@
 
 import Combine
 import UIKit
+import Factory
 
 class ProductsViewModel: GetProducts, ShowProductDetail { // swiftlint:disable:this final_class
     let navigationController: UINavigationController
-    let productGateway: ProductGatewayProtocol
     
-    init(navigationController: UINavigationController, productGateway: ProductGatewayProtocol) {
+    @Injected(\.productGateway)
+    var productGateway: ProductGatewayProtocol
+    
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.productGateway = productGateway
     }
     
     func vm_showProductDetail(product: Product) {

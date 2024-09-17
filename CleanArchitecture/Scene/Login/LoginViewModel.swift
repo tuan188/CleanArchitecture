@@ -9,9 +9,11 @@
 import Combine
 import SwiftUI
 import CombineExt
+import Factory
 
 class LoginViewModel: LogIn { // swiftlint:disable:this final_class
-    let authGateway: AuthGatewayProtocol
+    @Injected(\.authGateway)
+    var authGateway: AuthGatewayProtocol
     
     init(authGateway: AuthGatewayProtocol) {
         self.authGateway = authGateway

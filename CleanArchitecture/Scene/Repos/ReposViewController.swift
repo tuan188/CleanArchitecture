@@ -132,7 +132,7 @@ extension Container {
     func reposViewController(navigationController: UINavigationController) -> Factory<ReposViewController> {
         Factory(self) {
             let vc = ReposViewController.instantiate()
-            let vm = ReposViewModel(repoGateway: self.repoGateway())
+            let vm = ReposViewModel()
             vc.bindViewModel(to: vm)
             return vc
         }

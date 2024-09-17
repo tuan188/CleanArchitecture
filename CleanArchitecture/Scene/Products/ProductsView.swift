@@ -12,13 +12,16 @@ import SwiftUIRefresh
 import Factory
 
 struct ProductsView: View {
-    @ObservedObject var output: ProductsViewModel.Output
-    @ObservedObject var viewModel: ProductsViewModel
+    final class Triggers: ObservableObject {
+        var load = PassthroughSubject<Void, Never>()
+        var reload = PassthroughSubject<Void, Never>()
+        var select = PassthroughSubject<IndexPath, Never>()
+    }
     
-    private let cancelBag = CancelBag()
-    private let loadTrigger = PassthroughSubject<Void, Never>()
-    private let reloadTrigger = PassthroughSubject<Void, Never>()
-    private let selectTrigger = PassthroughSubject<IndexPath, Never>()
+    @StateObject var viewModel: ProductsViewModel
+    @StateObject var output: ProductsViewModel.Output
+    @StateObject var cancelBag: CancelBag
+    @StateObject var triggers: Triggers
 
     var body: some View {
         let products = output.products.enumerated().map { $0 }
@@ -27,18 +30,18 @@ struct ProductsView: View {
             VStack {
                 List(products, id: \.element.name) { index, product in
                     Button(action: {
-                       self.selectTrigger.send(IndexPath(row: index, section: 0))
+                        self.triggers.select.send(IndexPath(row: index, section: 0))
                     }) {
                         ProductRow(viewModel: product)
                     }
                 }
                 .pullToRefresh(isShowing: self.$output.isReloading) {
-                    self.reloadTrigger.send(())
+                    self.triggers.reload.send(())
                 }
             }
             .navigationBarTitle("Product List")
             .navigationBarItems(trailing: Button("Refresh") {
-                self.loadTrigger.send(())
+                self.triggers.load.send(())
             })
         }
         .alert(isPresented: $output.alert.isShowing) {
@@ -48,33 +51,40 @@ struct ProductsView: View {
                 dismissButton: .default(Text("OK"))
             )
         }
+        .onLoad {
+            triggers.load.send(())
+        }
     }
     
     init(viewModel: ProductsViewModel) {
+        let triggers = Triggers()
+        let cancelBag = CancelBag()
+        
         let input = ProductsViewModel.Input(
-            loadTrigger: loadTrigger.eraseToAnyPublisher(),
-            reloadTrigger: reloadTrigger.eraseToAnyPublisher(),
-            selectTrigger: selectTrigger.eraseToAnyPublisher()
+            loadTrigger: triggers.load.eraseToAnyPublisher(),
+            reloadTrigger: triggers.reload.eraseToAnyPublisher(),
+            selectTrigger: triggers.select.eraseToAnyPublisher()
         )
         
-        self.output = viewModel.transform(input, cancelBag: cancelBag)
-        self.loadTrigger.send(())
-        self.viewModel = viewModel
+        let output = viewModel.transform(input, cancelBag: cancelBag)
+        
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._output = StateObject(wrappedValue: output)
+        self._cancelBag = StateObject(wrappedValue: cancelBag)
+        self._triggers = StateObject(wrappedValue: triggers)
     }
 }
 
 struct ProductsView_Preview: PreviewProvider {
     static var previews: some View {
-        ProductsView(viewModel: ProductsViewModel(navigationController: UINavigationController(), 
-                                                  productGateway: Container.shared.previewProductGateway()))
+        ProductsView(viewModel: ProductsViewModel(navigationController: UINavigationController()))
     }
 }
 
 extension Container {
     func productsView(navigationController: UINavigationController) -> Factory<ProductsView> {
         Factory(self) {
-            ProductsView(viewModel: ProductsViewModel(navigationController: navigationController, 
-                                                      productGateway: self.productGateway()))
+            ProductsView(viewModel: ProductsViewModel(navigationController: navigationController))
         }
     }
 }

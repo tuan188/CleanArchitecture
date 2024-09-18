@@ -174,12 +174,13 @@ public protocol ViewModel {
 ```
 
 ```swift
+import Combine
+import UIKit
+import Factory
+
 class ReposViewModel: GetRepoList, ShowRepoDetail {
+    @Injected(\.repoGateway) 
     var repoGateway: RepoGatewayProtocol
-    
-    init(repoGateway: RepoGatewayProtocol) {
-        self.repoGateway = repoGateway
-    }
     
     // MARK: - Use cases
     
@@ -187,7 +188,7 @@ class ReposViewModel: GetRepoList, ShowRepoDetail {
         return getRepos(page: page, perPage: 10)
     }
     
-    // // MARK: - Navigation
+    // MARK: - Navigation
     
     func vm_showRepoDetail(repo: Repo) {
         showRepoDetail(repo: repo)
@@ -269,7 +270,7 @@ extension Container {
     func reposViewController(navigationController: UINavigationController) -> Factory<ReposViewController> {
         Factory(self) {
             let vc = ReposViewController.instantiate()
-            let vm = ReposViewModel(repoGateway: self.repoGateway())
+            let vm = ReposViewModel()
             vc.bindViewModel(to: vm)
             return vc
         }

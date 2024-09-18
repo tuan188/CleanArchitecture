@@ -38,10 +38,7 @@ extension Container {
         Factory(self) {
             AuthGateway()
         }
-    }
-    
-    var previewAuthGateway: Factory<AuthGatewayProtocol> {
-        Factory(self) {
+        .onPreview {
             PreviewAuthGateway()
         }
     }

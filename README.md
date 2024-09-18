@@ -260,7 +260,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
 
 ## Dependency Injection
 
-A ViewModel can be injected into a ViewController via property injection or initializer. Here is how the dependency injection is set up using Factory.
+A ViewModel can be injected into a ViewController via property injection or initializer. Here is how the dependency injection is set up using [Factory](https://github.com/hmlongco/Factory).
 
 ```swift
 import Factory

@@ -23,7 +23,6 @@ struct ProductGateway: ProductGatewayProtocol {
             ]
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                promise(.failure(AppError.error(message: "Get product list failed!")))
                 promise(.success(products))
             }
         }
@@ -48,9 +47,8 @@ struct PreviewProductGateway: ProductGatewayProtocol {
 extension Container {
     var productGateway: Factory<ProductGatewayProtocol> {
         Factory(self) { ProductGateway() }
-    }
-    
-    var previewProductGateway: Factory<ProductGatewayProtocol> {
-        Factory(self) { PreviewProductGateway() }
+            .onPreview {
+                PreviewProductGateway()
+            }
     }
 }

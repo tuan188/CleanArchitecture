@@ -55,10 +55,7 @@ extension Container {
         Factory(self) {
             RepoGateway()
         }
-    }
-    
-    var previewRepoGateway: Factory<RepoGatewayProtocol> {
-        Factory(self) {
+        .onPreview {
             PreviewRepoGateway()
         }
     }

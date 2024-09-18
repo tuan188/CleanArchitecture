@@ -78,14 +78,14 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: LoginViewModel(authGateway: Container.shared.previewAuthGateway()))
+        return LoginView(viewModel: LoginViewModel())
     }
 }
 
 extension Container {
     func loginView(navigationController: UINavigationController) -> Factory<LoginView> {
         Factory(self) {
-            LoginView(viewModel: LoginViewModel(authGateway: self.authGateway()))
+            LoginView(viewModel: LoginViewModel())
         }
     }
 }

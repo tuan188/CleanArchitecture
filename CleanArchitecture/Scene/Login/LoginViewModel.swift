@@ -14,10 +14,6 @@ import Factory
 class LoginViewModel: LogIn { // swiftlint:disable:this final_class
     @Injected(\.authGateway)
     var authGateway: AuthGatewayProtocol
-    
-    init(authGateway: AuthGatewayProtocol) {
-        self.authGateway = authGateway
-    }
 }
 
 // MARK: - ViewModelType

@@ -14,6 +14,6 @@ protocol ShowRepoDetail {
 
 extension ShowRepoDetail {
     func showRepoDetail(repo: Repo) {
-        
+        print("Show repo detail: \(repo.name ?? "")")
     }
 }

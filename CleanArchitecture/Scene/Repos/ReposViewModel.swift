@@ -25,6 +25,10 @@ class ReposViewModel: GetRepoList, ShowRepoDetail { // swiftlint:disable:this fi
     func vm_showRepoDetail(repo: Repo) {
         showRepoDetail(repo: repo)
     }
+    
+    deinit {
+        print("ReposViewModel deinit")
+    }
 }
 
 // MARK: - ViewModel
@@ -61,7 +65,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
             .store(in: cancelBag)
         
         input.selectRepoTrigger
-            .handleEvents(receiveOutput: { [unowned self] indexPath in
+            .handleEvents(receiveOutput: { indexPath in
                 let repo = config.pageSubject.value.items[indexPath.row]
                 self.vm_showRepoDetail(repo: repo)
             })

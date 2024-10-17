@@ -14,6 +14,10 @@ import Factory
 class LoginViewModel: LogIn { // swiftlint:disable:this final_class
     @Injected(\.authGateway)
     var authGateway: AuthGatewayProtocol
+    
+    deinit {
+        print("LoginViewModel deinit")
+    }
 }
 
 // MARK: - ViewModelType
@@ -72,7 +76,7 @@ extension LoginViewModel: ObservableObject, ViewModel {
         input.loginTrigger
             .delay(for: 0.1, scheduler: RunLoop.main)  // waiting for username/password validation
             .filter { output.isLoginEnabled }
-            .map { [unowned self] _ in
+            .map { _ in
                 self.login(username: input.username, password: input.password)
                     .trackError(errorTracker)
                     .trackActivity(activityTracker)

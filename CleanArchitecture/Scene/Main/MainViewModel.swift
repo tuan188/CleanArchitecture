@@ -13,7 +13,7 @@ class MainViewModel: ShowProductList, // swiftlint:disable:this final_class
                      ShowLogin,
                      ShowRepoList,
                      ShowRepoCollection {
-    var navigationController: UINavigationController
+    unowned let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -33,6 +33,10 @@ class MainViewModel: ShowProductList, // swiftlint:disable:this final_class
     
     func vm_showRepoCollection() {
         showRepoCollection()
+    }
+    
+    deinit {
+        print("MainViewModel deinit")
     }
 }
 
@@ -58,7 +62,7 @@ extension MainViewModel: ObservableObject, ViewModel {
             .store(in: cancelBag)
         
         input.selectMenuTrigger
-            .handleEvents(receiveOutput: { [unowned self] indexPath in
+            .handleEvents(receiveOutput: { indexPath in
                 let menu = output.menuSections[indexPath.section].menus[indexPath.row]
                 switch menu {
                 case .products:

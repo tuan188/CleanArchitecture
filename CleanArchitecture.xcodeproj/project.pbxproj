@@ -298,6 +298,7 @@
 				1742B36924D7B22B00C82D15 /* ReposViewController.swift */,
 				1742B37C24D7F52D00C82D15 /* RepoCell.swift */,
 				1742B37D24D7F52D00C82D15 /* RepoCell.xib */,
+				1742B37324D7B6F300C82D15 /* Repo.storyboard */,
 				17259CC72C99720D00380502 /* Storyboards+Repo.swift */,
 			);
 			path = Repos;
@@ -412,7 +413,6 @@
 			children = (
 				176BAA4324D1154300324D3C /* Main.storyboard */,
 				176BAA4524D1154F00324D3C /* Storyboards.swift */,
-				1742B37324D7B6F300C82D15 /* Repo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";

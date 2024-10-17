@@ -11,7 +11,7 @@ import UIKit
 import Factory
 
 class ProductsViewModel: GetProducts, ShowProductDetail { // swiftlint:disable:this final_class
-    let navigationController: UINavigationController
+    unowned let navigationController: UINavigationController
     
     @Injected(\.productGateway)
     var productGateway: ProductGatewayProtocol
@@ -26,6 +26,10 @@ class ProductsViewModel: GetProducts, ShowProductDetail { // swiftlint:disable:t
     
     func vm_getProducts() -> AnyPublisher<[Product], Error> {
         getProducts()
+    }
+    
+    deinit {
+        print("ProductsViewModel deinit")
     }
 }
 
@@ -73,7 +77,7 @@ extension ProductsViewModel: ObservableObject, ViewModel {
             .store(in: cancelBag)
         
         input.selectTrigger
-            .sink(receiveValue: { [unowned self] indexPath in
+            .sink(receiveValue: { indexPath in
                 let product = output.products[indexPath.row].product
                 self.vm_showProductDetail(product: product)
             })

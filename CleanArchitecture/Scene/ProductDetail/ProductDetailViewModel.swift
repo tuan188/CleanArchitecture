@@ -14,6 +14,10 @@ final class ProductDetailViewModel {
     init(product: Product) {
         self.product = product
     }
+    
+    deinit {
+        print("ProductDetailViewModel deinit")
+    }
 }
 
 // MARK: - ViewModel

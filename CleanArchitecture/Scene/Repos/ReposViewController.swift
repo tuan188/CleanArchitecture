@@ -60,9 +60,9 @@ final class ReposViewController: UIViewController, Bindable {
         let output = viewModel.transform(input, cancelBag: cancelBag)
         
         output.$repos
-            .sink(receiveValue: { [unowned self] repos in
-                self.repos = repos
-                self.tableView.reloadData()
+            .sink(with: self, receiveValue: { vc, repos in
+                vc.repos = repos
+                vc.tableView.reloadData()
             })
             .store(in: cancelBag)
         

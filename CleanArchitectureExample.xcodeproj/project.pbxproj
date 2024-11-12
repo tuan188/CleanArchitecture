@@ -182,9 +182,9 @@
 		1770EC3024DAA7940022FBFE /* ColorCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCompatibility.swift; sourceTree = "<group>"; };
 		1770EC3224DAA9AC0022FBFE /* ShowRepoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRepoCollection.swift; sourceTree = "<group>"; };
 		1770EC4224DD2F2F0022FBFE /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
-		1773B02B2C980E8D00575110 /* CleanArchitectureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitectureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1773B02B2C980E8D00575110 /* CleanArchitectureExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitectureExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1781CF3F24BD8FB8004ED1C6 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
-		178722F324BD537D00D90F8E /* CleanArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		178722F324BD537D00D90F8E /* CleanArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		178722F624BD537D00D90F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		178722F824BD537D00D90F8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		178722FA24BD537D00D90F8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		178722FF24BD537E00D90F8E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1787230224BD537E00D90F8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1787230424BD537E00D90F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1787230924BD537E00D90F8E /* CleanArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1787230924BD537E00D90F8E /* CleanArchitectureExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitectureExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1787230F24BD537E00D90F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1787231B24BD53BF00D90F8E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1787233424BD551500D90F8E /* CleanArchitecture-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CleanArchitecture-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1773B02C2C980E8D00575110 /* CleanArchitectureUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CleanArchitectureUITests; sourceTree = "<group>"; };
+		1773B02C2C980E8D00575110 /* CleanArchitectureExampleUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CleanArchitectureExampleUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,9 +447,9 @@
 		178722EA24BD537D00D90F8E = {
 			isa = PBXGroup;
 			children = (
-				178722F524BD537D00D90F8E /* CleanArchitecture */,
-				1787230C24BD537E00D90F8E /* CleanArchitectureTests */,
-				1773B02C2C980E8D00575110 /* CleanArchitectureUITests */,
+				178722F524BD537D00D90F8E /* CleanArchitectureExample */,
+				1787230C24BD537E00D90F8E /* CleanArchitectureExampleTests */,
+				1773B02C2C980E8D00575110 /* CleanArchitectureExampleUITests */,
 				178722F424BD537D00D90F8E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -457,14 +457,14 @@
 		178722F424BD537D00D90F8E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				178722F324BD537D00D90F8E /* CleanArchitecture.app */,
-				1787230924BD537E00D90F8E /* CleanArchitectureTests.xctest */,
-				1773B02B2C980E8D00575110 /* CleanArchitectureUITests.xctest */,
+				178722F324BD537D00D90F8E /* CleanArchitectureExample.app */,
+				1787230924BD537E00D90F8E /* CleanArchitectureExampleTests.xctest */,
+				1773B02B2C980E8D00575110 /* CleanArchitectureExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		178722F524BD537D00D90F8E /* CleanArchitecture */ = {
+		178722F524BD537D00D90F8E /* CleanArchitectureExample */ = {
 			isa = PBXGroup;
 			children = (
 				1787231924BD53AC00D90F8E /* Domain */,
@@ -482,7 +482,7 @@
 				178722FE24BD537E00D90F8E /* Preview Content */,
 				1787233424BD551500D90F8E /* CleanArchitecture-Bridging-Header.h */,
 			);
-			path = CleanArchitecture;
+			path = CleanArchitectureExample;
 			sourceTree = "<group>";
 		};
 		178722FE24BD537E00D90F8E /* Preview Content */ = {
@@ -493,7 +493,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1787230C24BD537E00D90F8E /* CleanArchitectureTests */ = {
+		1787230C24BD537E00D90F8E /* CleanArchitectureExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				1745D70624E24943009B0608 /* Data */,
@@ -503,7 +503,7 @@
 				1787230F24BD537E00D90F8E /* Info.plist */,
 				1745D71324E25378009B0608 /* TestError.swift */,
 			);
-			path = CleanArchitectureTests;
+			path = CleanArchitectureExampleTests;
 			sourceTree = "<group>";
 		};
 		1787231824BD53A400D90F8E /* Data */ = {
@@ -664,9 +664,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1773B02A2C980E8D00575110 /* CleanArchitectureUITests */ = {
+		1773B02A2C980E8D00575110 /* CleanArchitectureExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1773B0352C980E8D00575110 /* Build configuration list for PBXNativeTarget "CleanArchitectureUITests" */;
+			buildConfigurationList = 1773B0352C980E8D00575110 /* Build configuration list for PBXNativeTarget "CleanArchitectureExampleUITests" */;
 			buildPhases = (
 				1773B0272C980E8D00575110 /* Sources */,
 				1773B0282C980E8D00575110 /* Frameworks */,
@@ -678,29 +678,28 @@
 				1773B0322C980E8D00575110 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				1773B02C2C980E8D00575110 /* CleanArchitectureUITests */,
+				1773B02C2C980E8D00575110 /* CleanArchitectureExampleUITests */,
 			);
-			name = CleanArchitectureUITests;
+			name = CleanArchitectureExampleUITests;
 			packageProductDependencies = (
 			);
 			productName = CleanArchitectureUITests;
-			productReference = 1773B02B2C980E8D00575110 /* CleanArchitectureUITests.xctest */;
+			productReference = 1773B02B2C980E8D00575110 /* CleanArchitectureExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		178722F224BD537D00D90F8E /* CleanArchitecture */ = {
+		178722F224BD537D00D90F8E /* CleanArchitectureExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1787231224BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitecture" */;
+			buildConfigurationList = 1787231224BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitectureExample" */;
 			buildPhases = (
 				178722EF24BD537D00D90F8E /* Sources */,
 				178722F024BD537D00D90F8E /* Frameworks */,
 				178722F124BD537D00D90F8E /* Resources */,
-				17DCF1BC24BF02E400D970B4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CleanArchitecture;
+			name = CleanArchitectureExample;
 			packageProductDependencies = (
 				174A188924C81EEA00AB39D9 /* SwiftUIRefresh */,
 				176BAA4024D1150700324D3C /* Reusable */,
@@ -716,12 +715,12 @@
 				17CB2EAA2C2BEC3000D6DD37 /* APIService */,
 			);
 			productName = CleanArchitecture;
-			productReference = 178722F324BD537D00D90F8E /* CleanArchitecture.app */;
+			productReference = 178722F324BD537D00D90F8E /* CleanArchitectureExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1787230824BD537E00D90F8E /* CleanArchitectureTests */ = {
+		1787230824BD537E00D90F8E /* CleanArchitectureExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1787231524BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitectureTests" */;
+			buildConfigurationList = 1787231524BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitectureExampleTests" */;
 			buildPhases = (
 				1787230524BD537E00D90F8E /* Sources */,
 				1787230624BD537E00D90F8E /* Frameworks */,
@@ -732,9 +731,9 @@
 			dependencies = (
 				1787230B24BD537E00D90F8E /* PBXTargetDependency */,
 			);
-			name = CleanArchitectureTests;
+			name = CleanArchitectureExampleTests;
 			productName = CleanArchitectureTests;
-			productReference = 1787230924BD537E00D90F8E /* CleanArchitectureTests.xctest */;
+			productReference = 1787230924BD537E00D90F8E /* CleanArchitectureExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -762,7 +761,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 178722EE24BD537D00D90F8E /* Build configuration list for PBXProject "CleanArchitecture" */;
+			buildConfigurationList = 178722EE24BD537D00D90F8E /* Build configuration list for PBXProject "CleanArchitectureExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -788,9 +787,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				178722F224BD537D00D90F8E /* CleanArchitecture */,
-				1787230824BD537E00D90F8E /* CleanArchitectureTests */,
-				1773B02A2C980E8D00575110 /* CleanArchitectureUITests */,
+				178722F224BD537D00D90F8E /* CleanArchitectureExample */,
+				1787230824BD537E00D90F8E /* CleanArchitectureExampleTests */,
+				1773B02A2C980E8D00575110 /* CleanArchitectureExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -826,28 +825,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		17DCF1BC24BF02E400D970B4 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint; then\n    swiftlint —-fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1773B0272C980E8D00575110 /* Sources */ = {
@@ -956,12 +933,12 @@
 /* Begin PBXTargetDependency section */
 		1773B0322C980E8D00575110 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 178722F224BD537D00D90F8E /* CleanArchitecture */;
+			target = 178722F224BD537D00D90F8E /* CleanArchitectureExample */;
 			targetProxy = 1773B0312C980E8D00575110 /* PBXContainerItemProxy */;
 		};
 		1787230B24BD537E00D90F8E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 178722F224BD537D00D90F8E /* CleanArchitecture */;
+			target = 178722F224BD537D00D90F8E /* CleanArchitectureExample */;
 			targetProxy = 1787230A24BD537E00D90F8E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -992,7 +969,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1016,7 +993,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1148,18 +1125,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitecture/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitectureExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CleanArchitecture/Info.plist;
+				INFOPLIST_FILE = CleanArchitectureExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitecture;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitecture/CleanArchitecture-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitectureExample/CleanArchitecture-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1173,18 +1150,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitecture/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"CleanArchitectureExample/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CleanArchitecture/Info.plist;
+				INFOPLIST_FILE = CleanArchitectureExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitecture;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitecture/CleanArchitecture-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CleanArchitectureExample/CleanArchitecture-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1197,19 +1174,19 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanArchitectureTests/Info.plist;
+				INFOPLIST_FILE = CleanArchitectureExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureTests;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanArchitecture.app/CleanArchitecture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanArchitectureExample.app/CleanArchitectureExample";
 			};
 			name = Debug;
 		};
@@ -1220,25 +1197,25 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanArchitectureTests/Info.plist;
+				INFOPLIST_FILE = CleanArchitectureExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureTests;
+				PRODUCT_BUNDLE_IDENTIFIER = truong.tuan.CleanArchitectureExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanArchitecture.app/CleanArchitecture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanArchitectureExample.app/CleanArchitectureExample";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1773B0352C980E8D00575110 /* Build configuration list for PBXNativeTarget "CleanArchitectureUITests" */ = {
+		1773B0352C980E8D00575110 /* Build configuration list for PBXNativeTarget "CleanArchitectureExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1773B0332C980E8D00575110 /* Debug */,
@@ -1247,7 +1224,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		178722EE24BD537D00D90F8E /* Build configuration list for PBXProject "CleanArchitecture" */ = {
+		178722EE24BD537D00D90F8E /* Build configuration list for PBXProject "CleanArchitectureExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1787231024BD537E00D90F8E /* Debug */,
@@ -1256,7 +1233,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1787231224BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitecture" */ = {
+		1787231224BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitectureExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1787231324BD537E00D90F8E /* Debug */,
@@ -1265,7 +1242,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1787231524BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitectureTests" */ = {
+		1787231524BD537E00D90F8E /* Build configuration list for PBXNativeTarget "CleanArchitectureExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1787231624BD537E00D90F8E /* Debug */,

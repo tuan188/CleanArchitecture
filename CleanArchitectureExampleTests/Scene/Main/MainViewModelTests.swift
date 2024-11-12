@@ -6,9 +6,10 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-@testable import CleanArchitecture
+@testable import CleanArchitectureExample
 import XCTest
 import Combine
+import CleanArchitecture
 
 final class MainViewModelTests: XCTestCase {
     private var viewModel: TestMainViewModel!

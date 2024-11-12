@@ -9,6 +9,7 @@
 import UIKit
 import Combine
 import MBProgressHUD
+import CleanArchitecture
 
 extension UIViewController {
     var alertSubscriber: GenericSubscriber<AlertMessage> {

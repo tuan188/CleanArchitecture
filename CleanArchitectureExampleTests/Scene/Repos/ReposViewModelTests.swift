@@ -6,9 +6,10 @@
 //  Copyright © 2024 Tuan Truong. All rights reserved.
 //
 
-@testable import CleanArchitecture
+@testable import CleanArchitectureExample
 import XCTest
 import Combine
+import CleanArchitecture
 
 final class ReposViewModelTests: XCTestCase {
     private var viewModel: TestReposViewModel!

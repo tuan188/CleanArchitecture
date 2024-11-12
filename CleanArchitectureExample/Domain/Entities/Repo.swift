@@ -7,6 +7,7 @@
 //
 
 import Then
+import CleanArchitecture
 
 struct Repo {
     var id: Int?

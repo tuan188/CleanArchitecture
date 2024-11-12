@@ -10,6 +10,7 @@ import Combine
 import Foundation
 import Factory
 import APIService
+import CleanArchitecture
 
 protocol RepoGatewayProtocol {
     func getRepos(page: Int, perPage: Int) -> AnyPublisher<PagingInfo<Repo>, Error>

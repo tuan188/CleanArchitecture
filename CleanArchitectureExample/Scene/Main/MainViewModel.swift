@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import CleanArchitecture
 
 class MainViewModel: ShowProductList, // swiftlint:disable:this final_class
                      ShowLogin,

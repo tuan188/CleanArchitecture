@@ -7,6 +7,7 @@
 //
 
 import Combine
+import CleanArchitecture
 
 protocol GetRepoList {
     var repoGateway: RepoGatewayProtocol { get }

@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 import SwiftUIRefresh
 import Factory
+import CleanArchitecture
 
 struct ProductsView: View {
     final class Triggers: ObservableObject {

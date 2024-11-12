@@ -10,6 +10,7 @@ import UIKit
 import ESPullToRefresh
 import Combine
 import CombineCocoa
+import CleanArchitecture
 
 open class PagingTableView: UITableView {
     private let _refreshControl = UIRefreshControl()

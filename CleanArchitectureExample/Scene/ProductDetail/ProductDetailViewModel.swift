@@ -7,6 +7,7 @@
 //
 
 import Combine
+import CleanArchitecture
 
 final class ProductDetailViewModel {
     let product: Product

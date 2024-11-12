@@ -9,6 +9,7 @@
 import Combine
 import UIKit
 import Factory
+import CleanArchitecture
 
 class ProductsViewModel: GetProducts, ShowProductDetail { // swiftlint:disable:this final_class
     unowned let navigationController: UINavigationController

@@ -12,6 +12,7 @@ import SDWebImage
 import Combine
 import Reusable
 import Factory
+import CleanArchitecture
 
 final class RepoCollectionViewController: UIViewController, Bindable {
     

@@ -6,8 +6,9 @@
 //  Copyright © 2020 Tuan Truong. All rights reserved.
 //
 
-@testable import CleanArchitecture
+@testable import CleanArchitectureExample
 import XCTest
+import CleanArchitecture
 
 final class LogInTests: XCTestCase, LogIn {
     var authGateway: AuthGatewayProtocol {

@@ -11,6 +11,7 @@ import Reusable
 import Combine
 import SDWebImage
 import Factory
+import CleanArchitecture
 
 final class ReposViewController: UIViewController, Bindable {
     

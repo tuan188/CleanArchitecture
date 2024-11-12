@@ -6,13 +6,14 @@
 //  Copyright © 2024 Tuan Truong. All rights reserved.
 //
 
-@testable import CleanArchitecture
+@testable import CleanArchitectureExample
 import Foundation
 import Combine
+import CleanArchitecture
 
 final class FakeProductGateway: ProductGatewayProtocol {
     // swiftlint:disable:next unavailable_function
-    func getProducts() -> AnyPublisher<[CleanArchitecture.Product], Error> {
+    func getProducts() -> AnyPublisher<[CleanArchitectureExample.Product], Error> {
         fatalError("N/A")
     }
 }

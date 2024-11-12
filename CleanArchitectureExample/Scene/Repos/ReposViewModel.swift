@@ -9,6 +9,7 @@
 import Combine
 import UIKit
 import Factory
+import CleanArchitecture
 
 class ReposViewModel: GetRepoList, ShowRepoDetail { // swiftlint:disable:this final_class
     @Injected(\.repoGateway) 
@@ -66,7 +67,7 @@ extension ReposViewModel: ObservableObject, ViewModel {
         
         input.selectRepoTrigger
             .handleEvents(receiveOutput: { indexPath in
-                let repo = config.pageSubject.value.items[indexPath.row]
+                let repo = output.repos[indexPath.row].repo
                 self.vm_showRepoDetail(repo: repo)
             })
             .sink()

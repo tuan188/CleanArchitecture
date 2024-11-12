@@ -51,7 +51,6 @@
 		176BAA5824D167A400324D3C /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5724D167A400324D3C /* LogIn.swift */; };
 		176BAA5A24D16BAE00324D3C /* ShowLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5924D16BAE00324D3C /* ShowLogin.swift */; };
 		176BAA5C24D175C200324D3C /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5B24D175C200324D3C /* AuthGateway.swift */; };
-		176BAA5F24D2690300324D3C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 176BAA5E24D2690300324D3C /* Alamofire */; };
 		1770EC2B24DAA5ED0022FBFE /* RepoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */; };
 		1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */; };
 		1770EC2F24DAA6570022FBFE /* RepoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */; };
@@ -215,7 +214,6 @@
 				174A188A24C81EEA00AB39D9 /* SwiftUIRefresh in Frameworks */,
 				1B425EAF24FF9058000F7F6B /* ESPullToRefresh in Frameworks */,
 				1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */,
-				176BAA5F24D2690300324D3C /* Alamofire in Frameworks */,
 				176BAA4F24D1326100324D3C /* Then in Frameworks */,
 				17CB2EAB2C2BEC3000D6DD37 /* APIService in Frameworks */,
 				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
@@ -649,7 +647,6 @@
 				174A188924C81EEA00AB39D9 /* SwiftUIRefresh */,
 				176BAA4024D1150700324D3C /* Reusable */,
 				176BAA4E24D1326100324D3C /* Then */,
-				176BAA5E24D2690300324D3C /* Alamofire */,
 				17A5B20324D962B0004BD209 /* CombineExt */,
 				17A5B20624D962CB004BD209 /* CombineCocoa */,
 				1BD163F024FF8CA700EBC063 /* MBProgressHUD */,
@@ -723,7 +720,6 @@
 				174A188824C81EEA00AB39D9 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 				176BAA3F24D1150700324D3C /* XCRemoteSwiftPackageReference "Reusable" */,
 				176BAA4D24D1326100324D3C /* XCRemoteSwiftPackageReference "Then" */,
-				176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				17A5B20524D962CB004BD209 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				1BD163EF24FF8CA700EBC063 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
@@ -1223,14 +1219,6 @@
 				minimumVersion = 2.7.0;
 			};
 		};
-		176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.2;
-			};
-		};
 		17A5B20224D962B0004BD209 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
@@ -1304,11 +1292,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 176BAA4D24D1326100324D3C /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
-		};
-		176BAA5E24D2690300324D3C /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 176BAA5D24D2690300324D3C /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		17A5B20324D962B0004BD209 /* CombineExt */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -15,9 +15,9 @@ let package = Package(
             targets: ["PagingTableView"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/eggswift/pull-to-refresh.git", from: "2.9.3"),
+        .package(name: "CleanArchitecture", path: "../CleanArchitecture"),
         .package(url: "https://github.com/CombineCommunity/CombineCocoa.git", from: "0.4.1"),
-        .package(name: "CleanArchitecture", path: "../CleanArchitecture")
+        .package(url: "https://github.com/eggswift/pull-to-refresh.git", from: "2.9.3")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -25,9 +25,9 @@ let package = Package(
         .target(
             name: "PagingTableView",
             dependencies: [
-                .product(name: "ESPullToRefresh", package: "pull-to-refresh"),
+                .product(name: "CleanArchitecture", package: "CleanArchitecture"),
                 .product(name: "CombineCocoa", package: "CombineCocoa"),
-                .product(name: "CleanArchitecture", package: "CleanArchitecture")
+                .product(name: "ESPullToRefresh", package: "pull-to-refresh")
             ]),
 
     ]

@@ -13,6 +13,7 @@ import Combine
 import Reusable
 import Factory
 import CleanArchitecture
+import PagingTableView
 
 final class RepoCollectionViewController: UIViewController, Bindable {
     

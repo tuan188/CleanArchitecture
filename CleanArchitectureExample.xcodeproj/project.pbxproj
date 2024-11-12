@@ -52,7 +52,6 @@
 		176BAA5A24D16BAE00324D3C /* ShowLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5924D16BAE00324D3C /* ShowLogin.swift */; };
 		176BAA5C24D175C200324D3C /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176BAA5B24D175C200324D3C /* AuthGateway.swift */; };
 		176BAA5F24D2690300324D3C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 176BAA5E24D2690300324D3C /* Alamofire */; };
-		1770EC2824DAA55B0022FBFE /* PagingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */; };
 		1770EC2B24DAA5ED0022FBFE /* RepoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */; };
 		1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */; };
 		1770EC2F24DAA6570022FBFE /* RepoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */; };
@@ -75,9 +74,6 @@
 		17A5B1F224D804DA004BD209 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F124D804DA004BD209 /* UIViewController+.swift */; };
 		17A5B1F424D8080B004BD209 /* UIViewController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F324D8080B004BD209 /* UIViewController+Combine.swift */; };
 		17A5B1F824D9026D004BD209 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1F724D9026D004BD209 /* BaseViewController.swift */; };
-		17A5B1FC24D948BC004BD209 /* PagingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FB24D948BC004BD209 /* PagingTableView.swift */; };
-		17A5B1FF24D9514B004BD209 /* RefreshFooterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */; };
-		17A5B20124D95168004BD209 /* RefreshHeaderAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */; };
 		17A5B20424D962B0004BD209 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20324D962B0004BD209 /* CombineExt */; };
 		17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 17A5B20624D962CB004BD209 /* CombineCocoa */; };
 		17CB2EAB2C2BEC3000D6DD37 /* APIService in Frameworks */ = {isa = PBXBuildFile; productRef = 17CB2EAA2C2BEC3000D6DD37 /* APIService */; };
@@ -97,6 +93,8 @@
 		1B425EAF24FF9058000F7F6B /* ESPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 1B425EAE24FF9058000F7F6B /* ESPullToRefresh */; };
 		1BD163F124FF8CA700EBC063 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD163F024FF8CA700EBC063 /* MBProgressHUD */; };
 		671CE96D2CE300F100F74AC3 /* CleanArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 671CE96C2CE300F100F74AC3 /* CleanArchitecture */; };
+		671CE9762CE3095B00F74AC3 /* CleanArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 671CE9752CE3095B00F74AC3 /* CleanArchitecture */; };
+		671CE97B2CE30C1200F74AC3 /* PagingTableView in Frameworks */ = {isa = PBXBuildFile; productRef = 671CE97A2CE30C1200F74AC3 /* PagingTableView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,7 +158,6 @@
 		176BAA5724D167A400324D3C /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		176BAA5924D16BAE00324D3C /* ShowLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLogin.swift; sourceTree = "<group>"; };
 		176BAA5B24D175C200324D3C /* AuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateway.swift; sourceTree = "<group>"; };
-		1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionView.swift; sourceTree = "<group>"; };
 		1770EC2A24DAA5ED0022FBFE /* RepoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewController.swift; sourceTree = "<group>"; };
 		1770EC2C24DAA6570022FBFE /* RepoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionCell.swift; sourceTree = "<group>"; };
 		1770EC2D24DAA6570022FBFE /* RepoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCollectionCell.xib; sourceTree = "<group>"; };
@@ -189,9 +186,6 @@
 		17A5B1F124D804DA004BD209 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		17A5B1F324D8080B004BD209 /* UIViewController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Combine.swift"; sourceTree = "<group>"; };
 		17A5B1F724D9026D004BD209 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		17A5B1FB24D948BC004BD209 /* PagingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTableView.swift; sourceTree = "<group>"; };
-		17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooterAnimator.swift; sourceTree = "<group>"; };
-		17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHeaderAnimator.swift; sourceTree = "<group>"; };
 		17CB2EAC2C2BEEEC00D6DD37 /* GitEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitEndpoint.swift; sourceTree = "<group>"; };
 		17DCF1B524BEE76800D970B4 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		17DCF1B824BF01ED00D970B4 /* Publisher+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+.swift"; sourceTree = "<group>"; };
@@ -227,6 +221,8 @@
 				17A5B20424D962B0004BD209 /* CombineExt in Frameworks */,
 				176BAA4124D1150700324D3C /* Reusable in Frameworks */,
 				1B425EAA24FF8D1A000F7F6B /* SDWebImage in Frameworks */,
+				671CE97B2CE30C1200F74AC3 /* PagingTableView in Frameworks */,
+				671CE9762CE3095B00F74AC3 /* CleanArchitecture in Frameworks */,
 				17FFEFF92B6A225F00008867 /* Factory in Frameworks */,
 				671CE96D2CE300F100F74AC3 /* CleanArchitecture in Frameworks */,
 				17A5B20724D962CB004BD209 /* CombineCocoa in Frameworks */,
@@ -283,7 +279,6 @@
 				1742B37A24D7E88900C82D15 /* AlertMessage.swift */,
 				17A5B1F724D9026D004BD209 /* BaseViewController.swift */,
 				17DFFF6D2C7EFAC30030F118 /* ViewDidLoadModifier.swift */,
-				17A5B1FD24D95138004BD209 /* PagingTableView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -596,17 +591,6 @@
 			path = Repos;
 			sourceTree = "<group>";
 		};
-		17A5B1FD24D95138004BD209 /* PagingTableView */ = {
-			isa = PBXGroup;
-			children = (
-				17A5B1FB24D948BC004BD209 /* PagingTableView.swift */,
-				1770EC2724DAA55B0022FBFE /* PagingCollectionView.swift */,
-				17A5B1FE24D9514B004BD209 /* RefreshFooterAnimator.swift */,
-				17A5B20024D95168004BD209 /* RefreshHeaderAnimator.swift */,
-			);
-			path = PagingTableView;
-			sourceTree = "<group>";
-		};
 		17DCF1B724BF01E400D970B4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +659,8 @@
 				17FFEFF82B6A225F00008867 /* Factory */,
 				17CB2EAA2C2BEC3000D6DD37 /* APIService */,
 				671CE96C2CE300F100F74AC3 /* CleanArchitecture */,
+				671CE9752CE3095B00F74AC3 /* CleanArchitecture */,
+				671CE97A2CE30C1200F74AC3 /* PagingTableView */,
 			);
 			productName = CleanArchitecture;
 			productReference = 178722F324BD537D00D90F8E /* CleanArchitectureExample.app */;
@@ -745,7 +731,8 @@
 				1B425EAD24FF9058000F7F6B /* XCRemoteSwiftPackageReference "pull-to-refresh" */,
 				17FFEFF72B6A225F00008867 /* XCRemoteSwiftPackageReference "Factory" */,
 				17CB2EA92C2BEC3000D6DD37 /* XCRemoteSwiftPackageReference "tech-standard-ios-api" */,
-				671CE96B2CE300F100F74AC3 /* XCLocalSwiftPackageReference "CleanArchitecture" */,
+				671CE9742CE3095B00F74AC3 /* XCLocalSwiftPackageReference "CleanArchitecture" */,
+				671CE9792CE30C1200F74AC3 /* XCLocalSwiftPackageReference "PagingTableView" */,
 			);
 			productRefGroup = 178722F424BD537D00D90F8E /* Products */;
 			projectDirPath = "";
@@ -818,7 +805,6 @@
 				176BAA5524D158BC00324D3C /* LoginView.swift in Sources */,
 				176BAA3E24D10F7500324D3C /* MainViewController.swift in Sources */,
 				1781CF4424BD8FB8004ED1C6 /* ProductDetailViewModel.swift in Sources */,
-				17A5B1FC24D948BC004BD209 /* PagingTableView.swift in Sources */,
 				1742B37824D7C48400C82D15 /* RepoItemViewModel.swift in Sources */,
 				17CB2EAD2C2BEEEC00D6DD37 /* GitEndpoint.swift in Sources */,
 				174A188D24C8219300AB39D9 /* ActivityIndicatorView.swift in Sources */,
@@ -846,13 +832,10 @@
 				1742B38124D7F66400C82D15 /* UIImageView+SDWebImage.swift in Sources */,
 				176BAA5124D1483200324D3C /* ShowProductList.swift in Sources */,
 				1787235B24BD578500D90F8E /* ProductGateway.swift in Sources */,
-				1770EC2824DAA55B0022FBFE /* PagingCollectionView.swift in Sources */,
 				17259CC82C99720D00380502 /* Storyboards+Repo.swift in Sources */,
 				1765B2D324C6D6D40096D210 /* ProductRow.swift in Sources */,
-				17A5B20124D95168004BD209 /* RefreshHeaderAnimator.swift in Sources */,
 				1770EC3324DAA9AC0022FBFE /* ShowRepoCollection.swift in Sources */,
 				17FEE64F2BF70D3200E66C77 /* Observable.swift in Sources */,
-				17A5B1FF24D9514B004BD209 /* RefreshFooterAnimator.swift in Sources */,
 				17FEE6532BF72E8B00E66C77 /* ValidationError.swift in Sources */,
 				1770EC2E24DAA6570022FBFE /* RepoCollectionCell.swift in Sources */,
 				171A69C32BF2F3D300AF276B /* ShowRepoDetail.swift in Sources */,
@@ -1205,9 +1188,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		671CE96B2CE300F100F74AC3 /* XCLocalSwiftPackageReference "CleanArchitecture" */ = {
+		671CE9742CE3095B00F74AC3 /* XCLocalSwiftPackageReference "CleanArchitecture" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = CleanArchitecture;
+		};
+		671CE9792CE30C1200F74AC3 /* XCLocalSwiftPackageReference "PagingTableView" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = PagingTableView;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -1366,6 +1353,14 @@
 		671CE96C2CE300F100F74AC3 /* CleanArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CleanArchitecture;
+		};
+		671CE9752CE3095B00F74AC3 /* CleanArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CleanArchitecture;
+		};
+		671CE97A2CE30C1200F74AC3 /* PagingTableView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PagingTableView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

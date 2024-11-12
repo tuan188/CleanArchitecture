@@ -12,6 +12,7 @@ import Combine
 import SDWebImage
 import Factory
 import CleanArchitecture
+import PagingTableView
 
 final class ReposViewController: UIViewController, Bindable {
     

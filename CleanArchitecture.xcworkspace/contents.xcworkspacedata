@@ -1,8 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:CleanArchitecture"
+      name = "CleanArchitecture">
+      <FileRef
+         location = "group:Package.swift">
+      </FileRef>
+      <Group
+         location = "group:Sources"
+         name = "Sources">
+         <Group
+            location = "group:CleanArchitecture"
+            name = "CleanArchitecture">
+            <FileRef
+               location = "group:ActivityIndicator.swift">
+            </FileRef>
+            <FileRef
+               location = "group:Bindable.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CancelBag.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ErrorTracker.swift">
+            </FileRef>
+            <FileRef
+               location = "group:GenericSubscriber.swift">
+            </FileRef>
+            <FileRef
+               location = "group:LoadingState.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PagingInfo.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ViewModel.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ViewModel+FetchItem.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ViewModel+FetchList.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ViewModel+FetchPage.swift">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
    <FileRef
-      location = "group:CleanArchitecture">
+      location = "group:PagingTableView">
    </FileRef>
    <FileRef
       location = "container:CleanArchitectureExample.xcodeproj">

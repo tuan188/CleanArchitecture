@@ -1,46 +1,38 @@
-//
-//  PagingTableView.swift
-//  CleanArchitecture
-//
-//  Created by Tuan Truong on 8/4/20.
-//  Copyright © 2020 Tuan Truong. All rights reserved.
-//
-
 import UIKit
 import ESPullToRefresh
 import Combine
 import CombineCocoa
 import CleanArchitecture
 
-open class PagingTableView: UITableView {
+open class PagingCollectionView: UICollectionView {
     private let _refreshControl = UIRefreshControl()
     
     open var isRefreshing: GenericSubscriber<Bool> {
-        GenericSubscriber(self) { tableView, loading in
-            if tableView.refreshHeader == nil {
+        GenericSubscriber(self) { collectionView, loading in
+            if collectionView.refreshHeader == nil {
                 if loading {
-                    tableView._refreshControl.beginRefreshing()
+                    collectionView._refreshControl.beginRefreshing()
                 } else {
-                    if tableView._refreshControl.isRefreshing {
-                        tableView._refreshControl.endRefreshing()
+                    if collectionView._refreshControl.isRefreshing {
+                        collectionView._refreshControl.endRefreshing()
                     }
                 }
             } else {
                 if loading {
-                    tableView.es.startPullToRefresh()
+                    collectionView.es.startPullToRefresh()
                 } else {
-                    tableView.es.stopPullToRefresh()
+                    collectionView.es.stopPullToRefresh()
                 }
             }
         }
     }
     
     open var isLoadingMore: GenericSubscriber<Bool> {
-        return GenericSubscriber(self) { tableView, loading in
+        return GenericSubscriber(self) { collectionView, loading in
             if loading {
-                tableView.es.base.footer?.startRefreshing()
+                collectionView.es.base.footer?.startRefreshing()
             } else {
-                tableView.es.stopLoadingMore()
+                collectionView.es.stopLoadingMore()
             }
         }
     }
@@ -59,7 +51,7 @@ open class PagingTableView: UITableView {
                 }
                 .map { _ in }
         )
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
     private var _loadMoreTrigger = PassthroughSubject<Void, Never>()
@@ -86,7 +78,7 @@ open class PagingTableView: UITableView {
             }
         }
     }
-    
+
     override open func awakeFromNib() {
         super.awakeFromNib()
         expiredTimeInterval = 20.0

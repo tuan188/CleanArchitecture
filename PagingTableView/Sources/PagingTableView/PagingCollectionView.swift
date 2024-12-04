@@ -87,14 +87,24 @@ open class PagingCollectionView: UICollectionView {
     
     /// Adds the default `UIRefreshControl` to the collection view for pull-to-refresh functionality.
     /// - This method is called by `awakeFromNib` and can be used to re-enable the system refresh control if needed.
-    func addRefreshControl() {
+    open func addRefreshControl() {
         refreshHeader = nil
         self.refreshControl = _refreshControl
     }
     
     /// Removes the default `UIRefreshControl` from the collection view.
     /// - This method is called when a custom `refreshHeader` is set to replace the default control.
-    func removeRefreshControl() {
+    open func removeRefreshControl() {
         self.refreshControl = nil
+    }
+    
+    /// Removes the custom refresh header from the collection view.
+    open func removeRefreshHeader() {
+        self.es.removeRefreshHeader()
+    }
+    
+    /// Removes the custom refresh footer from the collection view.
+    open func removeRefreshFooter() {
+        self.es.removeRefreshFooter()
     }
 }

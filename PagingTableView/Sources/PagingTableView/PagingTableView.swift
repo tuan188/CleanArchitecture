@@ -104,14 +104,24 @@ open class PagingTableView: UITableView {
     
     /// Adds the default `UIRefreshControl` to the table view for pull-to-refresh functionality.
     /// - This method is called by `awakeFromNib` and can be used to re-enable the system refresh control.
-    func addRefreshControl() {
+    open func addRefreshControl() {
         refreshHeader = nil
         self.refreshControl = _refreshControl
     }
     
     /// Removes the default `UIRefreshControl` from the table view.
     /// - This method is called when a custom `refreshHeader` is set to replace the default control.
-    func removeRefreshControl() {
+    open func removeRefreshControl() {
         self.refreshControl = nil
+    }
+    
+    /// Removes the custom refresh header from the table view.
+    open func removeRefreshHeader() {
+        self.es.removeRefreshHeader()
+    }
+    
+    /// Removes the custom refresh footer from the table view.
+    open func removeRefreshFooter() {
+        self.es.removeRefreshFooter()
     }
 }

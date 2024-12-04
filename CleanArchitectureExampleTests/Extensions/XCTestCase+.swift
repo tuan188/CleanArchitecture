@@ -18,17 +18,17 @@ extension XCTestCase {
             exp.fulfill()
         }
         
-        waitForExpectations(timeout: interval + 0.1) // add 0.1 for sure asyn after called
+        waitForExpectations(timeout: interval + 0.1) // add 0.1 for sure async after called
     }
 }
 
 extension XCTestCase {
-    typealias CompetionResult = (expectation: XCTestExpectation, cancellable: AnyCancellable)
+    typealias CompletionResult = (expectation: XCTestExpectation, cancellable: AnyCancellable)
     
     func expectCompletion<T: Publisher>(of publisher: T,
                                         timeout: TimeInterval = 2,
                                         file: StaticString = #file,
-                                        line: UInt = #line) -> CompetionResult {
+                                        line: UInt = #line) -> CompletionResult {
         let exp = expectation(description: "Successful completion of " + String(describing: publisher))
         
         let cancellable = publisher
@@ -44,7 +44,7 @@ extension XCTestCase {
     func expectFailure<T: Publisher>(of publisher: T,
                                      timeout: TimeInterval = 2,
                                      file: StaticString = #file,
-                                     line: UInt = #line) -> CompetionResult {
+                                     line: UInt = #line) -> CompletionResult {
         let exp = expectation(description: "Failure completion of " + String(describing: publisher))
         
         let cancellable = publisher
@@ -61,7 +61,7 @@ extension XCTestCase {
                                    timeout: TimeInterval = 2,
                                    file: StaticString = #file,
                                    line: UInt = #line,
-                                   equals: [(T.Output) -> Bool]) -> CompetionResult {
+                                   equals: [(T.Output) -> Bool]) -> CompletionResult {
         let exp = expectation(description: "Correct values of " + String(describing: publisher))
         var mutableEquals = equals
         let cancellable = publisher

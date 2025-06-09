@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import ESPullToRefresh
 import SDWebImage
 import Combine
 import Reusable
 import Factory
 import CleanArchitecture
 import PagingTableView
+import MJRefresh
 
 final class RepoCollectionViewController: UIViewController, Bindable {
     
@@ -67,7 +67,7 @@ final class RepoCollectionViewController: UIViewController, Bindable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.refreshHeader = RefreshHeaderAnimator(frame: .zero)
+        collectionView.refreshHeader = RefreshAutoHeader(frame: .zero)
     }
     
     deinit {

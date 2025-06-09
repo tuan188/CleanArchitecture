@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "mjrefresh",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CoderMJLee/MJRefresh.git",
+      "state" : {
+        "revision" : "535d39c86e592d73f8b8e75f9bf1eda62ca4a4ce",
+        "version" : "3.7.9"
+      }
+    },
+    {
       "identity" : "pull-to-refresh",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eggswift/pull-to-refresh",

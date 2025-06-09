@@ -17,7 +17,8 @@ let package = Package(
     dependencies: [
         .package(name: "CleanArchitecture", path: "../CleanArchitecture"),
         .package(url: "https://github.com/CombineCommunity/CombineCocoa.git", from: "0.4.1"),
-        .package(url: "https://github.com/eggswift/pull-to-refresh.git", from: "2.9.3")
+        .package(url: "https://github.com/CoderMJLee/MJRefresh.git", from: "3.7.9")
+        
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -27,7 +28,7 @@ let package = Package(
             dependencies: [
                 .product(name: "CleanArchitecture", package: "CleanArchitecture"),
                 .product(name: "CombineCocoa", package: "CombineCocoa"),
-                .product(name: "ESPullToRefresh", package: "pull-to-refresh")
+                .product(name: "MJRefresh", package: "MJRefresh")
             ]),
 
     ]
